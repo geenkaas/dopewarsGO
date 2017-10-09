@@ -3,6 +3,15 @@
 'use strict';
 
 var cash = 2000;
+function updateCash() {
+    $('[js-cash]').find('span').html(cash);
+};
+updateCash();
+
+$('.button--disabled').on('click', function(e) {
+    e.preventDefault;
+    e.stopPropagation;
+});
 
 var dopelist = {
     dopename: [
@@ -33,59 +42,72 @@ var dopelist = {
     ]
 };
 
-function updateCash() {
-    $('[js-cash]').find('span').html(cash);
-};
-updateCash();
-
 dopelist.dopename.forEach(function(dopeIteration) {
-    console.log(dopeIteration.name);
-    var randomPrice = Math.floor(Math.random() * ((dopeIteration.maxPrice - dopeIteration.minPrice)) + 1);
-
     var dopeTable = $('[js-dope-table-content]');
     dopeTable.append('\
         <tr js-dope js-dope-'+dopeIteration.name+'>\
             <td><button class="button button--trade button--buy">+</button></td>\
             <td>'+dopeIteration.name+'</td>\
-            <td js-dope-price>'+randomPrice+'</td>\
+            <td js-dope-price></td>\
             <td js-dope-amount></td>\
             <td><button class="button button--trade button--sell">-</button></td>\
         </tr>\
     ');
+    setRandomPrices();
     $('[js-dope-amount]').html(dopeIteration.amount);
 });
 
+$('[js-button-scootch]').on('click', function() {
+    setRandomPrices();
+});
+
+function setRandomPrices() {
+    dopelist.dopename.forEach(function(dopeIteration) {
+        var randomPrice = Math.floor(Math.random() * ((dopeIteration.maxPrice - dopeIteration.minPrice)) + 1);
+        $('[js-dope-'+dopeIteration.name+']').find('[js-dope-price]').html(randomPrice);
+    });
+};
+
+updateButtons();
+
 $('.button--buy').each(function() {
     var myRow = $(this).closest('tr');
-    if (parseInt(myRow.find('[js-dope-price]').html()) > 500) {
-        myRow.find('.button--buy').addClass('button--disabled');
-    } else {
-        $(this).on('click', function() {
-            var cashTrade = parseInt(myRow.find('[js-dope-price]').html());
-            //console.log(cashTrade);
-            cash = cash - cashTrade;
-            $('[js-cash]').find('span').html(cash);
-            updateCash();
-            //updateAmount();
-        });
-    }
+    $(this).on('click', function() {
+        var cashTrade = parseInt(myRow.find('[js-dope-price]').html());
+        cash = cash - cashTrade;
+        updateCash();
+        updateButtons();
+        updateDopeAmount();
+    });
 });
 
 $('.button--sell').each(function() {
     var myRow = $(this).closest('tr');
-    if (parseInt(myRow.find('[js-dope-amount]').html()) <= 0) {
-        myRow.find('.button--sell').addClass('button--disabled');
-    } else {
-        $(this).on('click', function() {
-            var cashTrade = parseInt(myRow.find('[js-dope-price]').html());
-            //console.log(cashTrade);
-            cash = cash + cashTrade;
-            updateCash();
-            //updateAmount();
-        });
-    }
+    $(this).on('click', function() {
+        var cashTrade = parseInt(myRow.find('[js-dope-price]').html());
+        cash = cash + cashTrade;
+        updateCash();
+        updateButtons();
+        updateDopeAmount();
+    });
 });
 
-$('.button--disabled').on('click', function(e) {
-    e.preventDefault;
-});
+function updateButtons() {
+    dopelist.dopename.forEach(function(dopeIteration) {
+        if (dopeIteration.amount <= 0) {
+            $('[js-dope-'+dopeIteration.name+']').find('.button--sell').addClass('button--disabled');
+        } else {
+            $('[js-dope-'+dopeIteration.name+']').find('.button--sell').removeClass('button--disabled');
+        }
+        var currDopePrice = parseInt($('[js-dope-'+dopeIteration.name+']').find('[js-dope-price]').html());
+        if (currDopePrice > cash) {
+            $('[js-dope-'+dopeIteration.name+']').find('.button--buy').addClass('button--disabled');
+        } else {
+            $('[js-dope-'+dopeIteration.name+']').find('.button--buy').removeClass('button--disabled');
+        }
+    });
+};
+
+function updateDopeAmount() {
+
+};
