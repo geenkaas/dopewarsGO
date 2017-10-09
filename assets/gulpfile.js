@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Project configuration
 var project = 'dopewars'; // Project name, used for build
 
@@ -85,7 +84,7 @@ gulp.task('sass', function () {
 // Concatenate/Minify Vendor scripts
 gulp.task('js-vendor', function () {
     // add vendor scripts
-    gulp.src(['./js/vendor/*.js'])
+    gulp.src(['./js/vendor/**/*.js'])
         .pipe(plumber())
         .pipe(concat('vendor.js'))
         .pipe(uglify())
@@ -99,7 +98,7 @@ gulp.task('js-vendor', function () {
 
 // Minify custom scripts
 gulp.task('js-custom', function () {
-    gulp.src(['./js/*.js', '!./js/*.min.js'])
+    gulp.src(['./js/**/*.js', '!./js/*.min.js'])
         .pipe(plumber())
         .pipe(concat('script.js'))
         .pipe(concat('script.js'))
