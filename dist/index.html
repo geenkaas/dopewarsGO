@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="css/style.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="s-site">
+
+            <header class="s-site__masthead">
+                <div class="c-logo c-logo--main">Dopewars<span>GO</span></div>
+                <nav class="c-hamburger" role="navigation"></nav>
+            </header>
+
+            <main class="s-site__content">
+
+                <!-- Splash screen -->
+                <article class="c-article--main js-slide--active" js-slide js-slide__splash slide-target="trade">
+                    <header class="c-logo c-logo-splash">
+                        <h1 class="c-logo-splash__top">Dopewars</h1>
+                        <span class="c-logo-splash__bottom">GO</span>
+                    </header>
+
+                    <p>Click to start.</p>
+
+                    <button class="button button--primary" js-slide-button js-slide-target="trade">Check-in</button>
+
+                </article>
+
+                <!-- Trade screen -->
+                <article class="c-article--main" js-slide js-slide__trade>
+                    <header class="c-stats">
+                        <div class="c-stats__cash" js-cash>Cash:$<span></span></div>
+                        <div class="c-stats__day">
+                            <span class="c--stats__day-current" js-inv-curr>Day:1</span>/<span class="c-stats__day--max" js-inv-max>30</span>
+                        </div>
+                        <div class="c-stats__inventory">
+                            <span class="c--stats__inventory-current" js-inv-curr>Inv:0</span>/<span class="c-stats__inventory--max" js-inv-max>100</span>
+                        </div>
+                    </header>
+                    <table class="c-tradescreen">
+                        <thead>
+                            <tr>
+                                <th>By</th>
+                                <th>Dope</th>
+                                <th>$</th>
+                                <th>#</th>
+                                <th>Se</th>
+                            </tr>
+                        </thead>
+                        <tbody js-dope-table-content>
+                        </tbody>
+                    </table>
+
+                    <button class="button button--primary">Scootch</button>
+
+                </article>
+
+            </main>
+
+            <footer class="s-site__footer">
+                <nav class="c-menu--footer">nav</nav>
+            </footer>
+
+        </div>
+
+        <script type="text/javascript" src="js/script.min.js" charset="utf-8" async></script>
+
+    </body>
+
+</html>
+
