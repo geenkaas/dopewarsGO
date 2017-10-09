@@ -1,89 +1,154 @@
 'use strict';
 
+
+// Project configuration
+var project = 'dopewars'; // Project name, used for build
+
+/* Load plugins @todo css minify */
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    rename = require('gulp-rename'),
-    sourcemaps = require('gulp-sourcemaps'),
+    jshint = require('gulp-jshint'),
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
     autoprefixer = require('gulp-autoprefixer'),
+    uglify = require('gulp-uglify'),
+    newer = require('gulp-newer'),
+    rename = require('gulp-rename'),
+    concat = require('gulp-concat'),
+    notify = require('gulp-notify'),
+    plumber = require('gulp-plumber'),
+    sourcemaps = require('gulp-sourcemaps'),
+    imagemin = require('gulp-imagemin'),
+    svgmin = require('gulp-svgmin');
 
-    browserSync = require('browser-sync').create(),
-    imagemin = require('gulp-imagemin');
-
-// Static server
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
+/**
+ * Browser Sync
+ *
+ * Asynchronous browser syncing of assets across multiple devices!! Watches for changes to js, image and php files
+ * Doing this directly on the watch task, for example: watching php files with sync.reload. Will make the default / watch task really slow to start up.
+ */
+gulp.task('browser-sync', function () {
+    var files = [
+        '../**/*.html',
+        './images/*.{png,jpg,gif,svg}'
+    ];
+    browserSync.init(files, {
+        // Read here http://www.browsersync.io/docs/options/
+        logPrefix: project,
+        notify: false,
+        injectChanges: true
     });
 });
 
-gulp.task('copy', function() {
-    var font_awesome_fonts = gulp.src('./node_modules/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}')
-       .pipe(gulp.dest('./../dist/fonts'));
-    var font_awesome_scss = gulp.src('./node_modules/font-awesome/scss/*.scss')
-       .pipe(gulp.dest('./scss/vendor/font-awesome'));
-    var html = gulp.src('./index.html')
-       .pipe(gulp.dest('./../dist/'));
+// Copy Files needed for production
+gulp.task('duplicator', function() {
+
+    var fonts = [
+        './node_modules/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}',
+        './fonts/**/*.{otf,ttf,woff,woff2,eof,eot}'
+    ];
+    gulp.src(fonts)
+        .pipe(newer('./../dist/fonts/'))
+        .pipe(gulp.dest('./../dist/fonts/'));
+
+    var normalize = ['./node_modules/normalize-scss/sass/**/*.scss'];
+    gulp.src(normalize)
+        .pipe(newer('./scss/vendor/normalize'))
+        .pipe(gulp.dest('./scss/vendor/normalize'));
+
+    var html = ['./index.html'];
+    gulp.src(html)
+        .pipe(newer('./../dist/'))
+        .pipe(gulp.dest('./../dist/'));
 });
 
-gulp.task('images', function() {
-    gulp.src('./images/**/*')
-    .pipe(imagemin([
-        imagemin.gifsicle({interlaced: true}),
-        imagemin.jpegtran({progressive: true}),
-        imagemin.optipng({optimizationLevel: 5}),
-        imagemin.svgo({
-            plugins: [
-                {removeViewBox: true},
-                {cleanupIDs: false}
-            ]
-        })
-    ]))
-    .pipe(gulp.dest('./../dist/images'))
-});
-
-var inputcss = './scss/*.scss';
-var outputcss = './../dist/css';
-
-var sassOptions = {
-    errLogToConsole: true,
-    outputStyle: 'compressed'
-};
-
-var autoprefixerOptions = {
-    browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-};
-
+// Compile sass to css
 gulp.task('sass', function () {
-    return gulp
-        .src(inputcss)
+    gulp.src('./scss/style.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(rename({suffix: '.min'}))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 version'],
+            cascade: false
+        }))
+        .pipe(rename({
+            basename: 'style'
+        }))
+
         .pipe(sourcemaps.write())
-        .pipe(autoprefixer(autoprefixerOptions))
-        .pipe(gulp.dest(outputcss))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('./../dist/css'))
+        .pipe(reload({stream: true})) // Inject Styles when min style file is created
+        .on('error', sass.logError)
+        .pipe(notify({message: 'Sass task complete', onLast: true}));
 });
 
-var inputjs = './js/**/*.js';
-var outputjs = './../dist/js';
+// Concatenate/Minify Vendor scripts
+gulp.task('js-vendor', function () {
+    // add vendor scripts
+    gulp.src(['./js/vendor/*.js'])
+        .pipe(plumber())
+        .pipe(concat('vendor.js'))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('./../dist/js/'))
+        .pipe(notify({message: 'Vendor scripts task complete', onLast: true}));
+});
 
-gulp.task('scripts', function(){
-    return gulp.src(['./js/vendor/jquery.js', inputjs, '!**.min.js'])
+// Minify custom scripts
+gulp.task('js-custom', function () {
+    gulp.src(['./js/*.js', '!./js/*.min.js'])
+        .pipe(plumber())
         .pipe(concat('script.js'))
-        .pipe(rename(function(path){
-            path.extname = '.min.js';
-         }))
-        .pipe(gulp.dest(outputjs));
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('script.js'))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('./../dist/js/'))
+        .pipe(notify({message: 'Custom scripts task complete', onLast: true}));
 });
 
-gulp.task('watch', function() {
-    gulp.watch('**/*.scss', ['sass', 'scripts']);
-    gulp.watch("./*.html").on('change', browserSync.reload);
+// Task that ensures the `js-custom` task is complete before reloading browsers
+gulp.task('js-watch', ['js-custom'], browserSync.reload);
+
+// Optimize images
+gulp.task('images', function () {
+    gulp.src(['./images/**/*.{png,jpg,gif}'])
+        .pipe(newer('./../dist/images/')) // Add the newer pipe to pass through newer images only
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({optimizationLevel: 7, progressive: true, interlaced: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest('./../dist/images/'))
+        .pipe(notify({message: 'Images task complete', onLast: true}));
 });
 
-gulp.task('default', ['copy', 'images', 'sass', 'scripts', 'watch']);
+// Optimize svg
+gulp.task('svg', function () {
+    gulp.src(['./images/**/*.svg'])
+        .pipe(newer('./../dist/images/')) // Add the newer pipe to pass through newer SVG's only
+        .pipe(svgmin())
+        .pipe(gulp.dest('./../dist/images/'))
+        .pipe(notify({message: 'SVG task complete', onLast: true}));
+});
+
+// Watch task
+gulp.task('default', ['duplicator', 'sass', 'js-vendor', 'js-custom', 'images', 'svg', 'browser-sync'], function () {
+    gulp.watch('images/*.{png,jpg,gif}', ['images']);
+    gulp.watch('images/*.svg', ['svg']);
+    gulp.watch(['scss/**/*.{scss, css}'], ['sass']);
+    gulp.watch(['./js/*.js', './js/vendor/*.js', '!./js/*.min.js'], ['js-watch']);
+});
