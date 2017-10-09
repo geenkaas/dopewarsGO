@@ -7,7 +7,6 @@ var project = 'dopewars'; // Project name, used for build
 /* Load plugins @todo css minify */
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    jshint = require('gulp-jshint'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     autoprefixer = require('gulp-autoprefixer'),
@@ -72,7 +71,8 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .pipe(rename({
-            basename: 'style'
+            basename: 'style',
+            suffix: '.min'
         }))
 
         .pipe(sourcemaps.write())
@@ -102,8 +102,6 @@ gulp.task('js-custom', function () {
     gulp.src(['./js/*.js', '!./js/*.min.js'])
         .pipe(plumber())
         .pipe(concat('script.js'))
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'))
         .pipe(concat('script.js'))
         .pipe(uglify())
         .pipe(rename({
