@@ -1,0 +1,46 @@
+// Styleguide Components.Logo
+
+.c-logo {
+    color: color(logo-color);
+
+    span {
+        color: color(logo-span-color);
+        font-weight: bold;
+    }
+}
+
+.c-logo--main {
+    @include text-shadow-medium;
+    float: left;
+    line-height: $min-touch-height;
+}
+
+.c-logo-splash {
+    @include text-shadow-large;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.c-logo-splash__top {
+    font-size: 32px;
+    margin-bottom: $margin-medium;
+}
+
+.c-logo-splash__bottom {
+    font-size: 90px;
+    margin-bottom: 0;
+    position: relative;
+
+    &::after {
+        @include pos-centered;
+        @include image-crisp;
+        background: url(../images/icon-pill-16x16.png) 75% 40% no-repeat;
+        background-size: 100%;
+        content: '';
+        height: 32px;
+        left: 71%;
+        width: 32px;
+        z-index: 1;
+    }
+}

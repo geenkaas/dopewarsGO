@@ -1,0 +1,18 @@
+/* Typography */
+
+p {
+    line-height: 1.3;
+    margin: 0 0 1em;
+}
+
+hr {
+    display: block;
+    border: 0;
+    border-top: 1px solid color(line-color);
+    margin: 1em 0;
+}
+
+strong,
+.strong {
+    font-weight: bold;
+}

@@ -1,0 +1,20 @@
+// Styleguide Variables.Global
+
+// Structure
+    $header-height: 50px;
+    $footer-height: 50px;
+
+    $min-touch-height: 30px;
+
+// Margins
+    $margin-medium: 20px;
+    $margin-smaller: $margin-medium / 4;
+    $margin-small: $margin-medium / 2;
+    $margin-large: $margin-medium * 1.5;
+    $margin-larger: $margin-medium * 2;
+    $margin-largest: $margin-medium * 4;
+
+    $margin-site-side: $margin-small;
+
+// Grid
+    $grid-medium: $margin-medium;

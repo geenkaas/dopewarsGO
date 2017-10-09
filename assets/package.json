@@ -1,0 +1,26 @@
+{
+  "name": "dopewars",
+  "version": "1.0.0",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "normalize-scss": "^7.0.0",
+    "webfontloader": "^1.6.28"
+  },
+  "dependencies": {},
+  "description": "Setup for web based Dopewars game",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "webpack"
+  },
+  "author": "Arne Maier",
+  "license": "ISC"
+}

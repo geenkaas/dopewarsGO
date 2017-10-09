@@ -1,0 +1,10 @@
+// Styleguide Components.Hamburger
+
+.c-hamburger {
+    @include awesome;
+    color: $white;
+    content: "\f0c9";
+    float: right;
+    min-height: $min-touch-height;
+    width: $min-touch-height;
+}

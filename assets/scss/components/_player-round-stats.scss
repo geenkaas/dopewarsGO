@@ -1,0 +1,21 @@
+// Styleguide Components.Player-Round-Stats
+
+.c-stats {
+	@include clearfix;
+	border-bottom: 2px solid color(border-color);
+	margin-bottom: $margin-small;
+	padding-bottom: $margin-smaller;
+}
+
+.c-stats__cash {
+	text-align: left;
+	margin-bottom: $margin-small;
+}
+
+.c-stats__day {
+	float: left
+}
+
+.c-stats__inventory {
+	float: right; 
+}

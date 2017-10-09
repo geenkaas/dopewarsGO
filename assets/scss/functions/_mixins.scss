@@ -1,0 +1,152 @@
+// Styleguide Functions.Mixins
+
+@mixin awesome {
+    font-family: 'FontAwesome';
+    content: '\f00d';
+}
+
+@mixin clearfix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin clearlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin text-shadow-small {
+    text-shadow: 0 1px 0 $black-90;
+}
+
+@mixin text-shadow-medium {
+    text-shadow: 0 2px 0 $black-70;
+}
+
+@mixin text-shadow-large {
+    text-shadow: 0 3px 0 $black-30;
+}
+
+@mixin box-shadow-small {
+    box-shadow: 0 1px 0 $black-50;
+}
+
+@mixin box-shadow-medium {
+    box-shadow: 0 3px 0 $black-50;
+}
+
+@mixin box-shadow-large {
+    box-shadow: 0 5px 0 $black-30;
+}
+
+@mixin image-crisp {
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+
+@mixin transition-normal {
+    transition: all 350ms ease-out;
+}
+
+@mixin transition-fast {
+    transition: all 200ms ease-out;
+}
+
+@mixin pos-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin pos-right {
+    position: absolute;
+    top: 50%;
+    right: $margin-small;
+    transform: translateY(-50%);
+}
+
+@mixin pos-fullscreen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin pos-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+}
+
+@mixin pos-bottom {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin pos-wide {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: auto;
+    left: 0;
+}
+
+@mixin pos-stretched {
+    position: absolute;
+    top: -666em;
+    right: -666em;
+    bottom: -666em;
+    left: -666em;
+}
+
+@mixin split($column, $total) {
+    width: calc( (100% - ((#{$total} - 1) * #{$grid-medium}) ) / #{$total} * #{$column} + ((#{$column} - 1) * #{$grid-medium}) );
+}
+
+@mixin gradient-dark {
+    background: color(gradient-darker); /* Old browsers */
+    background: -moz-linear-gradient(top, color(gradient-darker) 0%, color(gradient-dark) 50%, color(gradient-darker) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, color(gradient-darker) 0%, color(gradient-dark) 50%, color(gradient-darker) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, color(gradient-darker) 0%, color(gradient-dark) 50%, color(gradient-darker) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+@mixin remove-margins {
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin u-table {
+    display: table;
+}
+
+@mixin u-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@mixin hide-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}

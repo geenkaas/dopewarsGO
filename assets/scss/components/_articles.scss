@@ -1,0 +1,22 @@
+// Styleguide Components.Articles
+
+article {
+	
+}
+
+.c-article--main {
+	@include transition-fast;
+	padding: $margin-site-side;
+	position: absolute;
+	top: 0;
+	transform: translateX(100%);
+	width: 100%;
+}
+
+.js-slide--active {
+	transform: translateX(0);
+}
+
+.js-slide--remove {
+	transform: translateX(-100%);
+}

@@ -1,0 +1,12 @@
+/* Links */
+
+a {
+    color: color(link);
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    &:hover {
+        color: color(link-hover);
+    }
+}

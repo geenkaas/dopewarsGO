@@ -1,0 +1,124 @@
+// Styleguide Components.Buttons
+
+.button {
+    @include text-shadow-medium;
+    @include box-shadow-large;
+    @include transition-fast;
+    background: color(button-background);
+    border: none;
+    color: color(button-text);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: $margin-small;
+    padding: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+
+    &:active {
+        background: color(button-hover-background);
+        color: color(button-hover-text);
+        text-shadow: none;
+    }
+}
+
+/* Variations (Sizes or locations) */
+.button--primary {
+    font-size: $font-size-large;
+    margin-bottom: $margin-medium;
+}
+
+.button--secondary {
+    font-size: $font-size-large;
+}
+
+.button--small {
+    font-size: $font-size-smaller;
+    margin: 0 2px 0 0;
+}
+
+.button--modal {
+    font-size: $font-size-large;
+}
+
+.button--right {
+    float: right;
+}
+
+.button--trade {
+    @include text-shadow-small;
+    margin: 0;
+    padding: 0.4em;
+    width: auto;
+}
+
+
+/* Modifiers (Colours) */
+.button--blue {
+    &:hover {
+        background: $blue;
+    }
+}
+
+.button--yellow {
+    &:hover {
+        background: $yellow;
+    }
+}
+
+.button--red {
+    &:hover {
+        background: $red;
+    }
+}
+
+.button--green {
+    &:hover {
+        background: $green;
+    }
+}
+
+.button--grey {
+    &:hover {
+        background: $grey-dark;
+    }
+}
+
+/* Icons */
+.button--icon {
+    font-size: $font-size-medium;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:before {
+        font-size: $font-size-medium;
+        transform: scale(1.2);
+        margin-right: 10px;
+    }
+}
+
+.button--icon-only {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:before {
+        font-size: $font-size-large;
+        transform: scale(1.5);
+    }
+}
+
+// Specific icons
+
+
+.button--disabled {
+    background: color(button-disabled-background);
+    color: color(button-disabled-text);
+    cursor: no-drop;
+
+    &:active {
+        @include text-shadow-medium;
+        background: color(button-disabled-background);
+        color: color(button-disabled-text);
+    }
+}

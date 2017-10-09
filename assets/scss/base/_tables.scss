@@ -1,0 +1,40 @@
+// Styleguide Base.Tables
+
+table {
+    margin-bottom: $margin-medium;
+    width: 100%;
+
+    thead {
+        tr {
+            th {
+                padding: 0;
+                text-align: left;
+
+                &:first-child {
+                    text-align: left;
+                }
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {            
+            td {
+                padding: 0;
+                text-align: left;
+
+                &:first-child {
+                    text-align: left;
+                }
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

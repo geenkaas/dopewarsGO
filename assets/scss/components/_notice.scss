@@ -1,0 +1,92 @@
+// Styleguide Components.Notice
+
+.notice {
+    background: $grey-lighter;
+    margin-bottom: $margin-medium;
+    padding: $margin-medium $margin-largest;
+    position: relative;
+    border-left: 5px solid $blue;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+        transform: scale(1.5);
+        vertical-align: middle;
+        position: absolute;
+        top: 18px;
+    }
+
+    &:before {
+        color: $blue;
+        content: 'notifications';
+        left:  $margin-large;
+    }
+
+    &:after {
+        content: 'clear';
+        right: $margin-medium;
+    }
+
+    &:hover:after {
+        color: $red;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.notice--inline {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+
+    &:before{
+        display: inline-block;
+        position: inherit;
+        top: auto;
+        left: auto;
+        font-size: inherit;
+        margin-right: 10px;
+    }
+
+    &:after {
+        display: none;
+    }
+}
+
+.notice--success {
+    border-left-color: $green;
+
+    &:before {
+        content: 'check_circle';
+        color: $green;
+    }
+}
+
+.notice--attention {
+    border-left-color: $yellow;
+
+    &:before {
+        content: 'info';
+        color: $yellow;
+    }
+}
+
+.notice--warning {
+    border-left-color: $orange;
+
+    &:before {
+        content: 'warning';
+        color: $orange;
+    }
+}
+
+.notice--error {
+    border-left-color: $red;
+
+    &:before {
+        color: $red;
+        content: 'report';
+    }
+}
