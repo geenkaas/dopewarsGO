@@ -77,7 +77,7 @@ $('.button--buy').each(function() {
         cash = cash - cashTrade;
         updateCash();
         updateButtons();
-        updateDopeAmount();
+        updateDopeAmount(1);
     });
 });
 
@@ -88,7 +88,7 @@ $('.button--sell').each(function() {
         cash = cash + cashTrade;
         updateCash();
         updateButtons();
-        updateDopeAmount();
+        updateDopeAmount(-1);
     });
 });
 
@@ -108,6 +108,7 @@ function updateButtons() {
     });
 };
 
-function updateDopeAmount() {
+function updateDopeAmount(changeAmount) {
+
 
 };
