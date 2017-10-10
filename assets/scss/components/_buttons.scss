@@ -1,7 +1,7 @@
 // Styleguide Components.Buttons
 
 .button {
-    @include text-shadow-medium;
+    @include text-shadow-small;
     @include box-shadow-large;
     @include transition-fast;
     background: color(button-background);
