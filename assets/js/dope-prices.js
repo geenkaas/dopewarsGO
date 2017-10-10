@@ -13,6 +13,25 @@ $('.button--disabled').on('click', function(e) {
     e.stopPropagation;
 });
 
+// Dope constructor function
+function Dope(name, priceMin, priceMax, amount) {
+    this.name = name
+    this.priceMin = priceMin;
+    this.priceMax = priceMax;
+    this.amount = amount;
+    this.priceCurr = function() {
+        var randomPrice = Math.floor(Math.random() * ((this.priceMax - this.priceMin)) + 1);
+    };
+};
+
+// Dope object instance
+var dope1 = new Dope('ludes', 11, 60, 0),
+    dope2 = new Dope('peyote', 100, 700, 0),
+    dope3 = new Dope('shrooms', 600, 1400, 0),
+    dope4 = new Dope('heroin', 1200, 4000, 0);
+
+var dopelist = [dope1, dope2, dope3, dope4];
+
 var dopelist = {
     dopename: [
         {
