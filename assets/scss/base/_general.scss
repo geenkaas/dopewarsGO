@@ -6,10 +6,15 @@ body {
 }
 
 html {
+    background: color(gradient-dark);
+    background:radial-gradient(ellipse at center, color(gradient-light) 20%, color(gradient-dark) 100%);
+    background-size: 100% 100%;
+    background-position: 50% 90%;
     box-sizing: border-box;
     color: color(body-color);
     font-family: 'Press Start 2P', sans-serif;
     font-size: 100%;
+    overflowX: hidden;
     -moz-osx-font-smoothing: none;
     -webkit-font-smoothing: none;
     text-rendering: optimizeLegibility;
@@ -17,12 +22,7 @@ html {
 }
 
 body {
-    background: color(gradient-dark);
-    background:radial-gradient(ellipse at center, color(gradient-light) 20%, color(gradient-dark) 100%);
-    background-size: 100% 100%;
-    background-position: 50% 90%;
     margin: 0;
-    overflow: hidden;
     text-align: center;
 }
 

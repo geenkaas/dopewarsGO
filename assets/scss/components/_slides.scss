@@ -1,0 +1,20 @@
+// Styleguide Components.Articles
+// _slides.scss
+
+.c-slide {
+	@include transition-fast;
+	overflowY: scroll;
+	padding: calc(#{$header-height} + #{$margin-small}) $margin-site-side $margin-small;
+	position: absolute;
+	top: 0;
+	transform: translateX(100%);
+	width: 100%;
+}
+
+.c-slide.c-slide--active {
+	transform: translateX(0);
+}
+
+.c-slide--remove {
+	transform: translateX(-100%);
+}

@@ -16,6 +16,8 @@ The game should stay close to the original as much as it can but fix existing pr
 * Load the /dist/index.html in your browser.
 
 ### TODO
+* Better sliding "pages" with a fixed header and scrollable content
+* Good hamburger menu
 * User registration (FB? Google? Email?)
 * Geolocation
 * Random events (minigames)
@@ -25,6 +27,7 @@ The game should stay close to the original as much as it can but fix existing pr
 * Database storage of user data
 * Flowchart game loop
 * Design and Style
+* Logo
 * Artwork
 * Monetisation
 * Game polish

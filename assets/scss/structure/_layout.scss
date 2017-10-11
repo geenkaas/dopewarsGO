@@ -1,26 +1,17 @@
 // Styleguide Structure.Layout
 
 .s-site {
-    @include pos-fullscreen;
-    overflow: hidden;
+    position: relative;
 }
 
 .s-site__masthead {
-    @include clearfix;
     @include pos-top;
+    position: fixed;
+    top: 0;
     background: color(header-background);
     padding: $margin-small $margin-site-side;
+    z-index: 999;
 }
 
 .s-site__content {
-    @include pos-wide;
-    bottom: $footer-height;
-    top: $header-height;
-}
-
-.s-site__footer {
-    @include pos-bottom;
-    background: color(footer-background);
-    height: $footer-height;
-    padding: $margin-small $margin-site-side;
 }
