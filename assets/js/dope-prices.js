@@ -53,15 +53,7 @@ dopelist.forEach(function(dope) {
     ')
 })
 
-$('[js-button-scootch]').on('click', function() {
-    setRandomPrices();
-})
-
-function setRandomPrices() {
-    dopelist.forEach(function(dope) {
-        $('[data-js-dope="'+dope.name+'"]').find('[js-dope-price]').html(dope.priceCurr());
-    })
-}
+$('.button--trade').on('click', buttonClick);
 
 function updateButtons() {
 
@@ -69,57 +61,55 @@ function updateButtons() {
 
         var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
         //console.log(dope);
-        var buttonSell = dopeCurr.find('.button--sell');
-        var buttonBuy = dopeCurr.find('.button--buy');
-        var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
         var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
-
-        $.merge(buttonSell, buttonBuy).off('click');
+        var buttonSell = dopeCurr.find('.button--sell');
 
         if (dopeAmount <= 0) {
             //console.log('sold and none left');
-            buttonSell.off().addClass('button--disabled');
+            buttonSell.addClass('button--disabled');
         } else {
             //console.log('sold and more in inv');
-            buttonSell.off().removeClass('button--disabled').on('click', buttonClick);
+            buttonSell.removeClass('button--disabled');
         }
 
-        console.log('dopeCurrPrice: ' + dopeCurrPrice + ' cashCurr: ' + cashCurr);
+        var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
+        var buttonBuy = dopeCurr.find('.button--buy');
+        //console.log('dopeCurrPrice: ' + dopeCurrPrice + ' cashCurr: ' + cashCurr);
         if (dopeCurrPrice > cashCurr) {
-            console.log('bought and no more money left');
-            buttonBuy.off('click', buttonClick).addClass('button--disabled');
+            //console.log('bought and no more money left');
+            buttonBuy.addClass('button--disabled');
         } else {
             //console.log('bought and ready for more');
-            buttonBuy.off().removeClass('button--disabled').on('click', buttonClick);
+            buttonBuy.removeClass('button--disabled');
         }
 
     })
 }
-
 updateButtons();
-
-// updateButtons();
 
 function buttonClick() {
 
     var whichButton = $(this);
 
-    $(this).off();
+    if (!whichButton.hasClass('button--disabled')) {
 
-    var clickRow = $(this).closest('tr');
-    var clickDope = clickRow.attr('data-js-dope');
+        var clickRow = $(this).closest('tr');
+        var clickDope = clickRow.attr('data-js-dope');
 
-    if ($(this).hasClass('button--buy')) {
-        var amount = 1;
-    } else {
-        var amount = -1;
+        if ($(this).hasClass('button--buy')) {
+            var amount = 1;
+        } else {
+            var amount = -1;
+        }
+        //console.log(amount);
+        var cashTrade = parseInt(clickRow.find('[js-dope-price]').html());
+
+        var cashTemp = cashCurr - (cashTrade * amount);
+        updateCash(cashTemp);
+        updateDopeAmount(clickDope, amount);
+        updateButtons();
+
     }
-    //console.log(amount);
-    var cashTrade = parseInt(clickRow.find('[js-dope-price]').html());
-    var cashTemp = cashCurr - (cashTrade * amount);
-    updateCash(cashTemp);
-    updateDopeAmount(clickDope, amount);
-    updateButtons();
 }
 
 function updateDopeAmount(whichDope, changeAmount) {
@@ -130,4 +120,14 @@ function updateDopeAmount(whichDope, changeAmount) {
             $('[data-js-dope="'+ whichDope +'"]').find('[js-dope-amount]').html(dopelist[dope].amount);
         }
     }
+}
+
+$('[js-button-scootch]').on('click', function() {
+    setRandomPrices();
+})
+
+function setRandomPrices() {
+    dopelist.forEach(function(dope) {
+        $('[data-js-dope="'+dope.name+'"]').find('[js-dope-price]').html(dope.priceCurr());
+    })
 }
