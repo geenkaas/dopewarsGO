@@ -11,15 +11,6 @@ function updateCash(cashNew) {
 }
 updateCash(cashStart);
 
-function updateDay() {
-    if (parseInt($('[js-day-curr]').html()) == parseInt($('[js-day-max]').html())) {
-        alert('Your final score is: ' + $('[js-cash]').find('span').html());
-    } else {
-        $('[js-day-curr]').html(parseInt($('[js-day-curr]').html())+1);
-        setRandomPrices();
-    }
-}
-
 var dopelist = [];
 
 // Dope constructor function
@@ -57,7 +48,7 @@ dopelist.forEach(function(dope) {
         <tr js-dope data-js-dope="'+ dope.name +'">\
             <td><button class="button button--trade button--sell">-</button></td>\
             <td>'+dope.name+'</td>\
-            <td js-dope-price>'+ dope.priceCurr() +'</td>\
+            <td js-dope-price></td>\
             <td js-dope-amount>'+ dope.amount +'</td>\
             <td><button class="button button--trade button--buy">+</button></td>\
         </tr>\
@@ -96,7 +87,6 @@ function updateButtons() {
 
     })
 }
-updateButtons();
 
 function buttonClick() {
 
@@ -136,6 +126,15 @@ $('[js-button-scootch]').on('click', function() {x
     updateDay();
 })
 
+function updateDay() {
+    if (parseInt($('[js-day-curr]').html()) == parseInt($('[js-day-max]').html())) {
+        alert('Your final score is: ' + $('[js-cash]').find('span').html());
+    } else {
+        $('[js-day-curr]').html(parseInt($('[js-day-curr]').html())+1);
+        setRandomPrices();
+    }
+}
+
 function setRandomPrices() {
     dopelist.forEach(function(dope) {
 
@@ -159,3 +158,5 @@ function setRandomPrices() {
     })
     updateButtons();
 }
+setRandomPrices();
+
