@@ -49,8 +49,7 @@ var dope1 = new Dope('Acid', 1000,4400, 0),
     dope9 = new Dope('Peyote', 220, 700, 0),
     dope10 = new Dope('Shrooms', 630, 1300, 0),
     dope11 = new Dope('Speed', 90, 250, 0),
-    dope12 = new Dope('Weed', 0, 100, 0);
-    //dope12 = new Dope('Weed', 315, 890, 0);
+    dope12 = new Dope('Weed', 315, 890, 0);
 
 //https://stackoverflow.com/questions/31180331/loop-through-each-new-object-from-constructor#31180444
 dopelist.forEach(function(dope) {
