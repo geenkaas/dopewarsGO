@@ -8,7 +8,7 @@ function updateCash(cashNew) {
     $('[js-cash]').find('span').html(cashNew);
     cashCurr = parseInt($('[js-cash]').find('span').html());
     //console.log('Variable cashCurr is updated, new cashCurr = ' + cashCurr);
-};
+}
 updateCash(cashStart);
 
 var dopelist = [];
@@ -21,10 +21,10 @@ function Dope(name, priceMin, priceMax, amount) {
     this.amount = amount;
     this.priceCurr = function() {
         return Math.floor(((priceMax - priceMin) + 1) * Math.random() + priceMin);
-    };
+    }
     //https://jsfiddle.net/Panomosh/8bpmrso1/
     dopelist.push(this);
-};
+}
 
 // Dope object instance
 var dope1 = new Dope('Acid', 1000,4400, 0),
@@ -50,50 +50,53 @@ dopelist.forEach(function(dope) {
             <td js-dope-amount>'+ dope.amount +'</td>\
             <td><button class="button button--trade button--buy">+</button></td>\
         </tr>\
-    ');
-});
+    ')
+})
 
 $('[js-button-scootch]').on('click', function() {
     setRandomPrices();
-});
+})
 
 function setRandomPrices() {
     dopelist.forEach(function(dope) {
         $('[data-js-dope="'+dope.name+'"]').find('[js-dope-price]').html(dope.priceCurr());
-    });
-};
+    })
+}
 
-function loopList() {
+function updateButtons() {
 
     dopelist.forEach(function(dope) {
-        updateButtons(dope)
-    });
 
-};
+        var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
+        //console.log(dope);
+        var buttonSell = dopeCurr.find('.button--sell');
+        var buttonBuy = dopeCurr.find('.button--buy');
+        var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
+        var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
 
-loopList();
+        $.merge(buttonSell, buttonBuy).off('click');
 
-function updateButtons(dope) {
-    var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
-    var buttonSell = dopeCurr.find('.button--sell');
-    var buttonBuy = dopeCurr.find('.button--buy');
-    var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
+        if (dopeAmount <= 0) {
+            //console.log('sold and none left');
+            buttonSell.off().addClass('button--disabled');
+        } else {
+            //console.log('sold and more in inv');
+            buttonSell.off().removeClass('button--disabled').on('click', buttonClick);
+        }
 
-    if (dope.amount <= 0) {
-        console.log('sold and none left');
-        buttonSell.addClass('button--disabled').off('click');
-    } else {
-        buttonSell.removeClass('button--disabled').on('click', buttonClick);
-    }
+        console.log('dopeCurrPrice: ' + dopeCurrPrice + ' cashCurr: ' + cashCurr);
+        if (dopeCurrPrice > cashCurr) {
+            console.log('bought and no more money left');
+            buttonBuy.off('click', buttonClick).addClass('button--disabled');
+        } else {
+            //console.log('bought and ready for more');
+            buttonBuy.off().removeClass('button--disabled').on('click', buttonClick);
+        }
 
-    if (dopeCurrPrice > cashCurr) {
-        console.log('bought and no more money left');
-        buttonBuy.addClass('button--disabled').off('click');
-    } else {
-        buttonBuy.removeClass('button--disabled').on('click', buttonClick);
-    }
-    console.log('finished updateButtons');
-};
+    })
+}
+
+updateButtons();
 
 // updateButtons();
 
@@ -101,22 +104,23 @@ function buttonClick() {
 
     var whichButton = $(this);
 
-    $(this).off('click');
+    $(this).off();
 
     var clickRow = $(this).closest('tr');
     var clickDope = clickRow.attr('data-js-dope');
+
     if ($(this).hasClass('button--buy')) {
         var amount = 1;
     } else {
         var amount = -1;
-    };
+    }
     //console.log(amount);
     var cashTrade = parseInt(clickRow.find('[js-dope-price]').html());
     var cashTemp = cashCurr - (cashTrade * amount);
     updateCash(cashTemp);
     updateDopeAmount(clickDope, amount);
-    updateButtons(whichButton);
-};
+    updateButtons();
+}
 
 function updateDopeAmount(whichDope, changeAmount) {
     //console.log(whichDope + ' ' + changeAmount);
@@ -126,4 +130,4 @@ function updateDopeAmount(whichDope, changeAmount) {
             $('[data-js-dope="'+ whichDope +'"]').find('[js-dope-amount]').html(dopelist[dope].amount);
         }
     }
-};
+}
