@@ -154,9 +154,8 @@ function setRandomPrices() {
         //console.log(dopeRGB);
 
         dopePriceNew.css('color', dopeRGB);
-        
+
     })
     updateButtons();
 }
 setRandomPrices();
-
