@@ -175,7 +175,11 @@ $('[js-button-scootch]').on('tap', function() {x
 
 function updateDay() {
     if (parseInt($('[js-day-curr]').html()) == parseInt($('[js-day-max]').html())) {
-        alert('Your final score is: ' + $('[js-cash]').find('span').html());
+        alert(
+            'Your final score is: ' + $('[js-cash]').find('span').html()
+        );
+        window.location.reload(true);
+        
     } else {
         $('[js-day-curr]').html(parseInt($('[js-day-curr]').html())+1);
         setRandomPrices();
