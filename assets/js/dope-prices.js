@@ -44,15 +44,10 @@ var dope1 = new Dope('Acid', 1000,4400, 0),
 
 //https://stackoverflow.com/questions/31180331/loop-through-each-new-object-from-constructor#31180444
 dopelist.forEach(function(dope) {
-    if (dope.amount == 0) {
-        var dopeAmount = '-';
-    } else {
-        var dopeAmount = dope.amount;
-    }
     $('[js-dope-table-content]').append('\
         <tr js-dope data-js-dope="'+ dope.name +'">\
             <td>'+dope.name+'</td>\
-            <td js-dope-amount>'+ dopeAmount +'</td>\
+            <td js-dope-amount>'+ dope.amount +'</td>\
             <td js-dope-sell><button class="button button--trade button--sell">-</button></td>\
             <td js-dope-price></td>\
             <td js-dope-buy><button class="button button--trade button--buy">+</button></td>\
@@ -60,30 +55,13 @@ dopelist.forEach(function(dope) {
     ')
 })
 
-//$('.button--trade').on('click', buttonClick);
-
-var timeoutId = 0;
-var buttonDown = false;
-
-$('.button--trade').on('mousedown', function() {
-    timeoutId = setTimeout(buttonHeld, 1000);
-}).on('mouseup mouseleave', function() {
-    if (!buttonDown) {
-        console.log('buttonClicked');
-    }
-    clearTimeout(timeoutId);
-});
-
-function buttonHeld() {
-    console.log('button held!');
-}
-
 function updateButtons() {
 
     dopelist.forEach(function(dope) {
 
         var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
         //console.log(dope);
+
         var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
         var buttonSell = dopeCurr.find('[js-dope-sell]').find('.button--trade');
 
@@ -109,10 +87,12 @@ function updateButtons() {
     })
 }
 
+$('.button--trade').on('tap', buttonClick).on('taphold', buttonHeld);
+
 function buttonClick() {
 
     var whichButton = $(this);
-    console.log(whichButton);
+    //.log(whichButton);
 
     if (!whichButton.hasClass('button--disabled')) {
 
@@ -134,6 +114,29 @@ function buttonClick() {
     }
 }
 
+function buttonHeld() {
+    console.log('button held!');
+
+    var whichButton = $(this);
+    console.log(whichButton);
+
+    var clickRow = $(this).closest('tr');
+    var clickDope = clickRow.attr('data-js-dope');
+    var dopeTradePrice = parseInt(clickRow.find('[js-dope-price]').html());
+    if ($(this).hasClass('button--buy')) {
+        var amount = Math.floor(cashCurr / dopeTradePrice);
+    } else {
+        var amount = clickRow.find('[js-dope-amount]').html() * -1;
+    }
+
+    var cashTrade = parseInt(clickRow.find('[js-dope-price]').html());
+
+    var cashTemp = cashCurr - (cashTrade * amount);
+    updateCash(cashTemp);
+    updateDopeAmount(clickDope, amount);
+    updateButtons();
+}
+
 function updateDopeAmount(whichDope, changeAmount) {
     //console.log(whichDope + ' ' + changeAmount);
     for (var dope in dopelist) {
@@ -144,7 +147,7 @@ function updateDopeAmount(whichDope, changeAmount) {
     }
 }
 
-$('[js-button-scootch]').on('click', function() {x
+$('[js-button-scootch]').on('tap', function() {x
     updateDay();
 })
 

@@ -54,6 +54,7 @@
 
     $grey-50: rgba($grey-medium, 0.5);
 
+    $white-90: rgba($white, 0.9);
     $white-50: rgba($white, 0.5);
     $white-30: rgba($white, 0.3);
 
@@ -80,7 +81,7 @@ $colors: (
     selection-color: $white,
 
     body-background: $grey-light,
-    body-color: $grey-light,
+    body-color: $white-90,
     heading-color: $grey-darker,
 
     logo-color: $white,
@@ -118,10 +119,8 @@ $colors: (
     button-disabled-text: $white-50,
     button-current-background: $blue,
 
-    button-sellall-background: $red-grey-dark,
-    button-sell-background: $red-grey-light,
-    button-buy-background: $green-grey-light,
-    button-buyall-background: $green-grey-dark,
+    button-trade-background: $grey-lightest,
+    button-trade-text: $grey-dark,
 
     modal-background: $white,
     modal-header-background: $blue,

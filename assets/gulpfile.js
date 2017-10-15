@@ -1,7 +1,7 @@
 'use strict';
 
 // Project configuration
-var project = 'dopewars'; // Project name, used for build
+var project = 'dopewarsgo'; // Project name, used for build
 
 /* Load plugins @todo css minify */
 var gulp = require('gulp'),
@@ -54,6 +54,21 @@ gulp.task('duplicator', function() {
         .pipe(newer('./scss/vendor/normalize'))
         .pipe(gulp.dest('./scss/vendor/normalize'));
 
+    var jquery = ['./node_modules/jquery/dist/jquery.js'];
+    gulp.src(jquery)
+        .pipe(newer('./js/vendor/jquery'))
+        .pipe(gulp.dest('./js/vendor/jquery'));
+
+    var jqueryMigrate = ['./node_modules/jquery-migrate/dist/jquery-migrate.js'];
+    gulp.src(jqueryMigrate)
+        .pipe(newer('./js/vendor/jquery-migrate'))
+        .pipe(gulp.dest('./js/vendor/jquery-migrate'));
+
+    var jquerymobile = ['./node_modules/jquery-mobile/js/jquery.mobile.js'];
+    gulp.src(jquerymobile)
+        .pipe(newer('./js/vendor/jquery-mobile'))
+        .pipe(gulp.dest('./js/vendor/jquery-mobile'));
+
     var html = ['./index.html'];
     gulp.src(html)
         .pipe(newer('./../dist/'))
@@ -84,7 +99,10 @@ gulp.task('sass', function () {
 // Concatenate/Minify Vendor scripts
 gulp.task('js-vendor', function () {
     // add vendor scripts
-    gulp.src(['./js/vendor/**/*.js'])
+    gulp.src([
+            './js/vendor/jquery-migrate/jquery-migrate.js',
+            './js/vendor/jquery-mobile/jquery.mobile.js'
+        ])
         .pipe(plumber())
         .pipe(concat('vendor.js'))
         .pipe(uglify())
@@ -98,7 +116,7 @@ gulp.task('js-vendor', function () {
 
 // Minify custom scripts
 gulp.task('js-custom', function () {
-    gulp.src(['./js/**/*.js', '!./js/*.min.js'])
+    gulp.src(['./js/**/*.js', '!./js/*.min.js', '!./js/vendor/**/*'])
         .pipe(plumber())
         .pipe(concat('script.js'))
         .pipe(concat('script.js'))

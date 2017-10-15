@@ -31,6 +31,8 @@
 }
 
 .button--trade {
+    background: color(button-trade-background);
+    color: color(button-trade-text);
     height: 32px;
     letter-spacing: -1px;
     line-height: 32px;
@@ -40,24 +42,10 @@
     width: 32px;
 }
 
-.button--sellall {
-    background: color(button-sellall-background);
-}
-
 .button--sell {
-    background: color(button-sell-background);
-    position: relative;
-    left: -4px;
 }
 
 .button--buy {
-    background: color(button-buy-background);
-    position: relative;
-    right: -4px;
-}
-
-.button--buyall {
-    background: color(button-buyall-background);
 }
 
 .button--disabled {
