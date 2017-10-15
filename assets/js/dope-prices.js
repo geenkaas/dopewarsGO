@@ -84,6 +84,13 @@ function updateButtons() {
             buttonBuy.removeClass('button--disabled');
         }
 
+        var invCurr = $('[js-inv-curr]').html();
+        var invMax = $('[js-inv-max]').html();
+        var invFree = invMax - invCurr;
+        if (invFree <= 0) {
+            buttonBuy.addClass('button--disabled');
+        }
+
     })
 }
 
@@ -128,6 +135,13 @@ function buttonHeld() {
     } else {
         var amount = clickRow.find('[js-dope-amount]').html() * -1;
     }
+    var invCurr = $('[js-inv-curr]').html();
+    var invMax = $('[js-inv-max]').html();
+    var invFree = invMax - invCurr;
+
+    if (amount > invFree) {
+        amount = invFree;
+    }
 
     var cashTrade = parseInt(clickRow.find('[js-dope-price]').html());
 
@@ -145,6 +159,14 @@ function updateDopeAmount(whichDope, changeAmount) {
             $('[data-js-dope="'+ whichDope +'"]').find('[js-dope-amount]').html(dopelist[dope].amount);
         }
     }
+    updateInv(changeAmount);
+}
+
+function updateInv(amount) {
+    console.log(amount);
+    var invCurr = parseInt($('[js-inv-curr]').html());
+    var invNew = invCurr + amount;
+    $('[js-inv-curr]').html(invNew);
 }
 
 $('[js-button-scootch]').on('tap', function() {x
