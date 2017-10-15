@@ -5,6 +5,13 @@
     content: '\f00d';
 }
 
+@mixin pixelfont {
+    font-family: 'Press Start 2P', sans-serif;
+    font-weight: normal;
+    -moz-osx-font-smoothing: none;
+    -webkit-font-smoothing: none;
+}
+
 @mixin clearfix {
     &:after {
         content: '';

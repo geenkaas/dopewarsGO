@@ -1,15 +1,16 @@
 // Styleguide Components.Buttons
 
 .button {
+    @include pixelfont;
     @include text-shadow-small;
-    @include box-shadow-large;
     @include transition-fast;
     background: color(button-background);
     border: none;
+    border-radius: 666em;
     color: color(button-text);
     cursor: pointer;
     display: inline-block;
-    font-weight: bold;
+    line-height: 1;
     margin-bottom: $margin-small;
     padding: 0.8em;
     text-align: center;
@@ -29,87 +30,35 @@
     margin-bottom: $margin-medium;
 }
 
-.button--secondary {
-    font-size: $font-size-large;
-}
-
-.button--small {
-    font-size: $font-size-smaller;
-    margin: 0 2px 0 0;
-}
-
-.button--modal {
-    font-size: $font-size-large;
-}
-
-.button--right {
-    float: right;
-}
-
 .button--trade {
-    @include text-shadow-small;
+    height: 32px;
+    letter-spacing: -1px;
+    line-height: 32px;
     margin: 0;
-    padding: 0.4em;
-    width: auto;
+    padding: 0;
+    text-align: center;
+    width: 32px;
 }
 
-
-/* Modifiers (Colours) */
-.button--blue {
-    &:hover {
-        background: $blue;
-    }
+.button--sellall {
+    background: color(button-sellall-background);
 }
 
-.button--yellow {
-    &:hover {
-        background: $yellow;
-    }
+.button--sell {
+    background: color(button-sell-background);
+    position: relative;
+    left: -4px;
 }
 
-.button--red {
-    &:hover {
-        background: $red;
-    }
+.button--buy {
+    background: color(button-buy-background);
+    position: relative;
+    right: -4px;
 }
 
-.button--green {
-    &:hover {
-        background: $green;
-    }
+.button--buyall {
+    background: color(button-buyall-background);
 }
-
-.button--grey {
-    &:hover {
-        background: $grey-dark;
-    }
-}
-
-/* Icons */
-.button--icon {
-    font-size: $font-size-medium;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    &:before {
-        font-size: $font-size-medium;
-        transform: scale(1.2);
-        margin-right: 10px;
-    }
-}
-
-.button--icon-only {
-    padding-left: 10px;
-    padding-right: 10px;
-
-    &:before {
-        font-size: $font-size-large;
-        transform: scale(1.5);
-    }
-}
-
-// Specific icons
-
 
 .button--disabled {
     background: color(button-disabled-background);

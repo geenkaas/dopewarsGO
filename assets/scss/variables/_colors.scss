@@ -5,6 +5,11 @@
     $red: #ee1c25;
     $red-dark: darken($red, 10%);
 
+    //$red-grey-lighter: #ccaaaa;
+    $red-grey-light: #998888;
+    $red-grey-dark: #665555;
+    //$red-grey-darker: #332222;
+
     $orange: #dd7d1e;
     $orange-dark: darken($orange, 6%);
 
@@ -13,6 +18,11 @@
 
     $green: #67b98b;
     $green-dark: darken($green, 8%);
+
+    //$green-grey-lighter: #ccaaaa;
+    $green-grey-light: #889988;
+    $green-grey-dark: #556655;
+    //$green-grey-darker: #332222;
 
     $blue-lightest: #b9e6fb;
     $blue: #3d62b2;
@@ -45,6 +55,7 @@
     $grey-50: rgba($grey-medium, 0.5);
 
     $white-50: rgba($white, 0.5);
+    $white-30: rgba($white, 0.3);
 
     $gradient-dark: #080719;
     $gradient-light: #273a74;
@@ -68,6 +79,7 @@ $colors: (
     selection-background: $blue,
     selection-color: $white,
 
+    body-background: $grey-light,
     body-color: $grey-light,
     heading-color: $grey-darker,
 
@@ -84,6 +96,8 @@ $colors: (
 
     line-color: $yellow,
 
+    table-row-border: $white-30,
+
     input-color: $blue-dark,
     input-background: $white,
     input-border: $grey-light,
@@ -95,14 +109,19 @@ $colors: (
     input-label-color: $grey-darker,
     input-placeholder-color: $grey-dark,
 
-    button-background: $yellow,
+    button-background: $red,
     button-border: $grey-medium,
-    button-text: $blue-dark,
-    button-hover-background: $yellow-dark,
+    button-text: $white,
+    button-hover-background: $yellow,
     button-hover-text: $white,
-    button-disabled-background: $grey-lightest,
-    button-disabled-text: $grey-medium,
+    button-disabled-background: $black-30,
+    button-disabled-text: $white-50,
     button-current-background: $blue,
+
+    button-sellall-background: $red-grey-dark,
+    button-sell-background: $red-grey-light,
+    button-buy-background: $green-grey-light,
+    button-buyall-background: $green-grey-dark,
 
     modal-background: $white,
     modal-header-background: $blue,

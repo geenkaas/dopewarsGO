@@ -8,27 +8,41 @@ table {
         tr {
             th {
                 padding: 0;
-                text-align: left;
+                text-align: center;
 
                 &:first-child {
                     text-align: left;
                 }
 
-                &:last-child {
+                &:nth-child(2) {
                     text-align: right;
+                }
+
+                &:nth-child(4) {
+                    text-align: center;
+                }
+
+                &:last-child {
+                    text-align: center;
                 }
             }
         }
     }
 
     tbody {
-        tr {            
+        tr {
+            border-bottom: 1px solid color(table-row-border);
+            line-height: 40px;           
             td {
                 padding: 0;
-                text-align: left;
+                text-align: right;
 
                 &:first-child {
                     text-align: left;
+                }
+
+                &:nth-child(4) {
+                    text-align: center;
                 }
 
                 &:last-child {

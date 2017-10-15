@@ -44,18 +44,39 @@ var dope1 = new Dope('Acid', 1000,4400, 0),
 
 //https://stackoverflow.com/questions/31180331/loop-through-each-new-object-from-constructor#31180444
 dopelist.forEach(function(dope) {
+    if (dope.amount == 0) {
+        var dopeAmount = '-';
+    } else {
+        var dopeAmount = dope.amount;
+    }
     $('[js-dope-table-content]').append('\
         <tr js-dope data-js-dope="'+ dope.name +'">\
-            <td><button class="button button--trade button--sell">-</button></td>\
             <td>'+dope.name+'</td>\
+            <td js-dope-amount>'+ dopeAmount +'</td>\
+            <td js-dope-sell><button class="button button--trade button--sell">-</button></td>\
             <td js-dope-price></td>\
-            <td js-dope-amount>'+ dope.amount +'</td>\
-            <td><button class="button button--trade button--buy">+</button></td>\
+            <td js-dope-buy><button class="button button--trade button--buy">+</button></td>\
         </tr>\
     ')
 })
 
-$('.button--trade').on('click', buttonClick);
+//$('.button--trade').on('click', buttonClick);
+
+var timeoutId = 0;
+var buttonDown = false;
+
+$('.button--trade').on('mousedown', function() {
+    timeoutId = setTimeout(buttonHeld, 1000);
+}).on('mouseup mouseleave', function() {
+    if (!buttonDown) {
+        console.log('buttonClicked');
+    }
+    clearTimeout(timeoutId);
+});
+
+function buttonHeld() {
+    console.log('button held!');
+}
 
 function updateButtons() {
 
@@ -64,7 +85,7 @@ function updateButtons() {
         var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
         //console.log(dope);
         var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
-        var buttonSell = dopeCurr.find('.button--sell');
+        var buttonSell = dopeCurr.find('[js-dope-sell]').find('.button--trade');
 
         if (dopeAmount <= 0) {
             //console.log('sold and none left');
@@ -75,7 +96,7 @@ function updateButtons() {
         }
 
         var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
-        var buttonBuy = dopeCurr.find('.button--buy');
+        var buttonBuy = dopeCurr.find('[js-dope-buy]').find('.button--trade');
         //console.log('dopeCurrPrice: ' + dopeCurrPrice + ' cashCurr: ' + cashCurr);
         if (dopeCurrPrice > cashCurr) {
             //console.log('bought and no more money left');
@@ -91,6 +112,7 @@ function updateButtons() {
 function buttonClick() {
 
     var whichButton = $(this);
+    console.log(whichButton);
 
     if (!whichButton.hasClass('button--disabled')) {
 
@@ -143,7 +165,7 @@ function setRandomPrices() {
 
         //console.log(dope.name + '' + dope.random);
         var dopeRGB = 'rgb(255,255,255)';
-        var colorMultiplier = 100;
+        var colorMultiplier = 255;
         if (dope.random > 0.5) {
             var dopeRed = Math.floor(255 - ((dope.random - 0.5) * colorMultiplier));
             dopeRGB = 'rgb(255,'+dopeRed+','+dopeRed+')';

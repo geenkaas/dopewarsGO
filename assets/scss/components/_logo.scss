@@ -1,11 +1,11 @@
 // Styleguide Components.Logo
 
 .c-logo {
+    @include pixelfont;
     color: color(logo-color);
 
     span {
         color: color(logo-span-color);
-        font-weight: bold;
     }
 }
 
