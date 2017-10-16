@@ -16,17 +16,26 @@ The game should stay close to the original as much as it can but fix existing pr
 * Load the /dist/index.html in your browser.
 
 ### TODO
-* User registration (FB? Google? Email?)
+
+#### Front End
 * Geolocation
-* Random events (minigames)
-* Multiplayer features
-* Hint and information system
 * Tutorial
-* Database storage of user data
-* Flowchart game loop
 * Design and Style
 * Good hamburger menu
 * Logo
+* Better sliding "pages" with a fixed header and scrollable content
+
+#### Back end
+* User registration (FB? Google? Email?)
+* Database storage of user data
+* Leaderboards (personal, friends and Wordlwide)
+* Notifications (Player2 has beat your high score, get cracking!)
+* Multiplayer features
+
+#### Long term
+* Random events (minigames)
+* Hint and information system
+* Flowchart game loop
 * Artwork
 * Monetisation
 * Game polish
@@ -39,5 +48,7 @@ The game should stay close to the original as much as it can but fix existing pr
 * Rudementary style
 * Basic working prototype
 * Fix for button events
-* Better sliding "pages" with a fixed header and scrollable content
+
+* tap and taphold functions
+* better interface
 
