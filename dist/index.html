@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700%7CPress+Start+2P" rel="stylesheet">
+        <meta name="HandheldFriendly" content="true" />
         <link href="css/style.min.css" rel="stylesheet">
     </head>
     <body>
@@ -15,6 +16,16 @@
             <header class="s-site__masthead">
                 <div class="c-logo c-logo--main">Dopewars<span>GO</span></div>
                 <nav class="c-hamburger" role="navigation"></nav>
+
+                <div class="c-stats">
+                    <div class="c-stats__day">
+                        Day: <span class="c--stats__day-current" js-day-curr>1</span> / <span class="c-stats__day--max" js-day-max>7</span>
+                    </div>
+                    <div class="c-stats__cash" js-cash>Cash: $<span></span></div>
+                    <div class="c-stats__inventory">
+                        Inv: <span class="c--stats__inventory-current" js-inv-curr>0</span> / <span class="c-stats__inventory--max" js-inv-max>100</span>
+                    </div>
+                </div>
             </header>
 
             <main class="s-site__content">
@@ -35,19 +46,6 @@
 
                 <!-- Trade screen -->
                 <article class="c-article--main c-slide" js-slide js-slide__trade>
-                    <header class="c-stats">
-                        <div class="c-stats__cash" js-cash>Cash: $<span></span></div>
-                        <div class="c-stats__day">
-                            <p>
-                                Day: <span class="c--stats__day-current" js-day-curr>1</span> / <span class="c-stats__day--max" js-day-max>7</span>
-                            </p>
-                        </div>
-                        <div class="c-stats__inventory">
-                            <p>
-                                Inv: <span class="c--stats__inventory-current" js-inv-curr>0</span> / <span class="c-stats__inventory--max" js-inv-max>100</span>
-                            </p>
-                        </div>
-                    </header>
                     <table class="c-tradescreen">
                         <thead>
                             <tr>
@@ -85,4 +83,3 @@
     </body>
 
 </html>
-

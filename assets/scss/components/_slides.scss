@@ -4,7 +4,7 @@
 .c-slide {
 	@include transition-fast;
 	overflowY: scroll;
-	padding: calc(#{$header-height} + #{$margin-small}) $margin-site-side $margin-small;
+	padding: 80px $margin-site-side $margin-small;
 	position: absolute;
 	top: 0;
 	transform: translateX(100%);

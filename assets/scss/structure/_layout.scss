@@ -8,8 +8,6 @@
     @include pos-top;
     position: fixed;
     top: 0;
-    background: color(header-background);
-    padding: $margin-small $margin-site-side;
     z-index: 999;
 }
 

@@ -1,1 +1,6 @@
 // Styleguide Components.Header
+
+.s-site__masthead {
+    background: color(header-background);
+    padding: $margin-small $margin-site-side;
+}
