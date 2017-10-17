@@ -1,19 +1,13 @@
 /* General */
 
-html,
-body {
-    height: 100%;
-}
-
 html {
-    background: color(body-back);
-    background:radial-gradient(ellipse at center, color(gradient-light) 20%, color(gradient-dark) 100%);
-    background-size: 100% 100%;
-    background-position: 50% 90%;
+    background: color(body-background);
     box-sizing: border-box;
     color: color(body-color);
     font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
     font-size: 100%;
+    font-size: 18px;
+    height: 100%;
     overflowX: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -22,9 +16,10 @@ html {
 }
 
 body {
+    @include clearfix;
+    background: radial-gradient(ellipse at center, color(gradient-light) 20%, color(gradient-dark) 60%);
     margin: 0;
     text-align: center;
-    font-size: 18px;
 }
 
 *,

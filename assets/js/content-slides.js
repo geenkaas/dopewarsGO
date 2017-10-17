@@ -16,3 +16,7 @@ $('[js-slide-button]').each(function() {
 	    initScreen();
 	});
 });
+
+function removeSlide(slide) {
+	slide.removeClass('c-slide--active').addClass('c-slide--remove');
+}

@@ -1,15 +1,12 @@
 // Styleguide Structure.Layout
 
-.s-site {
-    position: relative;
-}
-
 .s-site__masthead {
     @include pos-top;
     position: fixed;
     top: 0;
-    z-index: 999;
+    z-index: 666;
 }
 
-.s-site__content {
+.s-site {
+    position: relative;
 }
