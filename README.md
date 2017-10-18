@@ -15,10 +15,15 @@ The game should stay close to the original as much as it can but fix existing pr
 * run $ gulp
 * Load the /dist/index.html in your browser.
 
+### In progress
+* Geolocation (Arne)
+* Time based (Arne)
+
 ### TODO
 
 #### Front End
-* Geolocation
+* Dope Icons
+* Buggy controls mobile
 * Tutorial
 * Design and Style
 * Good hamburger menu
@@ -29,6 +34,7 @@ The game should stay close to the original as much as it can but fix existing pr
 * User registration (FB? Google? Email?)
 * Database storage of user data
 * Leaderboards (personal, friends and Wordlwide)
+* Achievements
 * Notifications (Player2 has beat your high score, get cracking!)
 * Multiplayer features
 
