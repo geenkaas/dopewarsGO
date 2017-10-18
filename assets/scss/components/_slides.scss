@@ -2,19 +2,28 @@
 // _slides.scss
 
 .c-slide {
-	@include transition-fast;
-	overflowY: scroll;
-	padding: 80px $margin-site-side $margin-small;
-	position: absolute;
-	top: 0;
-	transform: translateX(100%);
-	width: 100%;
+    @include transition-fast;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    display: none;
+    opacity: 0;
+    overflowY: scroll;
+    padding: 80px $margin-site-side $margin-small;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .c-slide.c-slide--active {
-	transform: translateX(0);
+    animation-name: pop-in;
+    display: block;
+    opacity: 1;
+    z-index: 2;
 }
 
 .c-slide--remove {
-	transform: translateX(-100%);
+    animation-name: pop-out;
+    z-index: 0;
 }

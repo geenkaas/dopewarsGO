@@ -178,6 +178,7 @@ function updateDay() {
                 updateButtons();
             }
         })
+        removeSlide($(this).closest('.c-slide'));
 
         alert(
             'Your final score is: ' + $('[js-cash]').find('span').html()
