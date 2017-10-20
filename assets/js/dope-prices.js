@@ -187,6 +187,7 @@ function updateDay() {
     } else {
         $('[js-day-curr]').html(parseInt($('[js-day-curr]').html()) + 1);
         setRandomPrices();
+        randomEvents();
     }
 }
 
