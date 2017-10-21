@@ -124,7 +124,7 @@ function dopeLow() {
 
     var eventContent = ('\
         <h2>Market flooded!</h2>\
-        <p>Rival gangs raided some pharmacies and cheap '+ eventDope.name +' has flooded the market</p>\
+        <p>Rival gangs raided some pharmacies and cheap '+ eventDope.name +' have flooded the market</p>\
         <div class="button" js-modal-close>Cool</div>\
     ');
     createModal(eventContent);
