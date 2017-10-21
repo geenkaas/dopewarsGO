@@ -8,9 +8,10 @@
     background: color(banner-background);
     color: color(banner-text);
     padding: 10px;
-    top: 52%;
+    top: 53%;
+    width: 65%;
     z-index: 3;
-    right: $margin-site-side;
     transform: rotate(-10deg);
-    width: 60%;
+    left: auto;
+    right: $margin-site-side;
 }

@@ -1,89 +1,19 @@
 // Styleguide Components.Modal
 
-.modal {
-    @include remove-margins;
-    @include pos-centered;
-    top: 40%;
+.c-modal {
+    @include pos-fullscreen;
     background: color(modal-background);
-    box-shadow: 0 5px 25px $black-30;
-    min-width: 320px;
+    animation: pop-in 200ms;
+    z-index: 999;
+}
+
+.c-modal__content {
+    @include pos-centered;
+    background: color(modal-content);
     padding: $margin-medium;
-    animation: pop-in 300ms;
+    width: calc(100% - (2 * #{$margin-site-side}));
 }
 
-.modal__header {
-    text-align: center;
-    background: color(modal-header-background);
-    color: $white;
-    margin-bottom: 20px;
-}
+.c-modal__close {
 
-.modal--small {
-    width: 30%;
-}
-
-.modal--medium {
-    width: 40%;
-}
-
-.modal--large {
-    width: 50%;
-}
-
-.modal--icon {
-    padding: $margin-medium $margin-medium $margin-medium $margin-largest;
-
-    &::before {
-        background: $white;
-        border-radius: 666em;
-        font-size: 32px;
-        font-weight: 700;
-        float: left;
-        line-height: 1.2em;
-        margin-right: $margin-medium;
-        position: absolute;
-        left: $margin-medium;
-        text-align: center;
-        width: 1.2em;
-        animation: pulse 800ms;
-        animation-iteration-count: infinite;
-    }
-}
-
-.modal--info {
-    &::before {
-        content: "!";
-        color: $blue;
-    }
-
-}
-
-.modal--valid {
-    &::before {
-        content: "!";
-        color: $green;
-    }
-}
-
-.modal--attention {
-    &::before {
-        content: "!";
-        color: $yellow;
-    }
-}
-
-.modal--warning {
-    &::before {
-        content: "!";
-        color: $red;
-    }
-}
-
-.modal--error {
-    background: $red;
-    color: $white;
-    &::before {
-        content: "\f2d3";
-        color: $white;
-    }
 }

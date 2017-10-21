@@ -5,11 +5,18 @@
 var cashStart = 2000;
 var cashCurr = cashStart;
 function updateCash(cashNew) {
-    $('[js-cash]').find('span').html(cashNew);
+    var cashOld = parseInt($('[js-cash]').find('span').html());
+    var cashUpdate = cashOld + cashNew;
+    $('[js-cash]').find('span').html(cashUpdate);
     cashCurr = parseInt($('[js-cash]').find('span').html());
     //console.log('Variable cashCurr is updated, new cashCurr = ' + cashCurr);
 }
 updateCash(cashStart);
+
+// Handle dopeAmount
+function updateDope(dope, amount) {
+
+};
 
 var dopelist = [];
 
@@ -19,8 +26,15 @@ function Dope(name, priceMin, priceMax, amount) {
     this.priceMin = priceMin;
     this.priceMax = priceMax;
     this.amount = amount;
-    this.priceCurr = function() {
-        var dopeRandom = Math.random();
+    this.priceCurr = function(multiplier) {
+        if (multiplier < 1) {
+            var dopeRandom = (Math.random() * multiplier);
+        } else if (multiplier === 1) {
+            var dopeRandom = Math.random();
+        } else if (multiplier > 1) {
+            var priceOffset = multiplier - 1;
+            var dopeRandom = (Math.random() / multiplier) + (priceOffset / multiplier);
+        }
         this.random = dopeRandom;
         return Math.floor(((priceMax - priceMin) + 1) * dopeRandom + priceMin);
     }
@@ -53,7 +67,42 @@ dopelist.forEach(function(dope) {
             <td js-dope-buy><button class="button button--trade button--buy">+</button></td>\
         </tr>\
     ')
-})
+});
+
+
+setRandomPrices();
+
+function setRandomPrices() {
+    dopelist.forEach(function(dope) {
+
+        var multiplier = 1;
+        updateDopePrice(dope, multiplier);
+
+    }); 
+    updateButtons();
+};
+
+function updateDopePrice(dope, multiplier) {
+    
+    var dopePriceNew = dope.priceCurr(multiplier);
+    var dopeChange = dope.random;
+    // Set the price
+    //dope.html(price);
+    var dopeToSet = $('[data-js-dope="'+ dope.name +'"]').find('[js-dope-price]');
+    dopeToSet.html(dopePriceNew);
+
+    var dopeRGB = 'rgb(255,255,255)';
+    var colorMultiplier = 255;
+    if (dopeChange > 0.5) {
+        var dopeRed = Math.floor(255 - ((dopeChange - 0.5) * colorMultiplier));
+        dopeRGB = 'rgb(255,'+dopeRed+','+dopeRed+')';
+    } else {
+        var dopeGreen = Math.floor(255 - ((0.5 - dopeChange) * colorMultiplier));
+        dopeRGB = 'rgb('+dopeGreen+',255,'+dopeGreen+')';
+    }
+
+    dopeToSet.css('color', dopeRGB);
+};
 
 function updateButtons() {
 
@@ -75,6 +124,7 @@ function updateButtons() {
 
         var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
         var buttonBuy = dopeCurr.find('[js-dope-buy]').find('.button--trade');
+    
         //console.log('dopeCurrPrice: ' + dopeCurrPrice + ' cashCurr: ' + cashCurr);
         if (dopeCurrPrice > cashCurr) {
             //console.log('bought and no more money left');
@@ -91,7 +141,7 @@ function updateButtons() {
             buttonBuy.addClass('button--disabled');
         }
 
-    })
+    });
 }
 
 $.event.special.tap.tapholdThreshold = 400;
@@ -103,6 +153,7 @@ $('.button--trade').on('tap', function() {
 
 function buttonTrade(thisButton, action) {
 
+    // Don;t do anything when buttons are disabled
     if (!thisButton.hasClass('button--disabled')) {
 
         var clickRow = thisButton.closest('tr');
@@ -111,6 +162,7 @@ function buttonTrade(thisButton, action) {
 
         var amount;
 
+        // Check whether user pressed or held button
         if (action === 'tap') {
             if (thisButton.hasClass('button--buy')) {
                 amount = 1;
@@ -125,20 +177,17 @@ function buttonTrade(thisButton, action) {
             }
         }
 
+        // Do a check that you cannot buy or sell more that your inventory allows
         var invCurr = $('[js-inv-curr]').html();
         var invMax = $('[js-inv-max]').html();
         var invFree = invMax - invCurr;
-
         if (amount > invFree) {
             amount = invFree;
         }
 
-        //console.log(amount);
-
-        var cashTemp = cashCurr - (cashTrade * amount);
-        updateCash(cashTemp);
+        var cashAfterTrade = (cashTrade * amount * -1);
+        updateCash(cashAfterTrade);
         updateDopeAmount(clickDope, amount);
-        updateButtons();
     }
 }
 
@@ -151,6 +200,7 @@ function updateDopeAmount(whichDope, changeAmount) {
         }
     }
     updateInv(changeAmount);
+    updateButtons();
 }
 
 function updateInv(amount) {
@@ -159,7 +209,7 @@ function updateInv(amount) {
     $('[js-inv-curr]').html(invNew);
 }
 
-$('[js-button-scootch]').on('tap', function() {x
+$('[js-button-jet]').on('tap', function() {
     updateDay();
 })
 
@@ -167,12 +217,12 @@ function updateDay() {
     if (parseInt($('[js-day-curr]').html()) == parseInt($('[js-day-max]').html())) {
 
         dopelist.forEach(function(dope) {
-            var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
+            var dopeCurr = $('[data-js-dope="'+ dope.name +'"]');
             var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
             if (dopeAmount > 0) {
 
                 var cashLeftOver = parseInt(dopeCurr.find('[js-dope-price]').html());
-                var cashTemp = cashCurr + (cashLeftOver * dopeAmount);
+                var cashTemp = (cashLeftOver * dopeAmount);
                 updateCash(cashTemp);
                 updateDopeAmount(dopeCurr, dopeAmount);
                 updateButtons();
@@ -190,28 +240,3 @@ function updateDay() {
         randomEvents();
     }
 }
-
-function setRandomPrices() {
-    dopelist.forEach(function(dope) {
-
-        var dopePriceNew = $('[data-js-dope="'+dope.name+'"]').find('[js-dope-price]');
-        dopePriceNew.html(dope.priceCurr());
-
-        //console.log(dope.name + '' + dope.random);
-        var dopeRGB = 'rgb(255,255,255)';
-        var colorMultiplier = 255;
-        if (dope.random > 0.5) {
-            var dopeRed = Math.floor(255 - ((dope.random - 0.5) * colorMultiplier));
-            dopeRGB = 'rgb(255,'+dopeRed+','+dopeRed+')';
-        } else {
-            var dopeGreen = Math.floor(255 - ((0.5 - dope.random) * colorMultiplier));
-            dopeRGB = 'rgb('+dopeGreen+',255,'+dopeGreen+')';
-        }
-        //console.log(dopeRGB);
-
-        dopePriceNew.css('color', dopeRGB);
-
-    })
-    updateButtons();
-}
-setRandomPrices();
