@@ -28,11 +28,11 @@ function getEventChange(Event, total) {
 };
 
 function getRandomEvent(eventMap) {
-    console.log(eventRNG * 100);
+    //console.log(eventRNG * 100);
     for (var i = 0; i < eventMap.length; i++) {
         //console.log(eventMap[i].chance >= eventRNG*100);
         if (eventMap[i].chance >= eventRNG * 100) {
-            console.log("returning " + eventMap[i].name);
+            //console.log("returning " + eventMap[i].name);
             eventRNG = Math.random();
             return eventMap[i];
         }
@@ -40,30 +40,22 @@ function getRandomEvent(eventMap) {
 };
 
 var eventTotal = 0;
-var eventMap = [];
-//https://stackoverflow.com/questions/31180331/loop-through-each-new-object-from-constructor#31180444
 eventList.forEach(function(event) {
-    //console.log(event.name);
-    //eventChance = event.chance;
-    //console.log(eventList);
-    //eventList.addedChance = 'eventChance';
-    //console.log(eventChance);
     eventTotal += event.chance;
-    //console.log(event.name + ': eventtotal: ' + eventTotal);
-
 });
 
+var eventMap = [];
 var range = 0;
 eventList.forEach(function(event) {
     range += getEventChange(event, eventTotal);
-    eventMap.push(new Event(event.name, range ));
+    eventMap.push(new Event(event.name, range));
     //console.log(event.name + " chance: " + getEventChange(event, eventTotal) + '%. Range <= ' + range);
 });
 //console.log(eventMap);
 
 function randomEvents() {
     var randomEventChance = Math.random();
-    var randomChanceTrigger = 0.5;
+    var randomChanceTrigger = 1;
     if (randomEventChance >= 1 - randomChanceTrigger) {
         randomChanceFire();
     }
@@ -72,4 +64,32 @@ function randomEvents() {
 function randomChanceFire() {
     var randomEvent = getRandomEvent(eventMap);
     //console.log(randomEvent);
+    window[randomEvent.name]();
+
+function officerHardass() {
+    alert('Officer Hardass is chasing you!');
+};
+
+function dopeRaid() {
+    alert('dopeRaid');
+};
+
+function dopeSupply() {
+    alert('dopeSupply!');
+};
+
+function dopeFound() {
+    alert('dopeFound');
+};
+
+function findCoat() {
+    alert('findCoat');
+};
+
+function pennyFound() {
+    alert('pennyFound');
+};
+
+function marrakeshExpress() {
+    alert('marrakeshExpress');
 };
