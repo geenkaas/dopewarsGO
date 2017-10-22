@@ -5,8 +5,8 @@
 
 // Create event list
 var eventList = [];
-var eventChance = 0;
 var eventRNG = Math.random();
+var randomChanceTrigger = 0.5;
 
 // Dope constructor function
 function Event(name, chance) {
@@ -17,11 +17,11 @@ function Event(name, chance) {
 }
 // event object instance
 var event1 = new Event('oldLady', 0),
-    event2 = new Event('officerHardass', 99910),
+    event2 = new Event('officerHardass', 20),
     event3 = new Event('dopeLow', 20),
     event4 = new Event('dopeHigh', 20),
     event5 = new Event('dopeFound', 20),
-    event7 = new Event('pennyFound', 20),
+    event7 = new Event('pennyFound', 30),
     event6 = new Event('findCoat', 0),
     event6 = new Event('findGun', 10);
 
@@ -60,7 +60,6 @@ eventList.forEach(function(event) {
 
 function randomEvents() {
     var randomEventChance = Math.random();
-    var randomChanceTrigger = 1;
     if (randomEventChance >= 1 - randomChanceTrigger) {
         randomChanceFire();
     }
