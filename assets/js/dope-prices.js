@@ -212,7 +212,7 @@ function updateDay() {
 
                 var cashLeftOver = parseInt(dopeCurr.find('[js-dope-price]').html());
                 player.cash += (cashLeftOver * dopeAmount);
-                updateStays();
+                updateStats();
                 updateDopeAmount(dopeCurr, dopeAmount);
                 updateButtons();
             }
