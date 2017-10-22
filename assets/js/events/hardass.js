@@ -72,6 +72,8 @@ function officerHardass() {
         var roundText;
         if (hardass.escapeChance >= (Math.random() * 100)) {
             //console.log('you escaped!');
+
+            $('.c-combat__controls').hide();
             roundText = 'You got away!';
             $('.c-combat__result').after('<div class="button" js-modal-close>Too close</div>');
             modalButtons();

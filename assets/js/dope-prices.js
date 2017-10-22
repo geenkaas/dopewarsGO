@@ -11,20 +11,22 @@ function Dope(name, priceMin, priceMax, amount) {
     this.priceMax = priceMax;
     this.amount = amount;
     this.priceCurr = function(multiplier) {
+        var priceTempMin;
+        var priceTempMax;
         if (multiplier < 1) {
-            priceMin = priceMin / 2;
-            priceMax = priceMax / 2;
+            priceTempMin = priceMin / 2;
+            priceTempMax = priceMax / 2;
         } else if (multiplier === 1) {
-            priceMin = priceMin;
-            priceMax = priceMax;
+            priceTempMin = priceMin;
+            priceTempMax = priceMax;
         } else if (multiplier > 1) {
-            priceMin = priceMax - priceMin;
-            priceMax = priceMax + priceMin;
+            priceTempMin = priceMax - priceMin;
+            priceTempMax = priceMax + priceMin;
         }
 
         var dopeRandom = Math.random();
         this.random = dopeRandom;
-        return Math.floor(((priceMax - priceMin) + 1) * dopeRandom + priceMin);
+        return Math.floor(((priceTempMax - priceTempMin) + 1) * dopeRandom + priceTempMin);
     }
     //https://jsfiddle.net/Panomosh/8bpmrso1/
     dopelist.push(this);
@@ -71,19 +73,26 @@ function setRandomPrices() {
 function updateDopePrice(dope, multiplier) {
     
     var dopePriceNew = dope.priceCurr(multiplier);
-    var dopeChange = dope.random;
-    // Set the price
-    //dope.html(price);
     var dopeToSet = $('[data-js-dope="'+ dope.name +'"]').find('[js-dope-price]');
     dopeToSet.html(dopePriceNew);
 
+    if (dopePriceNew < dope.priceMin ) {
+        console.log('Price below min');
+        dopePriceNew = dope.priceMin;
+    } else if (dopePriceNew > dope.priceMax) {
+        console.log('Price above max');
+        dopePriceNew = dope.priceMax;
+    }
+    var dopeValue = (dopePriceNew - dope.priceMin) / (dope.priceMax - dope.priceMin);
+    //console.log(dope.name+' '+dope.priceMin+' '+dope.random+' '+dopePriceNew+' '+dope.priceMax+' '+dopeValue);
+
     var dopeRGB = 'rgb(255,255,255)';
-    var colorMultiplier = 255;
-    if (dopeChange > 0.5) {
-        var dopeRed = Math.floor(255 - ((dopeChange - 0.5) * colorMultiplier));
+    var colorMultiplier = 255 * 2;
+    if (dopeValue > 0.5) {
+        var dopeRed = Math.floor(255 - ((dopeValue - 0.5) * colorMultiplier));
         dopeRGB = 'rgb(255,'+dopeRed+','+dopeRed+')';
     } else {
-        var dopeGreen = Math.floor(255 - ((0.5 - dopeChange) * colorMultiplier));
+        var dopeGreen = Math.floor(255 - ((0.5 - dopeValue) * colorMultiplier));
         dopeRGB = 'rgb('+dopeGreen+',255,'+dopeGreen+')';
     }
 
@@ -194,7 +203,7 @@ function updateDopeAmount(whichDope, changeAmount) {
 }
 
 function updateDay() {
-    if (parseInt($('[js-day-curr]').html()) == parseInt($('[js-day-max]').html())) {
+    if (player.dayCurr >= player.dayMax) {
 
         dopelist.forEach(function(dope) {
             var dopeCurr = $('[data-js-dope="'+ dope.name +'"]');
@@ -202,8 +211,8 @@ function updateDay() {
             if (dopeAmount > 0) {
 
                 var cashLeftOver = parseInt(dopeCurr.find('[js-dope-price]').html());
-                var cashTemp = (cashLeftOver * dopeAmount);
-                updateCash(cashTemp);
+                player.cash += (cashLeftOver * dopeAmount);
+                updateStays();
                 updateDopeAmount(dopeCurr, dopeAmount);
                 updateButtons();
             }
@@ -211,11 +220,12 @@ function updateDay() {
         removeSlide($(this).closest('.c-slide'));
 
         alert(
-            'Your final score is: ' + $('[js-cash]').find('span').html()
+            'Your final score is: ' + player.cash
         );
         window.location.reload(true);
     } else {
-        $('[js-day-curr]').html(parseInt($('[js-day-curr]').html()) + 1);
+        player.dayCurr += 1;
+        updateStats();
         setRandomPrices();
         randomEvents();
     }

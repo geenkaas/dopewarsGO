@@ -6,7 +6,7 @@
 // Create event list
 var eventList = [];
 var eventRNG = Math.random();
-var randomChanceTrigger = 0.5;
+var randomChanceTrigger = 0.6;
 
 // Dope constructor function
 function Event(name, chance) {
@@ -22,7 +22,7 @@ var event1 = new Event('oldLady', 0),
     event4 = new Event('dopeHigh', 20),
     event5 = new Event('dopeFound', 20),
     event7 = new Event('pennyFound', 30),
-    event6 = new Event('findCoat', 0),
+    event6 = new Event('findCoat', 10),
     event6 = new Event('findGun', 10);
 
 function getEventChange(Event, total) {
@@ -104,7 +104,7 @@ function dopeHigh() {
     } else if (eventRandom > 0.66) {
         dopeText = 'Cops made a big '+ eventDope.name +' bust! Prices are outrageous!';
     } else {
-        dopeText = 'The police raided a big '+ eventDope.name +' warehouse, prices have skyrocketed!';
+        dopeText = 'The police raided a big '+ eventDope.name +' warehouse. Prices have skyrocketed!';
     }
 
     var eventContent = ('\
@@ -113,7 +113,7 @@ function dopeHigh() {
         <div class="button" js-modal-close>Alright</div>\
     ');
     createModal(eventContent);
-    updateDopePrice(eventDope, 5);
+    updateDopePrice(eventDope, 2);
 };
 
 function dopeLow() {
@@ -131,13 +131,24 @@ function dopeLow() {
         <p>'+ dopeText +'</p>\
         <div class="button" js-modal-close>Cool</div>\
     ');
+    var sendDopeName = dopelist.filter(function( eventDope ) {
+        return dopelist.name === eventDope;
+    });
     createModal(eventContent);
-
     updateDopePrice(eventDope, 0.1)
 };
 
 function findCoat() {
-    alert('findCoat');
+    var eventContent = ('\
+        <h2>Trench coat</h2>\
+        <p>You find an awesome trenchcoat with extra pockets!</p>\
+        <div class="c-button-group">\
+            <div class="button" js-modal-close>Stylish!</div>\
+        </div>\
+    ');
+    player.invMax += 10;
+    updateStats();
+    createModal(eventContent);
 };
 
 
@@ -194,7 +205,8 @@ function pennyFound() {
         <div class="button" js-modal-close>Rad!</div>\
     ');
     createModal(eventContent);
-    updateCash(eventAmount);
+    player.cash += eventAmount;
+    updateStats();
 };
 
 function dopeFound() {
