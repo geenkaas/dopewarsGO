@@ -1,3 +1,8 @@
+// random-events.js
+// Scripts that initiate random events, called from dope-prices.js
+
+'use strict';
+
 // Create event list
 var eventList = [];
 var eventChance = 0;
@@ -12,13 +17,13 @@ function Event(name, chance) {
 }
 // event object instance
 var event1 = new Event('oldLady', 0),
-    event2 = new Event('officerHardass', 0),
+    event2 = new Event('officerHardass', 10),
     event3 = new Event('dopeLow', 20),
     event4 = new Event('dopeHigh', 20),
     event5 = new Event('dopeFound', 20),
     event7 = new Event('pennyFound', 20),
     event6 = new Event('findCoat', 0),
-    event6 = new Event('findGun', 0);
+    event6 = new Event('findGun', 999910);
 
 function getEventChange(Event, total) {
 // Total value could be calculated within function or own function.
@@ -55,7 +60,7 @@ eventList.forEach(function(event) {
 
 function randomEvents() {
     var randomEventChance = Math.random();
-    var randomChanceTrigger = 0.5;
+    var randomChanceTrigger = 1;
     if (randomEventChance >= 1 - randomChanceTrigger) {
         randomChanceFire();
     }
@@ -66,6 +71,7 @@ function randomEvents() {
 function dopeArray(name) {
     this.name = name
 }
+
 var dopeMap = [];
 dopelist.forEach(function(dope) {
     dopeMap.push(new dopeArray(dope.name));
@@ -78,7 +84,6 @@ function randomChanceFire() {
     window[randomEvent.name]();
 };
 
-
 // General function to select one random dope
 // https://stackoverflow.com/questions/45950245/jquery-pick-a-random-property-from-an-object
 var randomDope = function(obj) {
@@ -90,57 +95,102 @@ function oldLady() {
     alert('oldLady');
 };
 
-function officerHardass() {
-
-    var eventContent = ('\
-        <h2>Shit, the pigs!</h2>\
-        <p>Officer Hardass and his deputies are chasing you!</p>\
-        <div class="c-health--hardass">Hardass: <span>100</span></div>\
-        <div class="c-health--you">You: <span>100</span></div>\
-        <p>what do you do?</p>\
-        <div class="button button--inline" js-hardass-run>Run</div>\
-        <div class="button button--inline" js-hardass-fight>Fight</div>\
-        <div class="button button--inline" js-hardass-bribe>Bribe</div>\
-    ');
-
-    createModal(eventContent);
-};
-
 function dopeHigh() {
     var eventDope = randomDope(dopelist);
 
+    var eventRandom = Math.random();
+    var dopeText;
+    if (eventRandom > 0.33) {
+        dopeText = 'Addicts are buying '+ eventDope.name +' for ridiculous prices!';
+    } else if (eventRandom > 0.66) {
+        dopeText = 'Cops made a big '+ eventDope.name +' bust! Prices are outrageous!';
+    } else {
+        dopeText = 'The police raided a big '+ eventDope.name +' warehouse, prices have skyrocketed!';
+    }
+
     var eventContent = ('\
         <h2>Drug Bust!</h2>\
-        <p>Cops made a big '+ eventDope.name +' bust, prices are outrageous!</p>\
+        <p>'+ dopeText +'</p>\
         <div class="button" js-modal-close>Alright</div>\
     ');
     createModal(eventContent);
-
     updateDopePrice(eventDope, 5);
 };
 
 function dopeLow() {
     var eventDope = randomDope(dopelist);
 
+    var dopeText;
+    if (eventDope === 'Hashish') {
+        dopeText = 'The Marrakesh Express has arrived!'
+    } else {
+        dopeText = 'Rival gangs raided some pharmacies and cheap '+ eventDope.name +' has flooded the market'
+    }
+
     var eventContent = ('\
         <h2>Market flooded!</h2>\
-        <p>Rival gangs raided some pharmacies and cheap '+ eventDope.name +' has flooded the market</p>\
+        <p>'+ dopeText +'</p>\
         <div class="button" js-modal-close>Cool</div>\
     ');
     createModal(eventContent);
 
-    updateDopePrice(eventDope, 0.1)};
+    updateDopePrice(eventDope, 0.1)
+};
 
 function findCoat() {
     alert('findCoat');
 };
 
+
+function findGun() {
+    var gunPrice = 100;
+    if (player.cash >= gunPrice) {
+        var eventContent = ('\
+            <h2>Carrying</h2>\
+            <p>Do you want to buy a gun for $'+ gunPrice +'?</p>\
+            <div class="c-gun__controls">\
+                <div class="button button--inline" js-gun-buy>Yeah!</div>\
+                <div class="button button--inline" js-modal-close>Nah</div>\
+            </div>\
+        ');  
+    } else {
+        var eventContent = ('\
+            <h2>Low on cash</h2>\
+            <p>Someone offers to sell you a gun for $'+ gunPrice +'? but you are broke!</p>\
+            <div class="c-gun__controls">\
+                <div class="button" js-modal-close>Shucks!</div>\
+            </div>\
+        ');
+    }
+    createModal(eventContent);
+    buyGunButton();
+
+    function buyGunButton() {
+        $('[js-gun-buy]').on('tap', function() {
+            player.cash -= 100;
+            player.gun += 1;
+            updateCash(gunPrice * -1);
+            $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
+        });
+    };
+};
+
 function pennyFound() {
     var eventAmount = Math.floor(Math.random() * 100) + 1;
 
+    var eventRandom = Math.random();
+    var dopeText;
+    if (eventRandom > 0.33) {
+        dopeText = 'Someone left some cash in an alley, you find $'+ eventAmount +'.';
+    } else if (eventRandom > 0.66) {
+        dopeText = 'Your auntie May died and she left you $'+ eventAmount +' inheritance.';
+    } else {
+        dopeText = 'The cashier made a mistake on your change, you keep $'+ eventAmount +' extra.';
+    }
+    
     var eventContent = ('\
         <h2>Free monies!</h2>\
-        <p>Someone left some cash in an alley, you find $'+ eventAmount +'.</p>\
+        <p>'+ dopeText +'</p>\
         <div class="button" js-modal-close>Rad!</div>\
     ');
     createModal(eventContent);
@@ -149,15 +199,26 @@ function pennyFound() {
 
 function dopeFound() {
     var eventDope = randomDope(dopelist).name;
+
+    var eventAmountMax = 5;
+    var eventAmount = Math.floor(Math.random() * eventAmountMax) + 1;
+
+    var eventRandom = Math.random();
+    var dopeText;
+    if (eventRandom > 0.33) {
+        dopeText = 'You find '+ eventAmount +' ' + eventDope +' on the subway.';
+    } else if (eventRandom > 0.66) {
+        dopeText = 'An old friend drops by and he gives you '+ eventAmount +' '+ eventDope +'.';
+    } else {
+        dopeText = 'In the back of your pocket you find '+ eventAmount +' '+ eventDope +'!';
+    }
+
     // Prevent expensive dope from lying around.
     if (!((eventDope == 'Cocaine') || (eventDope == 'Heroin'))) {
 
-        var eventAmountMax = 5;
-        var eventAmount = Math.floor(Math.random() * eventAmountMax) + 1;
-
         var eventContent = ('\
             <h2>Free Dope!</h2>\
-            <p>You find '+ eventAmount +' ' + eventDope +' on the subway.</p>\
+            <p>'+ dopeText +'</p>\
             <div class="button" js-modal-close>Score!</div>\
         ');
         createModal(eventContent);

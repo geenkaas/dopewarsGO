@@ -3,12 +3,6 @@
 
 'use strict';
 
-function modalButtons() {
-    $('.c-modal__close, [js-modal-close]').on('click', function() {
-        $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
-    });
-};
-
 function createModal(content) {
    $('body').append('\
         <div class="c-modal">\

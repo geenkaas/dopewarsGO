@@ -2,8 +2,9 @@
 
 .c-modal {
     @include pos-fullscreen;
-    background: color(modal-background);
     animation: pop-in 200ms;
+    background: color(modal-background);
+    color: color(modal-text);
     z-index: 999;
 }
 

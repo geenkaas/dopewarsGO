@@ -2,22 +2,6 @@
 
 'use strict';
 
-var cashStart = 2000;
-var cashCurr = cashStart;
-function updateCash(cashNew) {
-    var cashOld = parseInt($('[js-cash]').find('span').html());
-    var cashUpdate = cashOld + cashNew;
-    $('[js-cash]').find('span').html(cashUpdate);
-    cashCurr = parseInt($('[js-cash]').find('span').html());
-    //console.log('Variable cashCurr is updated, new cashCurr = ' + cashCurr);
-}
-updateCash(cashStart);
-
-// Handle dopeAmount
-function updateDope(dope, amount) {
-
-};
-
 var dopelist = [];
 
 // Dope constructor function
@@ -28,13 +12,16 @@ function Dope(name, priceMin, priceMax, amount) {
     this.amount = amount;
     this.priceCurr = function(multiplier) {
         if (multiplier < 1) {
-            var dopeRandom = (Math.random() * multiplier);
+            priceMin = priceMin / 2;
+            priceMax = priceMax / 2;
         } else if (multiplier === 1) {
-            var dopeRandom = Math.random();
+
         } else if (multiplier > 1) {
-            var priceOffset = multiplier - 1;
-            var dopeRandom = (Math.random() / multiplier) + (priceOffset / multiplier);
+            priceMin = priceMax - priceMin;
+            priceMax = priceMax + priceMin;
         }
+
+        var dopeRandom = Math.random();
         this.random = dopeRandom;
         return Math.floor(((priceMax - priceMin) + 1) * dopeRandom + priceMin);
     }
@@ -78,8 +65,7 @@ function setRandomPrices() {
         var multiplier = 1;
         updateDopePrice(dope, multiplier);
 
-    }); 
-    updateButtons();
+    });
 };
 
 function updateDopePrice(dope, multiplier) {
@@ -102,6 +88,7 @@ function updateDopePrice(dope, multiplier) {
     }
 
     dopeToSet.css('color', dopeRGB);
+    updateButtons();
 };
 
 function updateButtons() {
@@ -149,11 +136,11 @@ $('.button--trade').on('tap', function() {
     buttonTrade($(this), 'tap');
 }).on('taphold', function() {
     buttonTrade($(this), 'taphold');
-})
+});
 
 function buttonTrade(thisButton, action) {
 
-    // Don;t do anything when buttons are disabled
+    // Don't do anything when buttons are disabled
     if (!thisButton.hasClass('button--disabled')) {
 
         var clickRow = thisButton.closest('tr');
@@ -173,13 +160,13 @@ function buttonTrade(thisButton, action) {
             if (thisButton.hasClass('button--buy')) {
                 amount = Math.floor(cashCurr / cashTrade);
             } else {
-                amount = clickRow.find('[js-dope-amount]').html() * -1;
+                amount = clickRow.find('[js-dope-amount]').html() * - 1;
             }
         }
 
         // Do a check that you cannot buy or sell more that your inventory allows
-        var invCurr = $('[js-inv-curr]').html();
-        var invMax = $('[js-inv-max]').html();
+        var invCurr = player.invCurr;
+        var invMax = player.invMax;
         var invFree = invMax - invCurr;
         if (amount > invFree) {
             amount = invFree;
@@ -204,9 +191,10 @@ function updateDopeAmount(whichDope, changeAmount) {
 }
 
 function updateInv(amount) {
-    var invCurr = parseInt($('[js-inv-curr]').html());
-    var invNew = invCurr + amount;
-    $('[js-inv-curr]').html(invNew);
+    var invCurr = player.invCurr;
+    //var invNew = invCurr + amount;
+    player.invCurr += amount;
+    $('[js-inv-curr]').html(player.invCurr);
 }
 
 $('[js-button-jet]').on('tap', function() {
