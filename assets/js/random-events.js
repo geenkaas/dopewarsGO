@@ -17,13 +17,13 @@ function Event(name, chance) {
 }
 // event object instance
 var event1 = new Event('oldLady', 0),
-    event2 = new Event('officerHardass', 10),
+    event2 = new Event('officerHardass', 99910),
     event3 = new Event('dopeLow', 20),
     event4 = new Event('dopeHigh', 20),
     event5 = new Event('dopeFound', 20),
     event7 = new Event('pennyFound', 20),
     event6 = new Event('findCoat', 0),
-    event6 = new Event('findGun', 999910);
+    event6 = new Event('findGun', 10);
 
 function getEventChange(Event, total) {
 // Total value could be calculated within function or own function.
@@ -148,7 +148,7 @@ function findGun() {
         var eventContent = ('\
             <h2>Carrying</h2>\
             <p>Do you want to buy a gun for $'+ gunPrice +'?</p>\
-            <div class="c-gun__controls">\
+            <div class="c-button-group c-gun__controls">\
                 <div class="button button--inline" js-gun-buy>Yeah!</div>\
                 <div class="button button--inline" js-modal-close>Nah</div>\
             </div>\
@@ -156,9 +156,9 @@ function findGun() {
     } else {
         var eventContent = ('\
             <h2>Low on cash</h2>\
-            <p>Someone offers to sell you a gun for $'+ gunPrice +'? but you are broke!</p>\
+            <p>Someone offers to sell you a bigger gun for $'+ gunPrice +' but you are broke!</p>\
             <div class="c-gun__controls">\
-                <div class="button" js-modal-close>Shucks!</div>\
+                <div class="button" js-modal-close>Bummer!</div>\
             </div>\
         ');
     }
@@ -168,8 +168,9 @@ function findGun() {
     function buyGunButton() {
         $('[js-gun-buy]').on('tap', function() {
             player.cash -= 100;
+            player.invCurr += 5;
             player.gun += 1;
-            updateCash(gunPrice * -1);
+            updateStats();
             $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
         });
     };

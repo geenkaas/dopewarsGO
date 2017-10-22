@@ -7,6 +7,7 @@
 }
 
 .c-health {
+    border: 2px solid $white;
     padding: 2px;
     text-align: left;
     width: 100%;
@@ -23,11 +24,9 @@
 }
 
 .c-health--enemy {
-    border: 2px solid $red;
 }
 
 .c-health--player {
-    border: 2px solid $blue;
 }
 
 .c-combat__result {

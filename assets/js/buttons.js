@@ -13,3 +13,7 @@ function modalButtons() {
         $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
     });
 };
+
+$('[js-button-jet]').on('tap', function() {
+    updateDay();
+});

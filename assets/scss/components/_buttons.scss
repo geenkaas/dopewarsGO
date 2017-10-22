@@ -31,11 +31,14 @@
     margin-bottom: $margin-medium;
 }
 
+.c-button-group {
+    text-align: center;
+}
+
 .button--inline {
     display: inline-block;
     font-size: $font-size-small;
     letter-spacing: -1px;
-    float: left;
     margin-right: 8px;
     padding: 10px 8px 8px;
     width: auto;
