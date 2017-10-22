@@ -162,9 +162,9 @@ gulp.task('svg', function () {
 
 // Watch task
 gulp.task('default', ['duplicator', 'sass', 'js-vendor', 'js-custom', 'images', 'svg', 'browser-sync'], function () {
-    gulp.watch('images/*.{png,jpg,gif}', ['images']);
-    gulp.watch('images/*.svg', ['svg']);
+    gulp.watch('images/**/*.{png,jpg,gif}', ['images']);
+    gulp.watch('images/**/*.svg', ['svg']);
     gulp.watch(['./**/*.html', './**/*.php'], ['duplicator']);
     gulp.watch(['scss/**/*.{scss, css}'], ['sass']);
-    gulp.watch(['./js/*.js', './js/vendor/*.js', '!./js/*.min.js'], ['js-watch']);
+    gulp.watch(['./js/**/*.js', './js/vendor/**/*.js', '!./js/**/*.min.js'], ['js-watch']);
 });

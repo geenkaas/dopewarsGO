@@ -1,0 +1,33 @@
+// Styleguide Components.Combat
+//_combat.scss
+
+.c-combat {
+    @include clearfix;
+    margin-bottom: $margin-medium;
+}
+
+.c-health {
+    border: 2px solid $white;
+    padding: 2px;
+    text-align: left;
+    width: 100%;
+
+    span {
+        background: $green;
+        border: 1px solid $black-50;
+        color: $white;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+
+}
+
+.c-health--enemy {
+}
+
+.c-health--player {
+}
+
+.c-combat__result {
+}

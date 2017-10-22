@@ -3,14 +3,21 @@
 .c-modal {
     @include pos-fullscreen;
     background: color(modal-background);
-    animation: pop-in 200ms;
+    color: color(modal-text);
     z-index: 999;
+
+    .button {
+        background: color(modal-button-background);
+        color: color(modal-button-text);
+    }
 }
 
 .c-modal__content {
     @include pos-centered;
+    top: 50%;
+    animation: pop-in 200ms;
     background: color(modal-content);
-    padding: $margin-medium;
+    padding: $margin-medium $margin-small;
     width: calc(100% - (2 * #{$margin-site-side}));
 }
 
