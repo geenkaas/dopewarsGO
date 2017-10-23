@@ -1,6 +1,8 @@
 // buttons.js
 // General button funtionality
 
+'use strict';
+
 function restartButtons() {
     $('[js-game-restart]').on('tap', function() {
         //console.log('dead');

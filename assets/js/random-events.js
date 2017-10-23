@@ -14,10 +14,11 @@ function Event(name, chance) {
     this.chance = chance;
     //https://jsfiddle.net/Panomosh/8bpmrso1/
     eventList.push(this);
-}
+};
+
 // event object instance
 var event1 = new Event('oldLady', 0),
-    event2 = new Event('officerHardass', 9910),
+    event2 = new Event('officerHardass', 10),
     event3 = new Event('dopeLow', 10),
     event4 = new Event('dopeHigh', 10),
     event5 = new Event('dopeFound', 5),
@@ -59,41 +60,12 @@ eventList.forEach(function(event) {
 });
 //console.log(eventMap);
 
-
-// Get a simple list with all dope
-// Dope list constructor function
-function dopeArray(name) {
-    this.name = name
-}
-
-var dopeMap = [];
-dopelist.forEach(function(dope) {
-    dopeMap.push(new dopeArray(dope.name));
-    //console.log(event.name + " chance: " + getEventChange(event, eventTotal) + '%. Range <= ' + range);
-});
-
 function randomEvents() {
     var randomEventChance = Math.random();
     if (randomEventChance >= 1 - randomChanceTrigger) {
-        randomChanceFire();
+        var randomEvent = getRandomEvent(eventMap);
+        //console.log(randomEvent);
+        // This loads a function with the name of the event selected randomly
+        window[randomEvent.name]();
     }
-};
-
-function randomChanceFire() {
-    var randomEvent = getRandomEvent(eventMap);
-    //console.log(randomEvent);
-    window[randomEvent.name]();
-};
-
-// General function to select one random dope
-// https://stackoverflow.com/questions/45950245/jquery-pick-a-random-property-from-an-object
-var randomDope = function(obj) {
-    var keys = Object.keys(obj)
-    return obj[keys[ keys.length * Math.random() << 0]];
-};
-
-// General function to get one random form array
-// https://stackoverflow.com/questions/6470121/jquery-pick-a-random-value-from-a-array-of-strings
-function randomFrom(array) {
-    return array[Math.floor(Math.random() * array.length)];
 };
