@@ -49,6 +49,7 @@
 }
 
 .button--trade {
+    @include awesome;
     background: color(button-trade-background);
     color: color(button-trade-text);
     height: $button-dimension;
@@ -57,6 +58,14 @@
     padding: 0;
     text-align: center;
     width: $button-dimension;
+}
+
+.button--buy {
+    content: "\f068";
+}
+
+.button--sell {
+    content: "\f068";
 }
 
 .button--disabled {

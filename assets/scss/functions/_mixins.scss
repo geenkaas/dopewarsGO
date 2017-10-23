@@ -3,6 +3,8 @@
 @mixin awesome {
     font-family: 'FontAwesome';
     content: '\f00d';
+    -moz-osx-font-smoothing: none;
+    -webkit-font-smoothing: none;
 }
 
 @mixin pixelfont {

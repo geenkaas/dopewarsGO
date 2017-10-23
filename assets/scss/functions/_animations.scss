@@ -45,3 +45,12 @@
         opacity: 1;
     }
 }
+
+@keyframes background {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-33%);
+    }
+}

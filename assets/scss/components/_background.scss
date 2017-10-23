@@ -1,0 +1,9 @@
+// Styleguide Components.Background
+
+.c-background {
+    @include pos-fullscreen;
+    height: 300vw;
+    background: url(../images/dopewars-background.jpg) center top no-repeat;
+    background-size: cover;
+    animation: background 5000ms linear 1 forwards;
+}

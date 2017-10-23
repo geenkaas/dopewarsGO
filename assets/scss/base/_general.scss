@@ -17,7 +17,6 @@ html {
 
 body {
     @include clearfix;
-    background: radial-gradient(ellipse at center, color(gradient-light) 20%, color(gradient-dark) 60%);
     margin: 0;
     text-align: center;
 }
