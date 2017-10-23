@@ -4,7 +4,7 @@
     @include pos-fullscreen;
     background: color(modal-background);
     color: color(modal-text);
-    z-index: 999;
+    z-index: 555;
 
     .button {
         background: color(modal-button-background);
@@ -13,12 +13,13 @@
 }
 
 .c-modal__content {
-    @include pos-centered;
-    top: 50%;
+    position: fixed;
+    bottom: 20%;
+    left: $body-margin;
     animation: pop-in 200ms;
     background: color(modal-content);
     padding: $margin-medium $margin-small;
-    width: calc(100% - (2 * #{$margin-site-side}));
+    width: calc(100% - (2 * #{$body-margin}));
 }
 
 .c-modal__close {

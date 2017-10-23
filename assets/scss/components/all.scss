@@ -2,17 +2,13 @@
 
 // Sctructure (Big blocks that form the layout of the page)
 @import "background";
-@import "content";
-@import "articles";
 @import "slides";
-@import "sidebar";
 
 // General blocks (Chunks of content, widgets, banners and other small parts.)
 @import "logo";
 @import "hamburger";
 @import "buttons";
 @import "modal";
-@import "notice";
 @import "banner";
 @import "combat";
 

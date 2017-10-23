@@ -6,11 +6,11 @@
 function randomQuote() {
 
     var quoteArray = [
-        'I was raised a Christian and turned into a stone-faced acid head.',
+        'I was raised a Christian and turned into a stone-faced acid head',
         'Who are the Warriors?',
-        'I am not a demon. I am a lizard, a shark, a heat-seeking panther.',
-        'Avoid all needle drugs, the only dope worth shooting is Richard Nixon.',
-        'I have never been to New Zealand before. But one of my role models, Xena, the warrior princess, comes from there.'
+        'I am not a demon. I am a lizard, a shark, a heat-seeking panther',
+        'Avoid all needle drugs, the only dope worth shooting is Richard Nixon',
+        'I have never been to New Zealand before. But one of my role models, Xena, the warrior princess, comes from there'
     ];
     var quoteSelect = randomFrom(quoteArray);
 
