@@ -52,9 +52,9 @@ dopelist.forEach(function(dope) {
         <tr js-dope data-js-dope="'+ dope.name +'">\
             <td>'+dope.name+'</td>\
             <td js-dope-amount>'+ dope.amount +'</td>\
-            <td js-dope-sell><button class="button button--trade button--sell">-</button></td>\
+            <td js-dope-sell><button class="button button--trade button--sell"></button></td>\
             <td js-dope-price></td>\
-            <td js-dope-buy><button class="button button--trade button--buy">+</button></td>\
+            <td js-dope-buy><button class="button button--trade button--buy"></button></td>\
         </tr>\
     ')
 });
@@ -218,7 +218,7 @@ function updateDay() {
         updateStats();
         removeSlide($(this).closest('.c-slide'));
 
-        var endScore = formatNumber(player.cash)
+        var endScore = digits(player.cash)
 
         var eventContent = ('\
             <h2>Doperun over!</h2>\

@@ -3,8 +3,16 @@
 @mixin awesome {
     font-family: 'FontAwesome';
     content: '\f00d';
-    -moz-osx-font-smoothing: none;
-    -webkit-font-smoothing: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
 }
 
 @mixin pixelfont {
@@ -29,7 +37,7 @@
 }
 
 @mixin text-shadow-small {
-    text-shadow: 0 1px 0 $black-90;
+    text-shadow: 0 1px 0 $black-70;
 }
 
 @mixin text-shadow-medium {

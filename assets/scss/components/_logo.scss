@@ -11,8 +11,8 @@
 
 .c-logo--main {
     @include text-shadow-medium;
+    font-size: 24px;
     float: left;
-    line-height: $min-touch-height;
 }
 
 .c-logo-splash {

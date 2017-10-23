@@ -42,9 +42,10 @@ table {
     tbody {
         tr {
             font-size: $font-size-large;
-            line-height: 40px;           
+            line-height: $button-dimension;
+
             td {
-                padding: 0;
+                padding: 2px 0;
 
                 &:first-child {
                     text-align: left;

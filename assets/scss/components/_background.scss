@@ -3,7 +3,8 @@
 .c-background {
     @include pos-fullscreen;
     height: 300vw;
+    bottom: 0;
     background: url(../images/dopewars-background.jpg) center top no-repeat;
     background-size: cover;
-    animation: background 5000ms linear 1 forwards;
+    animation: background 7000ms linear 1 forwards;
 }

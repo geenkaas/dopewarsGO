@@ -2,14 +2,15 @@
 
 .button {
     @include pixelfont;
-    @include text-shadow-small;
     @include transition-medium;
     background: color(button-background);
     border: none;
-    border-radius: 666em;
+    border-radius: 16px;
+    font-size: 16px;
     color: color(button-text);
     cursor: pointer;
     display: inline-block;
+    letter-spacing: -1px;
     line-height: 1;
     margin-bottom: $margin-small;
     padding: 15px 10px;
@@ -27,7 +28,6 @@
 
 /* Variations (Sizes or locations) */
 .button--primary {
-    font-size: $font-size-small;
     margin-bottom: $margin-medium;
 }
 
@@ -37,7 +37,7 @@
 
 .button--inline {
     display: inline-block;
-    font-size: $font-size-small;
+    font-size: 1spx;
     letter-spacing: -1px;
     margin-right: 8px;
     padding: 10px 8px 8px;
@@ -49,7 +49,6 @@
 }
 
 .button--trade {
-    @include awesome;
     background: color(button-trade-background);
     color: color(button-trade-text);
     height: $button-dimension;
@@ -58,14 +57,23 @@
     padding: 0;
     text-align: center;
     width: $button-dimension;
+    &::after{
+        @include awesome;
+        display: inline-block;
+        position: right;
+    }
 }
 
 .button--buy {
-    content: "\f068";
+    &::after{
+        content: "\f067";
+    }
 }
 
 .button--sell {
-    content: "\f068";
+    &::after{
+        content: "\f068";
+    }
 }
 
 .button--disabled {

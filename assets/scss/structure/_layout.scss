@@ -2,8 +2,11 @@
 
 .s-site__masthead {
     @include pos-top;
+    background: color(header-background);
+    padding: 100px $margin-site-side $margin-small;
+    padding-top: 11em;
     position: fixed;
-    top: 0;
+    top: -190px;
     z-index: 666;
 }
 

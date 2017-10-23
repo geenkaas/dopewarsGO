@@ -23,7 +23,7 @@ var player = Object.create(PlayerConstruct);
 function updateStats() {
     $('[js-day-curr]').html(player.dayCurr);
     $('[js-day-max]').html(player.dayMax);
-    $('[js-cash]').find('span').html(player.cash);
+    $('[js-cash]').find('span').html(digits(player.cash));
     $('[js-inv-curr]').html(player.invCurr);
     $('[js-inv-max]').html(player.invMax);
 };
