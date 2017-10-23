@@ -71,7 +71,7 @@ function setRandomPrices() {
 };
 
 function updateDopePrice(dope, multiplier) {
-    
+
     var dopePriceNew = dope.priceCurr(multiplier);
     var dopeToSet = $('[data-js-dope="'+ dope.name +'"]').find('[js-dope-price]');
     dopeToSet.html(dopePriceNew);
@@ -121,7 +121,7 @@ function updateButtons() {
 
         var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
         var buttonBuy = dopeCurr.find('[js-dope-buy]').find('.button--trade');
-    
+
         if (dopeCurrPrice > player.cash) {
             //console.log('bought and no more money left');
             buttonBuy.addClass('button--disabled');
@@ -203,6 +203,7 @@ function updateDopeAmount(whichDope, changeAmount) {
 }
 
 function updateDay() {
+    setRandomPrices();
     if (player.dayCurr >= player.dayMax) {
 
         dopelist.forEach(function(dope) {
@@ -211,22 +212,20 @@ function updateDay() {
             if (dopeAmount > 0) {
 
                 var cashLeftOver = parseInt(dopeCurr.find('[js-dope-price]').html());
-                player.cash += (cashLeftOver * dopeAmount);
-                updateStats();
-                updateDopeAmount(dopeCurr, dopeAmount);
-                updateButtons();
+                player.cash += cashLeftOver * dopeAmount;
             }
         })
-        removeSlide($(this).closest('.c-slide'));
+        updateStats();
+        // Needed?
+        //removeSlide($(this).closest('.c-slide'));
 
         alert(
-            'Your final score is: ' + player.cash
+            'Your final score is: ' + (player.cash).digits()
         );
         window.location.reload(true);
     } else {
         player.dayCurr += 1;
         updateStats();
-        setRandomPrices();
         randomEvents();
     }
 }
