@@ -16,19 +16,23 @@ The game should stay close to the original as much as it can but fix existing pr
 * Load the /dist/index.html in your browser.
 
 ### In progress
-* Geolocation (Arne)
-* Time based (Arne)
+* Random events (Arne)
+* Design and Style (Arne)
+* Dope Icons (Marley)
+* Script cleanup (Michael)
+* Music (Robin)
+* Scoreboard (Willem)
 
 ### TODO
 
 #### Front End
-* Dope Icons
-* Buggy controls mobile
+* Geolocation
+* Time based
+* Buggy controls mobile (doubletap zoom)
 * Tutorial
-* Design and Style
-* Good hamburger menu
+* Hamburger menu
+* Player stats
 * Logo
-* Better sliding "pages" with a fixed header and scrollable content
 
 #### Back end
 * User registration (FB? Google? Email?)
@@ -54,7 +58,9 @@ The game should stay close to the original as much as it can but fix existing pr
 * Rudementary style
 * Basic working prototype
 * Fix for button events
-
-* tap and taphold functions
-* better interface
-
+* Tap and taphold functions
+* Better interface
+* Better sliding "pages" with a fixed header and scrollable content
+-- 23 oct 2017
+* Random events
+* Interface improvements
