@@ -16,7 +16,7 @@ function officerHardass() {
         bribeCost: 500
     };
 
-    // Create new player type called player1 
+    // Create new player type called player1
     var hardass = Object.create(HardassConstruct);
 
     var eventContent = ('\

@@ -94,6 +94,14 @@ function oldLady() {
     alert('oldLady');
 };
 
+function quotes() {
+    //I was raised a Christian and turned into a stone-faced acid head.
+    //Who are the Warriors?
+    //I am not a demon. I am a lizard, a shark, a heat-seeking panther. I want to be Bob Denver on acid playing the accordion.
+    //Avoid all needle drugs, the only dope worth shooting is Richard Nixon.
+    //I've never been to New Zealand before. But one of my role models, Xena, the warrior princess, comes from there.
+};
+
 function dopeHigh() {
     var eventDope = randomDope(dopelist);
 
@@ -162,7 +170,7 @@ function findGun() {
                 <div class="button button--inline" js-gun-buy>Yeah!</div>\
                 <div class="button button--inline" js-modal-close>Nah</div>\
             </div>\
-        ');  
+        ');
     } else {
         var eventContent = ('\
             <h2>Low on cash</h2>\
@@ -198,7 +206,7 @@ function pennyFound() {
     } else {
         dopeText = 'The cashier made a mistake on your change, you keep $'+ eventAmount +' extra.';
     }
-    
+
     var eventContent = ('\
         <h2>Free monies!</h2>\
         <p>'+ dopeText +'</p>\

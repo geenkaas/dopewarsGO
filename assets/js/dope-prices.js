@@ -216,13 +216,19 @@ function updateDay() {
             }
         })
         updateStats();
-        // Needed?
-        //removeSlide($(this).closest('.c-slide'));
+        removeSlide($(this).closest('.c-slide'));
 
-        alert(
-            'Your final score is: ' + (player.cash).digits()
-        );
-        window.location.reload(true);
+        var endScore = formatNumber(player.cash)
+
+        var eventContent = ('\
+            <h2>Doperun over!</h2>\
+            <p>What a run! Your final score is '+ endScore +'</p>\
+            <div class="c-button-group">\
+                <div class="button" js-game-restart>Again!</div>\
+            </div>\
+        ');
+        createModal(eventContent);
+        restartButtons();
     } else {
         player.dayCurr += 1;
         updateStats();
