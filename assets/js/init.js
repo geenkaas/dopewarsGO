@@ -7,7 +7,7 @@ var screenHeight;
 
 $(window).load(function() {
     initScreen();
-});
+})
 
 function initScreen() {
     screenHeight = $('.c-slide--active').height();
@@ -16,5 +16,4 @@ function initScreen() {
     slideButtons();
     updateStats();
     buildTable();
-    setRandomPrices();
 }

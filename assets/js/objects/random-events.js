@@ -19,13 +19,13 @@ function Event(name, chance) {
 // event object instance
 var event1 = new Event('oldLady', 0),
     event2 = new Event('officerHardass', 10),
-    event3 = new Event('dopeLow', 10),
-    event4 = new Event('dopeHigh', 10),
+    event3 = new Event('dopeLow', 5),
+    event4 = new Event('dopeHigh', 20),
     event5 = new Event('dopeFound', 5),
     event6 = new Event('pennyFound', 20),
     event7 = new Event('findCoat', 5),
     event8 = new Event('findGun', 5),
-    event9 = new Event('randomQuote', 50);
+    event9 = new Event('randomQuote', 40);
 
 function getEventChange(Event, total) {
 // Total value could be calculated within function or own function.
