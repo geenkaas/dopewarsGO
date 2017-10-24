@@ -4,6 +4,7 @@
 'use strict';
 
 function dopeFound() {
+
     var eventDope = randomDope(dopelist).name;
 
     var eventAmountMax = 5;

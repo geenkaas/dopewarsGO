@@ -12,7 +12,7 @@ function restartButtons() {
 
 function modalButtons() {
     $('[js-modal-close]').on('tap', function() {
-        $(this).closest('.c-modal').fadeOut(200, function() { 
+        $(this).closest('.c-modal').fadeOut(200, function() {
         	$(this).remove();
         });
     });

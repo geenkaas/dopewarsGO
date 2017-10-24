@@ -4,6 +4,7 @@
 'use strict';
 
 function pennyFound() {
+
     var eventAmount = Math.floor(Math.random() * 100) + 1;
 
     var eventRandom = Math.random();

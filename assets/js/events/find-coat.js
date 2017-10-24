@@ -4,6 +4,7 @@
 'use strict';
 
 function findCoat() {
+
     var eventContent = ('\
         <h2>Trench coat</h2>\
         <p>You find an awesome trenchcoat with extra pockets!</p>\

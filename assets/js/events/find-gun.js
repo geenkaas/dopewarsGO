@@ -4,6 +4,7 @@
 'use strict';
 
 function findGun() {
+
     var gunPrice = 100;
     if (player.cash >= gunPrice) {
         var eventContent = ('\

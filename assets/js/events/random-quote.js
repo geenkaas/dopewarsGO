@@ -19,8 +19,9 @@ function randomQuote() {
         'An old lady on the subway sings softly: "'+ quoteSelect +'".',
         '"'+ quoteSelect +'" you hear someone shout on the streets.',
         'This hipcat swings by and says "'+ quoteSelect +'".',
-        'All is quiet on the streets',
-        'Nothing much happens'
+        'All is quiet on the streets.',
+        'You hear a song from Bob Dylan drifting from a second floor window.',
+        'Nothing much happens.'
     ];
     var quoterSelect = randomFrom(quoterArray);
     //console.log(quoterSelect);

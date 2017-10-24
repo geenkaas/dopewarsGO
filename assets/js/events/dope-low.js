@@ -4,6 +4,7 @@
 'use strict';
 
 function dopeLow() {
+
     var eventDope = randomDope(dopelist);
 
     var dopeText;

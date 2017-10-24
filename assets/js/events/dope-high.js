@@ -4,6 +4,7 @@
 'use strict';
 
 function dopeHigh() {
+
     var eventDope = randomDope(dopelist);
     var dopeHighArray = [
         'Addicts are buying '+ eventDope.name +' for ridiculous prices!',
