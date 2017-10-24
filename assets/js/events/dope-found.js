@@ -31,4 +31,4 @@ function dopeFound() {
         createModal(eventContent);
         updateDopeAmount(eventDope, eventAmount);
     }
-};
+}

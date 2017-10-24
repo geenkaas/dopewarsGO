@@ -14,7 +14,7 @@ function officerHardass() {
         biteChance: 70,
         dropChance: 50,
         bribeCost: 500
-    };
+    }
 
     // Create new player type called player1
     var hardass = Object.create(HardassConstruct);
@@ -63,7 +63,7 @@ function officerHardass() {
                 updateStats();
                 $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
             });
-        };
+        }
     });
 
     // Run button
@@ -137,4 +137,4 @@ function officerHardass() {
         }
         $('.c-combat__result').html(roundText);
     });
-};
+}

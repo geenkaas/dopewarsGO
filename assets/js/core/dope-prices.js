@@ -6,7 +6,7 @@ function setRandomPrices() {
     dopelist.forEach(function(dope) {
         updateDopePrice(dope, 1);
     });
-};
+}
 
 function updateDopePrice(dope, multiplier) {
 
@@ -35,5 +35,5 @@ function updateDopePrice(dope, multiplier) {
     }
 
     dopeToSet.css('color', dopeRGB);
-    updateButtons();
-};
+    disableButtons();
+}

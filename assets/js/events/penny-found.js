@@ -25,4 +25,4 @@ function pennyFound() {
     createModal(eventContent);
     player.cash += eventAmount;
     updateStats();
-};
+}

@@ -14,7 +14,7 @@ function Event(name, chance) {
     this.chance = chance;
     //https://jsfiddle.net/Panomosh/8bpmrso1/
     eventList.push(this);
-};
+}
 
 // event object instance
 var event1 = new Event('oldLady', 0),
@@ -32,7 +32,7 @@ function getEventChange(Event, total) {
 //  console.log(Event);
 //  console.log("getEventChange: " + Event.chance*(100/total));
     return Event.chance * (100 / total);
-};
+}
 
 function getRandomEvent(eventMap) {
     //console.log(eventRNG * 100);
@@ -44,7 +44,7 @@ function getRandomEvent(eventMap) {
             return eventMap[i];
         }
     }
-};
+}
 
 var eventTotal = 0;
 eventList.forEach(function(event) {
@@ -68,4 +68,4 @@ function randomEvents() {
         // This loads a function with the name of the event selected randomly
         window[randomEvent.name]();
     }
-};
+}

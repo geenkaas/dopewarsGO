@@ -19,4 +19,4 @@ dopelist.forEach(function(dope) {
 var randomDope = function(obj) {
     var keys = Object.keys(obj)
     return obj[keys[ keys.length * Math.random() << 0]];
-};
+}

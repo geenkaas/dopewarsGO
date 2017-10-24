@@ -19,7 +19,7 @@
 //             // also synthesize click events we just swallowed up
 //             $(e.target).trigger('tap');
 //         });
-//     };
+//     }
 // })(jQuery);
 
 // $(document).on('pagecreate','.s-site', function() {
@@ -28,7 +28,9 @@
 
 // https://stackoverflow.com/questions/37808180/disable-viewport-zooming-ios-10-safari
 document.addEventListener('touchmove', function (event) {
-    if (event.scale !== 1) { event.preventDefault(); }
+    if (event.scale !== 1) { 
+    	event.preventDefault();
+    }
 }, false);
 
 var lastTouchEnd = 0;

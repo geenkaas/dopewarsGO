@@ -34,4 +34,4 @@ function updateDay() {
         updateStats();
         randomEvents();
     }
-};
+}

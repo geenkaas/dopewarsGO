@@ -23,4 +23,4 @@ function digits(number, decimals, dec_point, thousands_point) {
     splitNum[0] = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_point);
     number = '$' + splitNum.join(dec_point);
     return number;
-};
+}

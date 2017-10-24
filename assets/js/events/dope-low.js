@@ -24,4 +24,4 @@ function dopeLow() {
     });
     createModal(eventContent);
     updateDopePrice(eventDope, 0.1)
-};
+}

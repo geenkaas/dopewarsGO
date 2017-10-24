@@ -12,4 +12,4 @@ function createModal(content) {
         </div>\
     ').fadeIn(200);
     modalButtons();
-};
+}

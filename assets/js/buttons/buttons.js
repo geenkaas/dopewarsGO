@@ -8,7 +8,7 @@ function restartButtons() {
         //console.log('dead');
         window.location.reload(true);
     });
-};
+}
 
 function modalButtons() {
     $('[js-modal-close]').on('tap', function() {
@@ -16,7 +16,7 @@ function modalButtons() {
         	$(this).remove();
         });
     });
-};
+}
 
 $('[js-button-jet]').on('tap', function() {
     updateDay();

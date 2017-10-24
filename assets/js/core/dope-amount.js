@@ -13,5 +13,5 @@ function updateDopeAmount(whichDope, changeAmount) {
     //updateInv(changeAmount);
     player.invCurr += changeAmount
     updateStats();
-    updateButtons();
+    disableButtons();
 }

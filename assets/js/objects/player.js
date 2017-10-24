@@ -12,7 +12,7 @@ var PlayerConstruct = {
     gun: 0,
     dayCurr: 1,
     dayMax: 7
-};
+}
 
 // Create new player type called player
 var player = Object.create(PlayerConstruct);

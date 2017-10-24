@@ -2,14 +2,19 @@
 
 'use strict';
 
-$.event.special.tap.tapholdThreshold = 400;
-$('.button--trade').on('tap', function() {
-    buttonTrade($(this), 'tap');
-}).on('taphold', function() {
-    buttonTrade($(this), 'taphold');
-});
+function buttonTradeInit() {
+    console.log('buttons init');
+    $.event.special.tap.tapholdThreshold = 400;
+    $('.button--trade').on('tap', function() {
+        buttonTrade($(this), 'tap');
+    }).on('taphold', function() {
+        buttonTrade($(this), 'taphold');
+    });
+}
 
 function buttonTrade(thisButton, action) {
+
+    console.log(buttonTrade);
 
     // Don't do anything when buttons are disabled
     if (!thisButton.hasClass('button--disabled')) {
@@ -48,4 +53,4 @@ function buttonTrade(thisButton, action) {
         updateStats();
         updateDopeAmount(clickDope, amount);
     }
-};
+}

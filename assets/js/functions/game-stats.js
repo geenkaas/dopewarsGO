@@ -9,4 +9,4 @@ function updateStats() {
     $('[js-cash]').find('span').html(digits(player.cash));
     $('[js-inv-curr]').html(player.invCurr);
     $('[js-inv-max]').html(player.invMax);
-};
+}

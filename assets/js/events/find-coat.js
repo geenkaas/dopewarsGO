@@ -15,4 +15,4 @@ function findCoat() {
     player.invMax += 10;
     updateStats();
     createModal(eventContent);
-};
+}

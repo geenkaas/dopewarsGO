@@ -35,5 +35,5 @@ function findGun() {
             updateStats();
             $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
         });
-    };
-};
+    }
+}

@@ -2,12 +2,11 @@
 
 'use strict';
 
-function updateButtons() {
+function disableButtons() {
 
     dopelist.forEach(function(dope) {
 
-
-        var dopeCurr = $('[data-js-dope="'+dope.name+'"]');
+        var dopeCurr = $('[data-js-dope="'+ dope.name +'"]');
         //console.log(dope);
 
         var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
@@ -39,5 +38,6 @@ function updateButtons() {
             buttonBuy.addClass('button--disabled');
         }
 
-    });
-};
+    })
+
+}

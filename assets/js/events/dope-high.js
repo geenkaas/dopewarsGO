@@ -20,4 +20,4 @@ function dopeHigh() {
     ');
     createModal(eventContent);
     updateDopePrice(eventDope, 2);
-};
+}

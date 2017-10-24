@@ -32,4 +32,4 @@ function randomQuote() {
         <div class="button" js-modal-close>Lets deal</div>\
     ');
     createModal(eventContent);
-};
+}
