@@ -3,9 +3,11 @@
 .button {
     @include pixelfont;
     @include transition-medium;
+    @include text-shadow-medium;
     background: color(button-background);
     border: none;
     border-radius: 16px;
+        box-shadow: 0 3px 0 $black-30;
     font-size: 16px;
     color: color(button-text);
     cursor: pointer;
@@ -16,7 +18,6 @@
     padding: 15px 10px;
     text-align: center;
     text-decoration: none;
-    touch-action: none;
     width: 100%;
 
     &:active {
@@ -49,6 +50,7 @@
 }
 
 .button--trade {
+    @include text-shadow-small;
     background: color(button-trade-background);
     color: color(button-trade-text);
     height: $button-dimension;
@@ -65,12 +67,14 @@
 }
 
 .button--buy {
+    color: color(button-buy-text);
     &::after{
         content: "\f067";
     }
 }
 
 .button--sell {
+    color: color(button-sell-text);
     &::after{
         content: "\f068";
     }

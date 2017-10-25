@@ -16,20 +16,23 @@
     $yellow: #ffcb06;
     $yellow-dark: #c8a008;
 
-    $green: #67b98b;
-    $green-dark: darken($green, 8%);
+    $green: #6ed080;
+    $green-dark: darken($green, 20%);
 
     //$green-grey-lighter: #ccaaaa;
     $green-grey-light: #889988;
     $green-grey-dark: #556655;
     //$green-grey-darker: #332222;
 
-    $blue-lightest: #b9e6fb;
-    $blue: #3d62b2;
-    $blue-dark: #1d3a72;
-    $blue-darker: #07224e;
+    $blue-lightest: #00b9e4;
+    $blue: #0089a9;
+    $blue-dark: #00506a;
+    $blue-darker: #003344;
 
     $purple: #1c286c;
+
+    $pink: #e19e78;
+    $brown: #c16748;
 
 // 50 shades of grey
     $black: #000;
@@ -74,8 +77,8 @@
 
 $colors: (
 
-    primary: $blue,
-    secondary: $purple,
+    primary: $green,
+    secondary: $pink,
 
     selection-background: $blue,
     selection-color: $white,
@@ -90,16 +93,16 @@ $colors: (
     gradient-dark: $gradient-dark,
     gradient-light: $gradient-light,
 
-    header-background: $black-80,
+    header-background: $black-50,
 
-    link: $red,
+    link: $green,
     link-hover: $red-dark,
 
     line-color: $yellow,
 
     table-row-border: $white-30,
 
-    banner-background: $orange,
+    banner-background: linear-gradient(to right, $blue, $blue-dark),
     banner-text: $white,
 
     input-color: $blue-dark,
@@ -113,27 +116,31 @@ $colors: (
     input-label-color: $grey-darker,
     input-placeholder-color: $grey-dark,
 
-    button-background: $red,
+    button-background: linear-gradient(to right, $green, $green-dark),
     button-border: $grey-medium,
     button-text: $white,
-    button-hover-background: $yellow,
+    button-hover-background: $green,
     button-hover-text: $white,
     button-disabled-background: $black-30,
     button-disabled-text: $white-50,
     button-current-background: $blue,
+    button-buy-background: $white,
+    button-buy-text: $green-dark,
+    button-sell-background: $white,
+    button-sell-text: $brown,
 
     button-trade-background: $grey-lightest,
     button-trade-text: $grey-dark,
 
     modal-background: $black-50,
-    modal-content: $blue,
+    modal-content: linear-gradient(to right, $blue-dark, $blue),
     modal-text: $white,
-    modal-button-background: $white,
-    modal-button-text: $grey-darker,
+    modal-button-background: linear-gradient(to right, $green, $green-dark),
+    modal-button-text: $white,
 
     sidebar-background: $grey-white,
     sidebar-background-hover: $white,
     sidebar-link: $grey-darkest,
     sidebar-link-hover: $blue,
     sidebar-border: $grey-light,
-);
+)
