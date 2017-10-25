@@ -41,7 +41,7 @@
 }
 
 @mixin text-shadow-medium {
-    text-shadow: 0 2px 0 $black-70;
+    text-shadow: 0 2px 0 $black-50;
 }
 
 @mixin text-shadow-large {
@@ -68,6 +68,10 @@
     image-rendering: pixelated; /* Chrome */
     image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+
+@mixin gradient-default {
+    background: linear-gradient(left, $pink, $brown);
 }
 
 @mixin transition-slow {
