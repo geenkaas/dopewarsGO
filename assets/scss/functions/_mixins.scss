@@ -75,7 +75,7 @@
 }
 
 @mixin transition-slow {
-    transition: all 400ms ease-out;
+    transition: all 500ms ease-out;
 }
 
 @mixin transition-medium {

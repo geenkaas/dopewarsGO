@@ -17,7 +17,7 @@
     $yellow-dark: #c8a008;
 
     $green: #6ed080;
-    $green-dark: darken($green, 12%);
+    $green-dark: darken($green, 20%);
 
     //$green-grey-lighter: #ccaaaa;
     $green-grey-light: #889988;
@@ -102,7 +102,7 @@ $colors: (
 
     table-row-border: $white-30,
 
-    banner-background: linear-gradient(left, $blue, $blue-dark),
+    banner-background: linear-gradient(to right, $blue, $blue-dark),
     banner-text: $white,
 
     input-color: $blue-dark,
@@ -116,7 +116,7 @@ $colors: (
     input-label-color: $grey-darker,
     input-placeholder-color: $grey-dark,
 
-    button-background: linear-gradient(left, $brown, $pink),
+    button-background: linear-gradient(to right, $green, $green-dark),
     button-border: $grey-medium,
     button-text: $white,
     button-hover-background: $green,
@@ -133,9 +133,9 @@ $colors: (
     button-trade-text: $grey-dark,
 
     modal-background: $black-50,
-    modal-content: linear-gradient(left, $blue, $blue-dark),
+    modal-content: linear-gradient(to right, $blue-dark, $blue),
     modal-text: $white,
-    modal-button-background: linear-gradient(left, $green-dark, $green),
+    modal-button-background: linear-gradient(to right, $green, $green-dark),
     modal-button-text: $white,
 
     sidebar-background: $grey-white,

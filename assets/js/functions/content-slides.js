@@ -14,6 +14,9 @@ function slideButtons() {
             $('[js-slide__' + slideTarget + ']').addClass('c-slide--active');
             // Toggle current slide to move to the left
             $(this).closest('.c-slide').removeClass('c-slide--active').addClass('c-slide--remove');
+
+            // Show header with score
+            $('.s-site__masthead').addClass('lowered');
         })
     })
 

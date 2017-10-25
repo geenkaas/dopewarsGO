@@ -2,13 +2,19 @@
 
 .s-site__masthead {
     @include pos-top;
+    @include transition-slow;
     background: color(header-background);
     padding: 100px $body-margin $margin-small;
     padding-top: 11em;
     position: fixed;
-    top: -190px;
+    transform: translateY(-265px);
     z-index: 666;
+
+    &.lowered {
+        transform: translateY(-190px);
+    }
 }
+
 
 .s-site {
     position: relative;

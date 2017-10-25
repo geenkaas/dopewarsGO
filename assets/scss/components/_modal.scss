@@ -3,6 +3,7 @@
 .c-modal {
     @include pos-fullscreen;
     background: color(modal-background);
+    box-shadow: 3px 0 0 $black-50;
     color: color(modal-text);
     z-index: 555;
 
