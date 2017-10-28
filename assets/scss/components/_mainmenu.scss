@@ -1,6 +1,10 @@
 //_mainmenu.scss
 
 .c-mainmenu {
-	border: 2px solid red;
-	display: none;
+    font-size: $font-size-small;
+    display: none;
+    margin-top: $margin-medium;
+
+    &.active {
+    }
 }
