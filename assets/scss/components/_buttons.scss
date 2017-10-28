@@ -7,7 +7,6 @@
     background: color(button-background);
     border: none;
     border-radius: 16px;
-    box-shadow: 0 3px 0 $black-30;
     color: color(button-text);
     cursor: pointer;
     display: inline-block;
@@ -49,7 +48,6 @@
 }
 
 .button--trade {
-    @include text-shadow-small;
     background: color(button-trade-background);
     color: color(button-trade-text);
     height: $button-dimension;

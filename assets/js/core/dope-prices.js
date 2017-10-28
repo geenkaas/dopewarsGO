@@ -25,7 +25,7 @@ function updateDopePrice(dope, multiplier) {
     //console.log(dope.name+' '+dope.priceMin+' '+dope.random+' '+dopePriceNew+' '+dope.priceMax+' '+dopeValue);
 
     var dopeRGB = 'rgb(255,255,255)';
-    var colorMultiplier = 100;
+    var colorMultiplier = 255 * 2;
     if (dopeValue > 0.5) {
         var dopeRed = Math.floor(255 - ((dopeValue - 0.5) * colorMultiplier));
         dopeRGB = 'rgb(255,'+dopeRed+','+dopeRed+')';
