@@ -16,4 +16,5 @@ function initScreen() {
     slideButtons();
     updateStats();
     buildTable();
+    initGame();
 }

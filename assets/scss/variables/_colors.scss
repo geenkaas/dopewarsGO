@@ -18,6 +18,7 @@
 
     $green: #6ed080;
     $green-dark: darken($green, 20%);
+    $green-30: rgba($green, 0.3);
 
     //$green-grey-lighter: #ccaaaa;
     $green-grey-light: #889988;
@@ -123,6 +124,7 @@ $colors: (
     button-hover-text: $white,
     button-disabled-background: $black-30,
     button-disabled-text: $white-50,
+    button-deselect-background: $green-30,
     button-current-background: $blue,
     button-buy-background: $white,
     button-buy-text: $green-dark,

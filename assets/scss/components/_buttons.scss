@@ -77,6 +77,10 @@
     }
 }
 
+.button--deselect {
+    background: color(button-deselect-background);
+}
+
 .button--disabled {
     background: color(button-disabled-background);
     color: color(button-disabled-text);
