@@ -1,0 +1,65 @@
+// _popup.scss
+
+.c-popup {
+    @include pos-fullscreen;
+    background: $black-90;
+    display: none;
+    margin: $margin-smaller;
+
+    &.active {
+        @include transition-fast;
+        animation-name: pop-in;
+        animation-duration: 200ms;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        display: block;
+        opacity: 1;
+        z-index: 2;
+    }
+}
+
+.c-popup__header {
+    @include pixelfont;
+}
+
+.c-playerInitials {
+    margin-bottom: $margin-medium;
+    padding: 0 $margin-largest;
+}
+
+.c-playerInitial {
+    @include pixelfont;
+    font-size: 32px;
+    height: 40px;
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+        @include pos-bottom;
+        background: $white;
+        content: '';
+        height: 3px;
+        margin: 0 $margin-smallest;
+    }
+
+    &.active {
+        color: $red;
+
+        &::after {
+            background: $red;
+        }
+    }
+}
+
+.c-popup--playerName {
+    padding: $margin-medium;
+}
+
+.c-playerLetter {
+    @include pixelfont;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    text-shadow: 0 0 5px $black-50;
+    text-transform: uppercase;
+}
