@@ -17,7 +17,8 @@
 
 .c-logo-splash {
     @include text-shadow-large;
-    margin: 4vh 0 12vh;
+    margin: 0 0 12vh;
+    position: relative;
 }
 
 .c-logo-splash__top {
@@ -42,4 +43,18 @@
         width: 32px;
         z-index: 1;
     }
+}
+
+.c-logo__banner {
+    @include pixelfont;
+    @include box-shadow-medium;
+    background: color(banner-background);
+    bottom: -6vh;
+    color: color(banner-text);
+    padding: 10px;
+    position: absolute;
+    z-index: 3;
+    transform: rotate(-10deg);
+    right: 10%;
+    width: 60%;
 }
