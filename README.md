@@ -8,11 +8,15 @@ The game should stay close to the original as much as it can but fix existing pr
 ## Latest "stable" version
 [DopeWarsGO Online](https://www.dopewars-go.nl "Dopewars GO Homepage")
 
+## Dependencies
+* nvm
+
 ### Setup:
 * Download repo
 * From assets folder:
-* run $ npm install
-* run $ gulp
+* run `nvm`
+* run `npm install`
+* run `gulp`
 * Load the /dist/index.html in your browser.
 
 ### In progress
