@@ -1,6 +1,4 @@
 /node_modules
 /ignore
 .DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
+/dist/js/*.min.js
