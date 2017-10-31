@@ -23,10 +23,6 @@
   },
   "dependencies": {},
   "description": "Setup for web based Dopewars game",
-  "main": "webpack.config.js",
-  "scripts": {
-    "test": "webpack"
-  },
   "author": "Arne Maier",
   "license": "ISC"
 }
