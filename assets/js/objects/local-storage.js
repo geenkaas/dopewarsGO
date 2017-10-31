@@ -3,6 +3,7 @@
 'use strict';
 
 function localStorage() {
+
     if (typeof(Storage) !== "undefined") {
         // Code for localStorage/sessionStorage.
         if (localStorage.playerName) {
