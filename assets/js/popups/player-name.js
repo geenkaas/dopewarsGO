@@ -4,29 +4,31 @@
 
 function popupPlayerName() {
     //console.log('hoi');
-    $('[js-popup-playerName]').addClass('active').show();
 
-    playerNameSelect();
+    if (readCookie(playerName) !== null) {
+        $('[js-popup-playerName]').addClass('active').show();
+        playerNameSelect();
+    }
 }
 
 function playerNameSelect() {
-    var initial = $('[js-tag]').find('.c-playerInitial');
-    initial.first().addClass('active');
+    var initials = $('[js-tag]').find('.c-playerInitials');
+    initials.first().addClass('active');
     $('.c-playerLetter').on('click', function() {
         var whichLetter = $(this).html();
-        var next = $('[js-tag]').find('.c-playerInitial.active').html(whichLetter).removeClass('active').next();
+        var next = $('[js-tag]').find('.c-playerInitials.active').html(whichLetter).removeClass('active').next();
         if (next.length) {
             next.addClass('active');
         }
         else {
-            initial.first().addClass('active');
+            initials.first().addClass('active');
             $('[js-button-saveName]').removeClass('button--disabled').on('click', function() {
                 var newName = '';
-                initial.each(function() {
+                initials.each(function() {
                     newName += $(this).html();
                 })
-                localStorage.playerName = newName;
-                console.log(localStorage.playerName);
+                createCookie(playerName, newName);
+                console.log(readCookie(playerName));
                 $('[js-popup-playerName]').fadeOut(200);
             });
         }
