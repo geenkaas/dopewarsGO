@@ -5,7 +5,7 @@
 function popupPlayerName() {
     //console.log('hoi');
 
-    if (readCookie(playerName) !== null) {
+    if (readCookie(playerName) === null) {
         $('[js-popup-playerName]').addClass('active').show();
         playerNameSelect();
     }
@@ -21,7 +21,7 @@ function playerNameSelect() {
             next.addClass('active');
         }
         else {
-            initials.first().addClass('active');
+            initials.addClass('active');
             $('[js-button-saveName]').removeClass('button--disabled').on('click', function() {
                 var newName = '';
                 initials.each(function() {
@@ -34,6 +34,7 @@ function playerNameSelect() {
         }
     })
 
+    // Maunual select initial to change
     $('.c-playerInitial').on('click', function() {
         $('.c-playerInitial').removeClass('active');
         $(this).addClass('active');
