@@ -7,6 +7,8 @@ function randomQuote() {
 
     var quoteArray = [
         'I was raised a Christian and turned into a stone-faced acid head',
+        'I am more dope than heroin, sharper than a needle',
+        'I tried marijuana once. I did not inhale',
         'Who are the Warriors?',
         'I am not a demon. I am a lizard, a shark, a heat-seeking panther',
         'Avoid all needle drugs, the only dope worth shooting is Richard Nixon',
@@ -19,12 +21,12 @@ function randomQuote() {
         'An old lady on the subway sings softly: "'+ quoteSelect +'".',
         '"'+ quoteSelect +'" you hear someone shout on the streets.',
         'This hipcat swings by and says "'+ quoteSelect +'".',
+        '"'+ quoteSelect +'" a local newspaper reads.',
         'All is quiet on the streets.',
-        'You hear a song from Bob Dylan drifting from a second floor window.',
+        'You hear a song from Bob Dylan drifting from an open second floor window.',
         'Nothing much happens.'
     ];
     var quoterSelect = randomFrom(quoterArray);
-    //console.log(quoterSelect);
 
     var eventContent = ('\
         <h2>A new day</h2>\
