@@ -24,7 +24,7 @@
 
 .c-playerInitials {
     margin-bottom: $margin-medium;
-    padding: 0 $margin-largest;
+    padding: 0 $margin-larger;
 }
 
 .c-playerInitial {
@@ -43,7 +43,6 @@
     }
 
     &.active {
-        border: 2px solid red;
         color: $red;
 
         &::after {
