@@ -8,6 +8,7 @@
     animation-timing-function: ease-out;
     display: none;
     opacity: 0;
+    overflow-y: scroll;
     padding: 80px $body-margin $margin-small;
     position: absolute;
     top: 0;
