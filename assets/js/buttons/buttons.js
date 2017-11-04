@@ -25,6 +25,7 @@ function initGame() {
             updateDay();
         }
     });
+
     $('[js-length]').on('tap', function() {
         $(this).removeClass('button--deselect');
         $('[js-length]').not($(this)).addClass('button--deselect')

@@ -14,9 +14,8 @@ function initScreen() {
     $('.s-site').height(screenHeight);
 
     slideButtons();
-    updateStats();
     updateVersion();
     buildTable();
     initGame();
-    localStorage();
+    popupPlayerName();
 }
