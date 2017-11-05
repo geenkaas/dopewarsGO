@@ -3,18 +3,23 @@
 'use strict';
 
 function popupPlayerName() {
-    //console.log(readCookie('playerName'));
-
-        clearCookie('playerName');
 
     if (readCookie('playerName') === 'null') {
-        $('[js-popup-playerName]').addClass('active').show();
+        var yourname = Version.quote;
+        $('[js-version-quote]').html(yourname);
         playerNameSelect();
+    } else {
+        $('[js-version-quote]').html('Welcome back ' + readCookie('playerName').toUpperCase());
     }
-
 }
 
+$('[js-changename]').on('click', function() {
+    $('.c-mainmenu').hide();
+    playerNameSelect();
+})
+
 function playerNameSelect() {
+    $('[js-popup-playerName]').addClass('active').show();
     //$('[js-tag]').find('.c-playerInitial').hide();
     var initials = $('[js-tag]').find('.c-playerInitial');
     initials.first().addClass('active');

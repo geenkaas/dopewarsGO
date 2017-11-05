@@ -12,7 +12,7 @@ var VersionConstruct = {
 var Version = Object.create(VersionConstruct);
 
 function updateVersion() {
-    $('[js-version-quote]').html(Version.quote);
+    //$('[js-version-quote]').html(Version.quote);
     $('[js-version-number]').html(Version.number);
 }
 
