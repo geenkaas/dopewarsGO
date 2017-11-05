@@ -4,7 +4,7 @@
 
 function popupPlayerName() {
 
-    if (readCookie('playerName') === 'null') {
+    if (readCookie('playerName') === null) {
         var yourname = Version.quote;
         $('[js-version-quote]').html(yourname);
         playerNameSelect();
