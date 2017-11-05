@@ -13,7 +13,7 @@ function popupPlayerName() {
     }
 }
 
-$('[js-changename]').on('click', function() {
+$('[js-changename]').on('tap', function() {
     $('.c-mainmenu').hide();
     playerNameSelect();
 })
@@ -23,7 +23,7 @@ function playerNameSelect() {
     //$('[js-tag]').find('.c-playerInitial').hide();
     var initials = $('[js-tag]').find('.c-playerInitial');
     initials.first().addClass('active');
-    $('.c-playerLetter').on('click', function() {
+    $('.c-playerLetter').on('tap', function() {
         var whichLetter = $(this).html();
         //console.log(initials)
         
@@ -37,20 +37,23 @@ function playerNameSelect() {
         else {
             //console.log('no more!!!');
             initials.removeClass('active');
-            $('[js-button-saveName]').removeClass('button--disabled').on('click', function() {
+            $('[js-button-saveName]').removeClass('button--disabled').on('tap', function() {
                 var newName = '';
+
+                $(this).html('preinitial');
                 initials.each(function() {
                     newName += $(this).html();
                 })
                 createCookie('playerName', newName);
-                console.log(readCookie('playerName'));
+                //console.log(readCookie('playerName'));
+                $(this).html(newName);
                 $('[js-popup-playerName]').fadeOut(200);
             });
         }
     })
 
     // Maunual select initial to change
-    $('.c-playerInitial').on('click', function() {
+    $('.c-playerInitial').on('tap', function() {
         $('.c-playerInitial').removeClass('active');
         $(this).addClass('active');
     })
