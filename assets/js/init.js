@@ -15,6 +15,8 @@ function initScreen() {
 
     slideButtons();
     updateStats();
+    updateVersion();
     buildTable();
     initGame();
+    popupPlayerName();
 }

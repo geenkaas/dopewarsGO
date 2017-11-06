@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>Dopewars GO</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="referrer" content="no-referrer">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700%7CPress+Start+2P" rel="stylesheet">
         <meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="css/style.min.css?version=1.0.4">
+        <link rel="stylesheet" href="css/style.min.css?version=1.0.5">
     </head>
     <body>
         <div class="s-site">
@@ -30,16 +31,12 @@
                 <div class="c-mainmenu">
                     <div class="s-gallery s-gallery--third">
                         <div class="s-gallery__column c-mainmenu__item">
-                            <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
-                            <p>Settings</p>
+                            <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" js-changename />
+                            <p>Name</p>
                         </div>
                         <div class="s-gallery__column c-mainmenu__item">
                             <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
                             <p>Sound</p>
-                        </div>
-                        <div class="s-gallery__column c-mainmenu__item">
-                            <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
-                            <p>Difficulty</p>
                         </div>
                         <div class="s-gallery__column c-mainmenu__item">
                             <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
@@ -56,7 +53,7 @@
                     <header class="c-logo c-logo-splash">
                         <h1 class="c-logo-splash__top">Dopewars</h1>
                         <span class="c-logo-splash__bottom">GO</span>
-                        <div class="c-logo__banner">Extra long...</div>
+                        <div class="c-logo__banner" js-version-quote></div>
                     </header>
 
                     <p>Your doperun is about to start. Can you dig it?<br />
@@ -68,7 +65,7 @@
                     </div>
 
                     <button class="button button--primary" js-slide-button js-slide-target="trade">Hit the streets!</button>
-                    <div class="c-version">v1.0.4</div>
+                    <div class="c-version" js-version-number></div>
 
                 </article>
 
@@ -96,13 +93,66 @@
 
             <div class="c-background"></div>
 
+            <div class="c-popups">
+                <div class="c-popup c-popup--playerName" js-popup-playerName>
+                    <h3 class="c-popup__header">Whatsup player?</h3>
+                    <p>We want to know who's running the block, build up your streetcreds you know?</p>
+
+                    <div class="s-row c-playerInitials" js-tag>
+                        <div class="s-row__column s-row__column--third c-playerInitial"></div>
+                        <div class="s-row__column s-row__column--third c-playerInitial"></div>
+                        <div class="s-row__column s-row__column--third c-playerInitial"></div>
+                    </div>
+
+                    <div class="s-gallery s-gallery--tenth">
+                        <div class="s-gallery__column c-playerLetter">a</div>
+                        <div class="s-gallery__column c-playerLetter">b</div>
+                        <div class="s-gallery__column c-playerLetter">c</div>
+                        <div class="s-gallery__column c-playerLetter">d</div>
+                        <div class="s-gallery__column c-playerLetter">e</div>
+                        <div class="s-gallery__column c-playerLetter">f</div>
+                        <div class="s-gallery__column c-playerLetter">g</div>
+                        <div class="s-gallery__column c-playerLetter">h</div>
+                        <div class="s-gallery__column c-playerLetter">i</div>
+                        <div class="s-gallery__column c-playerLetter">j</div>
+                        <div class="s-gallery__column c-playerLetter">k</div>
+                        <div class="s-gallery__column c-playerLetter">l</div>
+                        <div class="s-gallery__column c-playerLetter">m</div>
+                        <div class="s-gallery__column c-playerLetter">n</div>
+                        <div class="s-gallery__column c-playerLetter">o</div>
+                        <div class="s-gallery__column c-playerLetter">p</div>
+                        <div class="s-gallery__column c-playerLetter">q</div>
+                        <div class="s-gallery__column c-playerLetter">r</div>
+                        <div class="s-gallery__column c-playerLetter">s</div>
+                        <div class="s-gallery__column c-playerLetter">t</div>
+                        <div class="s-gallery__column c-playerLetter">u</div>
+                        <div class="s-gallery__column c-playerLetter">v</div>
+                        <div class="s-gallery__column c-playerLetter">w</div>
+                        <div class="s-gallery__column c-playerLetter">x</div>
+                        <div class="s-gallery__column c-playerLetter">y</div>
+                        <div class="s-gallery__column c-playerLetter">z</div>
+                        <div class="s-gallery__column c-playerLetter">1</div>
+                        <div class="s-gallery__column c-playerLetter">2</div>
+                        <div class="s-gallery__column c-playerLetter">3</div>
+                        <div class="s-gallery__column c-playerLetter">4</div>
+                        <div class="s-gallery__column c-playerLetter">5</div>
+                        <div class="s-gallery__column c-playerLetter">6</div>
+                        <div class="s-gallery__column c-playerLetter">7</div>
+                        <div class="s-gallery__column c-playerLetter">8</div>
+                        <div class="s-gallery__column c-playerLetter">9</div>
+                        <div class="s-gallery__column c-playerLetter">0</div>
+                    </div>
+                    <button class="button button--primary button--disabled" js-button-saveName>Thats me!</button>
+                </div>
+            </div>
+
         </div>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <!--<script type="text/javascript" src="js/vendor.min.js"></script>-->
 
-        <script type="text/javascript" src="js/script.min.js?version=1.0.4"></script>
+        <script type="text/javascript" src="js/script.min.js?version=1.0.5"></script>
 
         <script>
             window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
