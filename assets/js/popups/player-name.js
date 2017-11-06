@@ -5,11 +5,11 @@
 function popupPlayerName() {
 
     if (readCookie('playerName') === null) {
-        var yourname = Version.quote;
-        $('[js-version-quote]').html(yourname);
+    //     var yourname = Version.quote;
+    //     $('[js-version-quote]').html(yourname);
         playerNameSelect();
     } else {
-        $('[js-version-quote]').html('Welcome back ' + readCookie('playerName').toUpperCase());
+        // $('[js-version-quote]').html('Welcome back ' + readCookie('playerName').toUpperCase());
     }
 }
 

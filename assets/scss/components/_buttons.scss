@@ -71,9 +71,10 @@
 }
 
 .button--home-audio {
-    left: $body-margin;
+    right: 10%;
     position: absolute;
-    top: 50%;
+    top: 45%;
+    z-index: 900;
 }
 
 .button--trade {
