@@ -49,6 +49,14 @@ gulp.task('duplicator', function() {
         .pipe(newer('./../dist/fonts/'))
         .pipe(gulp.dest('./../dist/fonts/'));
 
+
+    var audio = [
+        './audio/**/*.{mp3,wav}'
+    ];
+    gulp.src(audio)
+        .pipe(newer('./../dist/audio/'))
+        .pipe(gulp.dest('./../dist/audio/'));
+
     var normalize = ['./node_modules/normalize-scss/sass/**/*.scss'];
     gulp.src(normalize)
         .pipe(newer('./scss/vendor/normalize'))
