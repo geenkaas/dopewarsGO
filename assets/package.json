@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "firebase": "^4.6.1",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
