@@ -47,7 +47,8 @@ function playerNameSelect() {
                     newName += $(this).html();
                 })
                 createCookie('playerName', newName);
-                //console.log(readCookie('playerName'));
+                addUserName(newName);
+                console.log(newName);
                 $(this).html(newName);
                 $('[js-popup-playerName]').fadeOut(200);
             });
