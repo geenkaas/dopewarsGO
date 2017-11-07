@@ -122,7 +122,6 @@ function initApp() {
         // [END_EXCLUDE]
         if (user) {
             // User is signed in.
-            $('[js-logged-out]').hide();
             var displayName = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
@@ -138,14 +137,16 @@ function initApp() {
                 document.getElementById('quickstart-verify-email').disabled = false;
             }
             // [END_EXCLUDE]
+            $('[js-logged-out]').hide();
+            $('[js-popup-register]').removeClass('active');
         } else {
             // User is signed out.
-            $('[js-logged-out]').show();
             // [START_EXCLUDE]
             document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
             document.getElementById('quickstart-sign-in').textContent = 'Sign in';
             document.getElementById('quickstart-account-details').textContent = 'null';
             // [END_EXCLUDE]
+            $('[js-logged-out]').show();
         }
         // [START_EXCLUDE silent]
         document.getElementById('quickstart-sign-in').disabled = false;
