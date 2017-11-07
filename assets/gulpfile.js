@@ -49,12 +49,15 @@ gulp.task('duplicator', function() {
         .pipe(newer('./../dist/fonts/'))
         .pipe(gulp.dest('./../dist/fonts/'));
 
-    var firebase = [
-        './node_modules/firebase/firebase.js'
-    ];
+    var firebase = ['./node_modules/firebase/firebase.js'];
     gulp.src(firebase)
         .pipe(newer('./js/vendor/firebase'))
         .pipe(gulp.dest('./js/vendor/firebase'));
+
+    var audio = ['./audio/**/*.{mp3,wav}'];
+    gulp.src(audio)
+        .pipe(newer('./../dist/audio/'))
+        .pipe(gulp.dest('./../dist/audio/'));
 
     var normalize = ['./node_modules/normalize-scss/sass/**/*.scss'];
     gulp.src(normalize)
