@@ -9,6 +9,8 @@
     overflow-y: scroll;
     padding: $margin-medium $margin-medium;
     z-index: 800;
+    // https://github.com/angular/material/issues/1636
+    -webkit-transform: translate3d(0,0,0);
 
     &.active {
         @include transition-fast;
