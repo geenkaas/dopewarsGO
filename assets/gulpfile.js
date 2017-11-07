@@ -49,6 +49,13 @@ gulp.task('duplicator', function() {
         .pipe(newer('./../dist/fonts/'))
         .pipe(gulp.dest('./../dist/fonts/'));
 
+    var firebase = [
+        './node_modules/firebase/firebase.js'
+    ];
+    gulp.src(firebase)
+        .pipe(newer('./js/vendor/firebase'))
+        .pipe(gulp.dest('./js/vendor/firebase'));
+
     var normalize = ['./node_modules/normalize-scss/sass/**/*.scss'];
     gulp.src(normalize)
         .pipe(newer('./scss/vendor/normalize'))
