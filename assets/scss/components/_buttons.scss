@@ -47,6 +47,36 @@
     }
 }
 
+.button--icon {
+    height: $button-dimension;
+    line-height: $button-dimension;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: $button-dimension;
+
+    &::after {
+        @include awesome;
+        display: inline-block;
+    }
+}
+
+.button--icon-audio {
+    &::after {
+        content: "\f04b";
+    }
+    &.playing::after {
+        content: "\f04c";
+    }
+}
+
+.button--home-audio {
+    right: 10%;
+    position: absolute;
+    top: 45%;
+    z-index: 900;
+}
+
 .button--trade {
     background: color(button-trade-background);
     color: color(button-trade-text);
@@ -56,7 +86,8 @@
     padding: 0;
     text-align: center;
     width: $button-dimension;
-    &::after{
+
+    &::after {
         @include awesome;
         display: inline-block;
     }
@@ -64,14 +95,16 @@
 
 .button--buy {
     color: color(button-buy-text);
-    &::after{
+
+    &::after {
         content: "\f067";
     }
 }
 
 .button--sell {
     color: color(button-sell-text);
-    &::after{
+
+    &::after {
         content: "\f068";
     }
 }
