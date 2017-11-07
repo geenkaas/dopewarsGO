@@ -19,4 +19,5 @@ function initScreen() {
     buildTable();
     initGame();
     popupPlayerName();
+    console.log('init.js')
 }

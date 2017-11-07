@@ -5,7 +5,9 @@
     background: $black-90;
     display: none;
     margin: $margin-smaller;
+    overflow-x: hidden;
     overflow-y: scroll;
+    padding: $margin-medium $margin-medium;
     z-index: 800;
 
     &.active {

@@ -7,7 +7,6 @@ var project = 'dopewarsgo'; // Project name, used for build
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    reload = browserSync.reload,
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     newer = require('gulp-newer'),
@@ -17,7 +16,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
     imagemin = require('gulp-imagemin'),
-    svgmin = require('gulp-svgmin');
+    svgmin = require('gulp-svgmin'),
+    reload = browserSync.reload;
 
 /**
  * Browser Sync
@@ -117,7 +117,7 @@ gulp.task('js-vendor', function () {
     gulp.src([
             './js/vendor/jquery/jquery.js',
             './js/vendor/jquery-migrate/jquery-migrate.js',
-            './js/vendor/jquery-mobile/jquery.mobile.js',
+            './js/vendor/jquery-mobile/jquery.mobile.custom.min.js',
             './js/vendor/firebase/firebase.js'
         ])
         .pipe(plumber())

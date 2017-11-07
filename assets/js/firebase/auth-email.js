@@ -122,6 +122,7 @@ function initApp() {
         // [END_EXCLUDE]
         if (user) {
             // User is signed in.
+            $('[js-logged-out]').hide();
             var displayName = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
@@ -139,6 +140,7 @@ function initApp() {
             // [END_EXCLUDE]
         } else {
             // User is signed out.
+            $('[js-logged-out]').show();
             // [START_EXCLUDE]
             document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
             document.getElementById('quickstart-sign-in').textContent = 'Sign in';

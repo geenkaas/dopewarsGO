@@ -64,12 +64,16 @@
                         <div class="button button--inline button--deselect" js-length data-game-length="30">30 Days</div>
                     </div>
 
+                    <div js-logged-out>
+                        <button class="button button--home-register" data-popup="js-popup-register">Register</button>
+
+                        <p>or be a coward and</p>
+                    </div>
+
                     <button class="button button--primary" js-slide-button js-slide-target="trade">Hit the streets!</button>
                     <div class="c-version" js-version-number></div>
 
                     <button class="button button--icon button--icon-audio button--home-audio" js-audio-toggle></button>
-
-                    <button class="button button--home-register" data-popup="js-popup-register">Register</button>
 
                 </article>
 
@@ -159,15 +163,17 @@
                     <button class="button" id="quickstart-sign-up" name="signup">Register</button>
                     <button disabled class="button" id="quickstart-sign-in" name="signin">Login</button>
                     <hr />
-                    <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a>
-                    <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
+                    <p class="small">
+                        <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a> - 
+                        <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
+                    </p>
                     <hr />
 
                     <!-- Container where we'll display the user details -->
-                    <div class="quickstart-user-details-container">
+                    <div class="quickstart-user-details-container smallest">
                         Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
                         <div>Firebase auth <code>currentUser</code> object value:</div>
-                        <pre><code id="quickstart-account-details">null</code></pre>
+                        <p id="quickstart-account-details">null</p>
                     </div>
                 </div>
             </div>
@@ -175,7 +181,7 @@
         </div>
 
         <script type="text/javascript" src="js/vendor.min.js?version=1.0.7"></script>
-        <!-- <script type="text/javascript" src="js/script.min.js?version=1.0.7"></script> -->
+        <script type="text/javascript" src="js/script.min.js?version=1.0.7"></script>
 
         <script>
             window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
