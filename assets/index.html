@@ -144,6 +144,28 @@
                     </div>
                     <button class="button button--primary button--disabled" js-button-saveName>Thats me!</button>
                 </div>
+
+                <div class="c-popup c-popup--register" js-popup-register>
+                    <h3 class="c-popup__header">Can I see some ID?</h3>
+                    <p>Enter an email and password below and either sign in to an existing account or sign up</p>
+
+                    <input class="" type="email" id="email" name="email" placeholder="Email"/>
+                    <input class="" type="password" id="password" name="password" placeholder="Password"/>
+                    <hr />
+                    <button class="button" id="quickstart-sign-up" name="signup">Register</button>
+                    <button disabled class="button" id="quickstart-sign-in" name="signin">Login</button>
+                    <hr />
+                    <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a>
+                    <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
+                    <hr />
+
+                    <!-- Container where we'll display the user details -->
+                    <div class="quickstart-user-details-container">
+                        Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                        <div>Firebase auth <code>currentUser</code> object value:</div>
+                        <pre><code id="quickstart-account-details">null</code></pre>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -159,20 +181,6 @@
             ga('create','UA-6462419-4','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-
-        <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyD3KptP-Zcb7wDW_f1QjXfd5vzKyPhiovs",
-            authDomain: "dopewars-go.firebaseapp.com",
-            databaseURL: "https://dopewars-go.firebaseio.com",
-            projectId: "dopewars-go",
-            storageBucket: "dopewars-go.appspot.com",
-            messagingSenderId: "532369668543"
-          };
-          firebase.initializeApp(config);
-        </script>
 
     </body>
 
