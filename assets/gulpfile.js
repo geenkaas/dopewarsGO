@@ -6,7 +6,6 @@ var project = 'dopewarsgo'; // Project name, used for build
 /* Load plugins @todo css minify */
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    browserify = require('browserify'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     autoprefixer = require('gulp-autoprefixer'),
