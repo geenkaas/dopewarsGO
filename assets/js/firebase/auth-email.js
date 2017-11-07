@@ -13,12 +13,12 @@ function toggleSignIn() {
     } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
-        if (email.length < 4) {
+        if (email.length < 7) {
             alert('Please enter an email address.');
             return;
         }
-        if (password.length < 4) {
-            alert('Please enter a password.');
+        if (password.length < 6) {
+            alert('Please enter a longer password.');
             return;
         }
         // Sign in with email and pass.
@@ -158,4 +158,4 @@ function initApp() {
 
 window.onload = function() {
     initApp();
-};
+}
