@@ -19,6 +19,8 @@ $('[js-changename]').on('tap', function() {
 })
 
 function playerNameSelect() {
+    // Hide all popups
+    $('.c-popup').hide();
     $('[js-popup-playerName]').addClass('active').show();
     //$('[js-tag]').find('.c-playerInitial').hide();
     var initials = $('[js-tag]').find('.c-playerInitial');
@@ -26,7 +28,7 @@ function playerNameSelect() {
     $('.c-playerLetter').on('tap', function() {
         var whichLetter = $(this).html();
         //console.log(initials)
-        
+
         //console.log(whichLetter);
         var next = $('.c-playerInitial.active').removeClass('active').html(whichLetter).next();
         //console.log(next.length);
