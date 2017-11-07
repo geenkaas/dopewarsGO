@@ -6,6 +6,7 @@ var project = 'dopewarsgo'; // Project name, used for build
 /* Load plugins @todo css minify */
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    browserify = require('browserify'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     autoprefixer = require('gulp-autoprefixer'),
@@ -40,6 +41,11 @@ gulp.task('browser-sync', function () {
 
 // Copy Files needed for production
 gulp.task('duplicator', function() {
+
+    var rootfolder = ['./firebase.json'];
+    gulp.src(rootfolder)
+        .pipe(newer('./'))
+        .pipe(gulp.dest('./'));
 
     var fonts = [
         './node_modules/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}',
@@ -110,8 +116,10 @@ gulp.task('sass', function () {
 gulp.task('js-vendor', function () {
     // add vendor scripts
     gulp.src([
+            './js/vendor/jquery/jquery.js',
             './js/vendor/jquery-migrate/jquery-migrate.js',
-            './js/vendor/jquery-mobile/jquery.mobile.js'
+            './js/vendor/jquery-mobile/jquery.mobile.js',
+            './js/vendor/firebase/firebase.js'
         ])
         .pipe(plumber())
         .pipe(concat('vendor.js'))

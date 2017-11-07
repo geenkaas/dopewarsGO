@@ -3,10 +3,10 @@
 'use strict';
 
 var VersionConstruct = {
-    number: '1.0.6',
-    name: 	'themesong',
-    quote: 	'Play me!',
-    date: 	'6 nov 2017'
+    number: '1.0.7',
+    name: 	'firebase',
+    quote: 	'Papers please',
+    date: 	'7 nov 2017'
 }
 
 var Version = Object.create(VersionConstruct);
@@ -16,6 +16,11 @@ function updateVersion() {
     $('[js-version-number]').html(Version.number + ' - ' + Version.name);
 }
 
+
+    // number: '1.0.6',
+    // name:   'themesong',
+    // quote:  'Play me!',
+    // date:   '6 nov 2017'
 
     // number: '1.0.5',
     // name: 	'highscore',

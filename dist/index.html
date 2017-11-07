@@ -9,7 +9,7 @@
         <meta name="referrer" content="no-referrer">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700%7CPress+Start+2P" rel="stylesheet">
         <meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="css/style.min.css?version=1.0.5">
+        <link rel="stylesheet" href="css/style.min.css?version=1.0.7">
     </head>
     <body>
         <div class="s-site">
@@ -34,7 +34,7 @@
                             <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" js-changename />
                             <p>Name</p>
                         </div>
-                        <div class="s-gallery__column c-mainmenu__item">
+                        <div class="s-gallery__column c-mainmenu__item" js-audio-toggle>
                             <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
                             <p>Sound</p>
                         </div>
@@ -66,6 +66,10 @@
 
                     <button class="button button--primary" js-slide-button js-slide-target="trade">Hit the streets!</button>
                     <div class="c-version" js-version-number></div>
+
+                    <button class="button button--icon button--icon-audio button--home-audio" js-audio-toggle></button>
+
+                    <button class="button button--home-register" data-popup="js-popup-register">Register</button>
 
                 </article>
 
@@ -144,15 +148,36 @@
                     </div>
                     <button class="button button--primary button--disabled" js-button-saveName>Thats me!</button>
                 </div>
+
+                <div class="c-popup c-popup--register" js-popup-register>
+                    <h3 class="c-popup__header">Can I see some ID?</h3>
+                    <p>Enter an email and password below and either sign in to an existing account or sign up</p>
+
+                    <input class="" type="email" id="email" name="email" placeholder="Email"/>
+                    <input class="" type="password" id="password" name="password" placeholder="Password"/>
+                    <hr />
+                    <button class="button" id="quickstart-sign-up" name="signup">Register</button>
+                    <button disabled class="button" id="quickstart-sign-in" name="signin">Login</button>
+                    <hr />
+                    <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a>
+                    <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
+                    <hr />
+
+                    <!-- Container where we'll display the user details -->
+                    <div class="quickstart-user-details-container">
+                        Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                        <div>Firebase auth <code>currentUser</code> object value:</div>
+                        <pre><code id="quickstart-account-details">null</code></pre>
+                    </div>
+                </div>
             </div>
 
         </div>
-
+<!-- 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <!--<script type="text/javascript" src="js/vendor.min.js"></script>-->
-
-        <script type="text/javascript" src="js/script.min.js?version=1.0.5"></script>
+        <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+        <script type="text/javascript" src="js/vendor.min.js?version=1.0.7"></script>
+        <script type="text/javascript" src="js/script.min.js?version=1.0.7"></script>
 
         <script>
             window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
