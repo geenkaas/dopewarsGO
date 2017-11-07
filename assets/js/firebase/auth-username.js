@@ -11,7 +11,7 @@ function addUserName(arcadeName) {
         displayName: arcadeName,
     }).then(function() {
         // Update successful.
-        alert('thanks! username updated to: ' + arcadeName);
+        //alert('thanks! username updated to: ' + arcadeName);
     }).catch(function(error) {
         // An error happened.
     });
