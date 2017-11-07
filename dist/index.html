@@ -38,9 +38,9 @@
                             <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
                             <p>Sound</p>
                         </div>
-                        <div class="s-gallery__column c-mainmenu__item">
+                        <div class="s-gallery__column c-mainmenu__item" data-popup="js-popup-register">
                             <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
-                            <p>Help</p>
+                            <p>Account</p>
                         </div>
                     </div>
                 </div>
@@ -59,21 +59,21 @@
                     <p>Your doperun is about to start. Can you dig it?<br />
                     Buy dope when it's green, sell when it's red.</p>
 
-                    <div class="c-button-group c-gamelength__controls">
-                        <div class="button button--inline" js-length data-game-length="7">7 Days</div>
-                        <div class="button button--inline button--deselect" js-length data-game-length="30">30 Days</div>
-                    </div>
-
-                    <div js-logged-out>
+                    <div class="u-hidden" js-logged-out>
                         <button class="button button--home-register" data-popup="js-popup-register">Register</button>
 
                         <p>or be a coward and</p>
                     </div>
 
                     <button class="button button--primary" js-slide-button js-slide-target="trade">Hit the streets!</button>
-                    <div class="c-version" js-version-number></div>
 
-                    <button class="button button--icon button--icon-audio button--home-audio" js-audio-toggle></button>
+                    <div class="c-button-group c-gamelength__controls">
+                        <div class="button button--inline button--icon button--icon-audio" js-audio-toggle></div>
+                        <div class="button button--inline" js-length data-game-length="7">7 Days</div>
+                        <div class="button button--inline button--deselect" js-length data-game-length="30">30 Days</div>
+                    </div>
+                    
+                    <div class="c-version" js-version-number></div>
 
                 </article>
 
@@ -163,14 +163,14 @@
                     <button class="button" id="quickstart-sign-up" name="signup">Register</button>
                     <button disabled class="button" id="quickstart-sign-in" name="signin">Login</button>
                     <hr />
-                    <p class="small">
+                    <p class="u-small">
                         <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a> - 
                         <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
                     </p>
                     <hr />
 
                     <!-- Container where we'll display the user details -->
-                    <div class="quickstart-user-details-container smallest">
+                    <div class="u-hidden u-smallest">
                         Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
                         <div>Firebase auth <code>currentUser</code> object value:</div>
                         <p id="quickstart-account-details">null</p>
