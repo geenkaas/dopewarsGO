@@ -1,4 +1,6 @@
 // Initialize email authanthification
+// https://firebase.google.com/docs/auth/web/start
+// https://github.com/firebase/quickstart-js/blob/master/auth/email.html#L60-L73
 
 'use strict';
 

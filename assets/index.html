@@ -164,10 +164,17 @@
                     <button disabled class="button" id="quickstart-sign-in" name="signin">Login</button>
                     <hr />
                     <p class="u-small">
-                        <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a> - 
+                        <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a>
+                        |
                         <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
                     </p>
                     <hr />
+
+                    <p>Log in with your Facebook account below.</p>
+
+                    <!-- [START facebook_button] -->
+                    <fb:login-button data-auto-logout-link="true" scope="public_profile,email" size="small"></fb:login-button>
+                    <!-- [END facebook_button] -->
 
                     <!-- Container where we'll display the user details -->
                     <div class="u-hidden u-smallest">
@@ -182,6 +189,25 @@
 
         <script type="text/javascript" src="js/vendor.min.js?version=1.0.7"></script>
         <script type="text/javascript" src="js/script.min.js?version=1.0.7"></script>
+
+        <!-- Facebook -->
+        <!-- [START facebookconfig] -->
+        <script src="//connect.facebook.net/en_US/sdk.js"></script>
+        <script>
+            FB.init({
+                appId      : '1609208802455598',
+                status     : true,
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+            // [START_EXCLUDE silent]
+            // Observe the change in Facebook login status
+            // [START facebookauthlistener]
+            FB.Event.subscribe('auth.authResponseChange', checkLoginState);
+            // [END facebookauthlistener]
+            // [END_EXCLUDE]
+        </script>
+        <!-- [END facebookconfig] -->
 
         <script>
             window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;

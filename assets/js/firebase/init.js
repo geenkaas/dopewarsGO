@@ -11,6 +11,3 @@ var config = {
     messagingSenderId: "532369668543"
 };
 firebase.initializeApp(config);
-
-// TODO create a email/Facebook/Twitter/Github login
-// https://github.com/firebase/quickstart-js/tree/master/auth

@@ -185,3 +185,9 @@ gulp.task('default', ['duplicator', 'sass', 'js-vendor', 'js-custom', 'images', 
     gulp.watch(['scss/**/*.{scss, css}'], ['sass']);
     gulp.watch(['./js/**/*.js', './js/vendor/**/*.js', '!./js/**/*.min.js'], ['js-watch']);
 });
+
+// todo sync firebase serve:
+//https://gist.github.com/dubyajaysmith/e48721addf954a4fd5cf8dbe5d4d82cf
+
+// browser-sync start --proxy "localhost:5000" --files "./../dist/*"
+// https://stackoverflow.com/questions/44778167/firebase-local-server-how-to-refresh-browser-when-files-changed
