@@ -4,7 +4,7 @@
 'use strict';
 
 function addUserName(arcadeName) {
-    
+
     var user = firebase.auth().currentUser;
 
     user.updateProfile({
