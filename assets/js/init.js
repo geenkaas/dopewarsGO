@@ -3,6 +3,10 @@
 
 'use strict';
 
+require('./game-core/all.js');
+require('../scss/style.scss');
+
+
 var screenHeight;
 
 $(window).load(function() {
