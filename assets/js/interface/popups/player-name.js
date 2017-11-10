@@ -26,7 +26,7 @@ function playerNameSelect() {
     $('.c-playerLetter').on('tap', function() {
         var whichLetter = $(this).html();
         //console.log(initials)
-        
+
         //console.log(whichLetter);
         var next = $('.c-playerInitial.active').removeClass('active').html(whichLetter).next();
         //console.log(next.length);
