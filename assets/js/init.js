@@ -14,6 +14,7 @@ function initScreen() {
     $('.s-site').height(screenHeight);
 
     slideButtons();
+    console.log('ho');
     updateStats();
     updateVersion();
     buildTable();
