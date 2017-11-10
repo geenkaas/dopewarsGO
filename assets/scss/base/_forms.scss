@@ -28,6 +28,10 @@ input,
 button,
 select,
 textarea {
+    -webkit-text-size-adjust: initial;
+    -webkit-touch-callout: initial;
+    -webkit-user-select: initial;
+    user-select: initial;
 }
 
 input[type="checkbox"]{
