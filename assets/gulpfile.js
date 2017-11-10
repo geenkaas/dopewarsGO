@@ -54,7 +54,11 @@ gulp.task('duplicator', function() {
         .pipe(newer('./../dist/fonts/'))
         .pipe(gulp.dest('./../dist/fonts/'));
 
-    var firebase = ['./node_modules/firebase/firebase.js'];
+    var firebase = [
+        './node_modules/firebase/firebase-app.js',
+        './node_modules/firebase/firebase-auth.js',
+        './node_modules/firebase/firebase-firestore.js'
+    ];
     gulp.src(firebase)
         .pipe(newer('./js/vendor/firebase'))
         .pipe(gulp.dest('./js/vendor/firebase'));
@@ -118,7 +122,9 @@ gulp.task('js-vendor', function () {
             './js/vendor/jquery/jquery.js',
             './js/vendor/jquery-migrate/jquery-migrate.js',
             './js/vendor/jquery-mobile/jquery.mobile.custom.min.js',
-            './js/vendor/firebase/firebase.js'
+            './js/vendor/firebase/firebase-app.js',
+            './js/vendor/firebase/firebase-auth.js',
+            './js/vendor/firebase/firebase-firestore.js'
         ])
         .pipe(plumber())
         .pipe(concat('vendor.js'))
