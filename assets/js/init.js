@@ -17,6 +17,7 @@ function initScreen() {
     updateStats();
     updateVersion();
     buildTable();
-    initGame();
+    buttonJet();
+    buttonDays();
     popupPlayerName();
 }

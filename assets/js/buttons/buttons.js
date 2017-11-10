@@ -3,28 +3,36 @@
 
 'use strict';
 
-function restartButtons() {
+function buttonRestart() {
+
     $('[js-game-restart]').on('tap', function() {
         //console.log('dead');
         window.location.reload(true);
     });
+
 }
 
-function modalButtons() {
+function buttonModal() {
+
     $('[js-modal-close]').on('tap', function() {
         $(this).closest('.c-modal').fadeOut(200, function() {
         	$(this).remove();
         });
     });
+
 }
 
-function initGame() {
+function buttonJet() {
 
     $('[js-button-jet]').on('tap', function() {
         if (!$(this).hasClass('button--disabled')) {
             updateDay();
         }
     });
+
+}
+
+function buttonDays() {
 
     $('[js-length]').on('tap', function() {
         $(this).removeClass('button--deselect');
@@ -39,4 +47,5 @@ function initGame() {
         updateStats();
         $('[js-slide-button]').removeClass('button--disabled');
     });
+
 }

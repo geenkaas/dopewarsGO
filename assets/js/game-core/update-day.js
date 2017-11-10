@@ -28,7 +28,7 @@ function updateDay() {
             </div>\
         ');
         createModal(eventContent);
-        restartButtons();
+        buttonRestart();
     } else {
         player.dayCurr += 1;
         updateStats();

@@ -10,7 +10,7 @@ function buttonTradeInit() {
     }).on('taphold', function() {
         buttonTrade($(this), 'taphold');
     });
-    
+
     setRandomPrices();
 }
 

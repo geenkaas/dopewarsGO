@@ -38,6 +38,7 @@ function officerHardass() {
     ');
 
     createModal(eventContent);
+    // Set player healthbar to current health
     $('.c-health--player span').html(player.health).css('width', player.health + '%');
 
 
@@ -75,7 +76,7 @@ function officerHardass() {
             $('.c-combat__controls').hide();
             roundText = 'You got away!';
             $('.c-combat').after('<div class="button" js-modal-close>Too close</div>');
-            modalButtons();
+            buttonModal();
         } else {
             var chaseDistance = Math.ceil(Math.random() * 4);
             if (hardass.biteChance >= (Math.random() * 100)) {
@@ -89,7 +90,7 @@ function officerHardass() {
                     roundText = 'Police dogs grab you and you bleed out on the streets. Your final score is: ' + digits(player.cash);
 
                     $('.c-combat').after('<div class="button" js-game-restart>Nasty</div>');
-                    restartButtons();
+                    buttonRestart();
                 }
                 $('.c-health--player span').html(player.health).css('width', player.health + '%');
             } else {
@@ -115,7 +116,7 @@ function officerHardass() {
                 player.cash += lootCash;
                 updateStats();
                 $('.c-combat').after('<div class="button" js-modal-close>Later Hardass</div>');
-                modalButtons();
+                buttonModal();
             }
             $('.c-health--enemy span').html(hardass.health).css('width', hardass.health + '%');
         } else {
@@ -130,7 +131,7 @@ function officerHardass() {
                 roundText = 'Officer Hardass shot you dead sucker!<br />Your final score is: ' + digits(player.cash);
 
                 $('.c-combat').after('<div class="button" js-game-restart>Ah man!</div>');
-                restartButtons();
+                buttonRestart();
             }
             $('.c-health--player span').html(player.health).css('width', player.health + '%');
 

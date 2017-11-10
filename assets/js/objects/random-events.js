@@ -49,7 +49,7 @@ function getRandomEvent(eventMap) {
 var eventTotal = 0;
 eventList.forEach(function(event) {
     eventTotal += event.chance;
-});
+})
 
 var eventMap = [];
 var range = 0;
@@ -57,8 +57,7 @@ eventList.forEach(function(event) {
     range += getEventChange(event, eventTotal);
     eventMap.push(new Event(event.name, range));
     //console.log(event.name + " chance: " + getEventChange(event, eventTotal) + '%. Range <= ' + range);
-});
-//console.log(eventMap);
+})
 
 function randomEvents() {
     var randomEventChance = Math.random();
