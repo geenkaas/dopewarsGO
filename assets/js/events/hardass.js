@@ -38,6 +38,7 @@ function officerHardass() {
     ');
 
     createModal(eventContent);
+    // Set player healthbar to current health
     $('.c-health--player span').html(player.health).css('width', player.health + '%');
 
 

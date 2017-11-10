@@ -4,7 +4,7 @@
 'use strict';
 
 function buildTable() {
-    
+
     dopelist.forEach(function(dope) {
         $('[js-dope-table-content]').append('\
             <tr js-dope data-js-dope="'+ dope.name +'">\
@@ -18,5 +18,4 @@ function buildTable() {
     });
 
     buttonTradeInit();
-
 }
