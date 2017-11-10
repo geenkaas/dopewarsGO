@@ -32,7 +32,7 @@ function buttonJet() {
 
 }
 
-function buttonDays(); {
+function buttonDays() {
 
     $('[js-length]').on('tap', function() {
         $(this).removeClass('button--deselect');
