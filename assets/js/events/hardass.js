@@ -89,7 +89,7 @@ function officerHardass() {
                     $('.c-combat__controls').hide();
                     roundText = 'Police dogs grab you and you bleed out on the streets. Your final score is: ' + digits(player.cash);
 
-                    $('.c-combat').after('<div class="button" js-game-restart>Nasty</div>');
+                    $('.c-combat').after('<div class="button" js-game-restart js-game-end js-game-lost>Nasty</div>');
                     buttonRestart();
                 }
                 $('.c-health--player span').html(player.health).css('width', player.health + '%');
@@ -130,7 +130,7 @@ function officerHardass() {
                 $('.c-combat__controls').hide();
                 roundText = 'Officer Hardass shot you dead sucker!<br />Your final score is: ' + digits(player.cash);
 
-                $('.c-combat').after('<div class="button" js-game-restart>Ah man!</div>');
+                $('.c-combat').after('<div class="button" js-game-restart js-game-end js-game-lost>Ah man!</div>');
                 buttonRestart();
             }
             $('.c-health--player span').html(player.health).css('width', player.health + '%');

@@ -24,7 +24,7 @@ function updateDay() {
             <h2>Doperun over!</h2>\
             <p>What a run! Your final score is '+ endScore +'</p>\
             <div class="c-button-group">\
-                <div class="button" js-game-restart>Again!</div>\
+                <div class="button" js-game-restart js-game-end js-game-won>Again!</div>\
             </div>\
         ');
         createModal(eventContent);
