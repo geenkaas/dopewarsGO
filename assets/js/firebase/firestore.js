@@ -20,11 +20,11 @@ function initFirestore() {
 
         var arcadeName = readCookie('playerName');
 
-        var db = firebase.firestore();
+        var fs = firebase.firestore();
         // Below are same results
-        var userData = db.collection('players').doc(userId);
+        var userData = fs.collection('players').doc(userId);
         // But I prefer this one
-        var userData = db.doc('players/'+ userId);
+        var userData = fs.doc('players/'+ userId);
 
         var gamesPlayedNew;
 
@@ -34,7 +34,11 @@ function initFirestore() {
 
             // increment data by one
             // See: https://firebase.google.com/docs/database/web/read-and-write#save_data_as_transactions
-            gamesPlayedNew = doc.data().gamesPlayed + 1;
+            if (doc.data().gamesPlayed < 1) {
+                gamesPlayedNew = 1;
+            } else {
+                gamesPlayedNew = doc.data().gamesPlayed + 1;
+            }
 
             userData.update({
                 uid: userId,
@@ -48,6 +52,11 @@ function initFirestore() {
             console.log("Error getting document:", error);
         });
     })
+}
+
+function updateScore(property, change) {
+    // New modular function for button handling.
+    // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
 }
 
 window.onload = function() {

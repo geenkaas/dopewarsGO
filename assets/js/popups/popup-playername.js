@@ -21,6 +21,7 @@ $('[js-changename]').on('tap', function() {
 function playerNameSelect() {
     // Hide all popups
     $('.c-popup').hide();
+    $('.c-playerLetter').off();
     $('[js-popup-playerName]').addClass('active').show();
     //$('[js-tag]').find('.c-playerInitial').hide();
     var initials = $('[js-tag]').find('.c-playerInitial');
