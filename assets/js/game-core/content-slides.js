@@ -4,8 +4,9 @@
 
 function slideButtons() {
 
-    $('[data-slide-button]').each(function() {
+    $('[data-slide-target]').each(function() {
         $(this).on('tap', function() {
+            console.log('tapped');
             // Remove all sliders that went left (placing them back tot he rigth)
             $('.c-slide').removeClass('c-slide--remove');
             // Find the target slide

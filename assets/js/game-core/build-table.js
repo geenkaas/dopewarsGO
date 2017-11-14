@@ -7,7 +7,7 @@ function buildTable() {
     
     dopelist.forEach(function(dope) {
         $('[data-dope-table-content]').append('\
-            <tr data-dope data-data-dope="'+ dope.name +'">\
+            <tr data-dope="'+ dope.name +'">\
                 <td>'+dope.name+'</td>\
                 <td data-dope-amount>'+ dope.amount +'</td>\
                 <td data-dope-sell><button class="button button--trade button--sell"></button></td>\

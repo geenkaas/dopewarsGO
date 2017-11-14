@@ -7,7 +7,7 @@ function updateDay() {
     if (player.dayCurr >= player.dayMax) {
 
         dopelist.forEach(function(dope) {
-            var dopeCurr = $('[data-data-dope="'+ dope.name +'"]');
+            var dopeCurr = $('[data-dope="'+ dope.name +'"]');
             var dopeAmount = parseInt(dopeCurr.find('[data-dope-amount]').html());
             if (dopeAmount > 0) {
 

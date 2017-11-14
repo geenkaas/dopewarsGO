@@ -34,9 +34,9 @@ function buttonJet() {
 
 function buttonDays() {
 
-    $('[data-length]').on('tap', function() {
+    $('[data-game-length]').on('tap', function() {
         $(this).removeClass('button--deselect');
-        $('[data-length]').not($(this)).addClass('button--deselect')
+        $('[data-game-length]').not($(this)).addClass('button--deselect')
         var length = $(this).attr('data-game-length');
         if (length > 7) {
             player.invMax = 100;

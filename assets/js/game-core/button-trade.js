@@ -20,7 +20,7 @@ function buttonTrade(thisButton, action) {
     if (!thisButton.hasClass('button--disabled')) {
 
         var clickRow = thisButton.closest('tr');
-        var clickDope = clickRow.attr('data-data-dope');
+        var clickDope = clickRow.attr('data-dope');
         var cashTrade = parseInt(clickRow.find('[data-dope-price]').html());
 
         var amount;

@@ -6,7 +6,7 @@ function disableButtons() {
 
     dopelist.forEach(function(dope) {
 
-        var dopeCurr = $('[data-data-dope="'+ dope.name +'"]');
+        var dopeCurr = $('[data-dope="'+ dope.name +'"]');
         //console.log(dope);
 
         var dopeAmount = parseInt(dopeCurr.find('[data-dope-amount]').html());
