@@ -14,6 +14,13 @@ function initFirestore() {
     //console.log(gamesPlayed);
 
     buttonGameNew.on('tap', function() {
+        updateScore('gamesPlayed', 1)
+    })
+}
+
+function updateScore(property, change) {
+    // New modular function for button handling.
+    // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
 
         var fb = firebase.auth();
         var userId = fb.currentUser.uid;
@@ -26,7 +33,7 @@ function initFirestore() {
         // But I prefer this one
         var userData = fs.doc('players/'+ userId);
 
-        var gamesPlayedNew;
+        var propertyNew;
 
         userData.get().then(function(doc) {
         if (doc.exists) {
@@ -34,16 +41,16 @@ function initFirestore() {
 
             // increment data by one
             // See: https://firebase.google.com/docs/database/web/read-and-write#save_data_as_transactions
-            if (doc.data().gamesPlayed < 1) {
-                gamesPlayedNew = 1;
+            if (doc.data().property < 1) {
+                propertyNew = 1;
             } else {
-                gamesPlayedNew = doc.data().gamesPlayed + 1;
+                propertyNew = doc.data().property + change;
             }
 
             userData.update({
                 uid: userId,
                 arcadeName: arcadeName,
-                gamesPlayed: gamesPlayedNew
+                property: propertyNew
             });
         } else {
             console.log("No such document!");
@@ -51,12 +58,6 @@ function initFirestore() {
         }).catch(function(error) {
             console.log("Error getting document:", error);
         });
-    })
-}
-
-function updateScore(property, change) {
-    // New modular function for button handling.
-    // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
 }
 
 window.onload = function() {
