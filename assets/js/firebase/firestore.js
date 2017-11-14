@@ -4,11 +4,11 @@
 
 function initFirestore() {
 
-    var buttonGameNew = $('[js-game-start]');
-    var buttonGameEnd = $('[js-game-end]');
+    var buttonGameNew = $('[data-game-start]');
+    var buttonGameEnd = $('[data-game-end]');
 
-    var buttonGameWon = $('[js-game-end]');
-    var buttonGameLost = $('[js-game-end]');
+    var buttonGameWon = $('[data-game-end]');
+    var buttonGameLost = $('[data-game-end]');
 
     //var gamesPlayed = fb.currentUser.gamesPlayed;
     //console.log(gamesPlayed);

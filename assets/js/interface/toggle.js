@@ -2,8 +2,8 @@
 
 'use strict';
 
-$('[js-toggle]').on('click', function() {
-    var target = $(this).attr('data-target');
+$('[data-toggle]').on('click', function() {
+    var target = $(this).attr('data-toggle');
     //console.log(target);
     $('.' + target).toggleClass('active').slideToggle();
 })

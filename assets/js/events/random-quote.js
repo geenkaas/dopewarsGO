@@ -31,7 +31,7 @@ function randomQuote() {
     var eventContent = ('\
         <h2>A new day</h2>\
         <p>'+ quoterSelect +'</p>\
-        <div class="button" js-modal-close>Lets deal</div>\
+        <div class="button" data-modal-close>Lets deal</div>\
     ');
     createModal(eventContent);
 }

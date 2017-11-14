@@ -4,9 +4,9 @@
 'use strict';
 
 function updateStats() {
-    $('[js-day-curr]').html(player.dayCurr);
-    $('[js-day-max]').html(player.dayMax);
-    $('[js-cash]').find('span').html(digits(player.cash));
-    $('[js-inv-curr]').html(player.invCurr);
-    $('[js-inv-max]').html(player.invMax);
+    $('[data-day-curr]').html(player.dayCurr);
+    $('[data-day-max]').html(player.dayMax);
+    $('[data-cash]').find('span').html(digits(player.cash));
+    $('[data-inv-curr]').html(player.invCurr);
+    $('[data-inv-max]').html(player.invMax);
 }

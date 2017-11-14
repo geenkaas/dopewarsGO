@@ -26,7 +26,7 @@ function dopeFound() {
         var eventContent = ('\
             <h2>Free Dope!</h2>\
             <p>'+ dopeText +'</p>\
-            <div class="button" js-modal-close>Score!</div>\
+            <div class="button" data-modal-close>Score!</div>\
         ');
         createModal(eventContent);
         updateDopeAmount(eventDope, eventAmount);

@@ -5,7 +5,7 @@
 
 function buttonRestart() {
 
-    $('[js-game-restart]').on('tap', function() {
+    $('[data-game-restart]').on('tap', function() {
         //console.log('dead');
         window.location.reload(true);
     });
@@ -14,7 +14,7 @@ function buttonRestart() {
 
 function buttonModal() {
 
-    $('[js-modal-close]').on('tap', function() {
+    $('[data-modal-close]').on('tap', function() {
         $(this).closest('.c-modal').fadeOut(200, function() {
         	$(this).remove();
         });
@@ -24,7 +24,7 @@ function buttonModal() {
 
 function buttonJet() {
 
-    $('[js-button-jet]').on('tap', function() {
+    $('[data-button-jet]').on('tap', function() {
         if (!$(this).hasClass('button--disabled')) {
             updateDay();
         }
@@ -34,9 +34,9 @@ function buttonJet() {
 
 function buttonDays() {
 
-    $('[js-length]').on('tap', function() {
+    $('[data-length]').on('tap', function() {
         $(this).removeClass('button--deselect');
-        $('[js-length]').not($(this)).addClass('button--deselect')
+        $('[data-length]').not($(this)).addClass('button--deselect')
         var length = $(this).attr('data-game-length');
         if (length > 7) {
             player.invMax = 100;
@@ -45,7 +45,7 @@ function buttonDays() {
         }
         player.dayMax = length;
         updateStats();
-        $('[js-slide-button]').removeClass('button--disabled');
+        $('[data-slide-button]').removeClass('button--disabled');
     });
 
 }

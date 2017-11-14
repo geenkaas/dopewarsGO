@@ -31,9 +31,9 @@ function officerHardass() {
             </div>\
         </div>\
         <div class="c-button-group c-combat__controls">\
-            <div class="button button--inline" js-combat-run>Run</div>\
-            <div class="button button--inline" js-combat-fight>Fight</div>\
-            <div class="button button--inline" js-combat-bribe>Bribe</div>\
+            <div class="button button--inline" data-combat-run>Run</div>\
+            <div class="button button--inline" data-combat-fight>Fight</div>\
+            <div class="button button--inline" data-combat-bribe>Bribe</div>\
         </div>\
     ');
 
@@ -43,12 +43,12 @@ function officerHardass() {
 
 
     // Bribe button
-    $('[js-combat-bribe]').on('tap', function() {
+    $('[data-combat-bribe]').on('tap', function() {
         var bribeAmount = Math.ceil(hardass.bribeCost * Math.random()) + hardass.bribeCost;
         var roundText;
         if (player.cash < bribeAmount) {
             roundText = 'Maybe you should save some cash first, dipshit...'
-            $('[js-combat-bribe]').hide();
+            $('[data-combat-bribe]').hide();
         } else {
             roundText = 'Ill see it through the fingers this time.<br />But its gonna cost ya $'+ bribeAmount +'.';
         }
@@ -59,7 +59,7 @@ function officerHardass() {
 
         // Pay Bribe button
         function payButtons() {
-            $('[js-combat-bribe]').html('pay').on('tap', function() {
+            $('[data-combat-bribe]').html('pay').on('tap', function() {
                 player.cash -= bribeAmount;
                 updateStats();
                 $(this).closest('.c-modal').fadeOut(200, function() { $(this).remove(); });
@@ -68,14 +68,14 @@ function officerHardass() {
     });
 
     // Run button
-    $('[js-combat-run]').on('tap', function() {
+    $('[data-combat-run]').on('tap', function() {
         var roundText;
         if (hardass.escapeChance >= (Math.random() * 100)) {
             //console.log('you escaped!');
 
             $('.c-combat__controls').hide();
             roundText = 'You got away!';
-            $('.c-combat').after('<div class="button" js-modal-close>Too close</div>');
+            $('.c-combat').after('<div class="button" data-modal-close>Too close</div>');
             buttonModal();
         } else {
             var chaseDistance = Math.ceil(Math.random() * 4);
@@ -89,7 +89,7 @@ function officerHardass() {
                     $('.c-combat__controls').hide();
                     roundText = 'Police dogs grab you and you bleed out on the streets. Your final score is: ' + digits(player.cash);
 
-                    $('.c-combat').after('<div class="button" js-game-restart js-game-end js-game-lost>Nasty</div>');
+                    $('.c-combat').after('<div class="button" data-game-restart data-game-end data-game-lost>Nasty</div>');
                     buttonRestart();
                 }
                 $('.c-health--player span').html(player.health).css('width', player.health + '%');
@@ -101,7 +101,7 @@ function officerHardass() {
     });
 
     // Fight button
-    $('[js-combat-fight]').on('tap', function() {
+    $('[data-combat-fight]').on('tap', function() {
         var roundText;
         if (hardass.winChance >= (Math.random() * 100)) {
             //console.log('won!');
@@ -115,7 +115,7 @@ function officerHardass() {
                 roundText = 'Officer Hardass drops dead!<br />On his body you find $'+ lootCash +'.';
                 player.cash += lootCash;
                 updateStats();
-                $('.c-combat').after('<div class="button" js-modal-close>Later Hardass</div>');
+                $('.c-combat').after('<div class="button" data-modal-close>Later Hardass</div>');
                 buttonModal();
             }
             $('.c-health--enemy span').html(hardass.health).css('width', hardass.health + '%');
@@ -130,7 +130,7 @@ function officerHardass() {
                 $('.c-combat__controls').hide();
                 roundText = 'Officer Hardass shot you dead sucker!<br />Your final score is: ' + digits(player.cash);
 
-                $('.c-combat').after('<div class="button" js-game-restart js-game-end js-game-lost>Ah man!</div>');
+                $('.c-combat').after('<div class="button" data-game-restart data-game-end data-game-lost>Ah man!</div>');
                 buttonRestart();
             }
             $('.c-health--player span').html(player.health).css('width', player.health + '%');

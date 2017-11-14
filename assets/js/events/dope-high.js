@@ -16,7 +16,7 @@ function dopeHigh() {
     var eventContent = ('\
         <h2>Drug Bust!</h2>\
         <p>'+ dopeText +'</p>\
-        <div class="button" js-modal-close>Alright</div>\
+        <div class="button" data-modal-close>Alright</div>\
     ');
     createModal(eventContent);
     updateDopePrice(eventDope, 2);

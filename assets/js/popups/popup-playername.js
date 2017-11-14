@@ -6,14 +6,14 @@ function popupPlayerName() {
 
     if (readCookie('playerName') === null) {
     //     var yourname = Version.quote;
-    //     $('[js-version-quote]').html(yourname);
+    //     $('[data-version-quote]').html(yourname);
         playerNameSelect();
     } else {
-        // $('[js-version-quote]').html('Welcome back ' + readCookie('playerName').toUpperCase());
+        // $('[data-version-quote]').html('Welcome back ' + readCookie('playerName').toUpperCase());
     }
 }
 
-$('[js-changename]').on('tap', function() {
+$('[data-changename]').on('tap', function() {
     $('.c-mainmenu').hide();
     playerNameSelect();
 })
@@ -22,9 +22,9 @@ function playerNameSelect() {
     // Hide all popups
     $('.c-popup').hide();
     $('.c-playerLetter').off();
-    $('[js-popup-playerName]').addClass('active').show();
-    //$('[js-tag]').find('.c-playerInitial').hide();
-    var initials = $('[js-tag]').find('.c-playerInitial');
+    $('[data-popup-playerName]').addClass('active').show();
+    //$('[data-tag]').find('.c-playerInitial').hide();
+    var initials = $('[data-tag]').find('.c-playerInitial');
     initials.first().addClass('active');
     $('.c-playerLetter').on('tap', function() {
         var whichLetter = $(this).html();
@@ -40,7 +40,7 @@ function playerNameSelect() {
         else {
             //console.log('no more!!!');
             initials.removeClass('active');
-            $('[js-button-saveName]').removeClass('button--disabled').on('tap', function() {
+            $('[data-button-saveName]').removeClass('button--disabled').on('tap', function() {
                 var newName = '';
 
                 $(this).html('preinitial');
@@ -51,7 +51,7 @@ function playerNameSelect() {
                 addUserName(newName);
                 //console.log(newName);
                 $(this).html(newName);
-                $('[js-popup-playerName]').fadeOut(200);
+                $('[data-popup-playerName]').fadeOut(200);
             });
         }
     })

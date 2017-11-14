@@ -20,7 +20,7 @@ function pennyFound() {
     var eventContent = ('\
         <h2>Free monies!</h2>\
         <p>'+ dopeText +'</p>\
-        <div class="button" js-modal-close>Rad!</div>\
+        <div class="button" data-modal-close>Rad!</div>\
     ');
     createModal(eventContent);
     player.cash += eventAmount;

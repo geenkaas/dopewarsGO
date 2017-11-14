@@ -41,8 +41,8 @@ function initApp() {
                 document.getElementById('quickstart-verify-email').disabled = false;
             }
             // [END_EXCLUDE]
-            $('[js-logged-out]').hide();
-            $('[js-popup-register]').removeClass('active');
+            $('[data-logged-out]').hide();
+            $('[data-popup-register]').removeClass('active');
         } else {
             // User is signed out.
             // [START_EXCLUDE]
@@ -50,7 +50,7 @@ function initApp() {
             document.getElementById('quickstart-sign-in').textContent = 'Sign in';
             document.getElementById('quickstart-account-details').textContent = 'null';
             // [END_EXCLUDE]
-            $('[js-logged-out]').show();
+            $('[data-logged-out]').show();
         }
         // [START_EXCLUDE silent]
         document.getElementById('quickstart-sign-in').disabled = false;

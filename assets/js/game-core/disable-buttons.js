@@ -6,11 +6,11 @@ function disableButtons() {
 
     dopelist.forEach(function(dope) {
 
-        var dopeCurr = $('[data-js-dope="'+ dope.name +'"]');
+        var dopeCurr = $('[data-data-dope="'+ dope.name +'"]');
         //console.log(dope);
 
-        var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
-        var buttonSell = dopeCurr.find('[js-dope-sell]').find('.button--trade');
+        var dopeAmount = parseInt(dopeCurr.find('[data-dope-amount]').html());
+        var buttonSell = dopeCurr.find('[data-dope-sell]').find('.button--trade');
 
         if (dopeAmount <= 0) {
             //console.log('sold and none left');
@@ -20,8 +20,8 @@ function disableButtons() {
             buttonSell.removeClass('button--disabled');
         }
 
-        var dopeCurrPrice = parseInt(dopeCurr.find('[js-dope-price]').html());
-        var buttonBuy = dopeCurr.find('[js-dope-buy]').find('.button--trade');
+        var dopeCurrPrice = parseInt(dopeCurr.find('[data-dope-price]').html());
+        var buttonBuy = dopeCurr.find('[data-dope-buy]').find('.button--trade');
 
         if (dopeCurrPrice > player.cash) {
             //console.log('bought and no more money left');
@@ -31,8 +31,8 @@ function disableButtons() {
             buttonBuy.removeClass('button--disabled');
         }
 
-        var invCurr = $('[js-inv-curr]').html();
-        var invMax = $('[js-inv-max]').html();
+        var invCurr = $('[data-inv-curr]').html();
+        var invMax = $('[data-inv-max]').html();
         var invFree = invMax - invCurr;
         if (invFree <= 0) {
             buttonBuy.addClass('button--disabled');

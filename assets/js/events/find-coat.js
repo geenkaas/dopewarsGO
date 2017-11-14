@@ -9,7 +9,7 @@ function findCoat() {
         <h2>Trench coat</h2>\
         <p>You find an awesome trenchcoat with extra pockets!</p>\
         <div class="c-button-group">\
-            <div class="button" js-modal-close>Stylish!</div>\
+            <div class="button" data-modal-close>Stylish!</div>\
         </div>\
     ');
     player.invMax += 10;
