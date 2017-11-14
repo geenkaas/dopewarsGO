@@ -23,6 +23,7 @@ function playerNameSelect() {
     //$('[data-tag]').find('.c-playerInitial').hide();
     var initials = $('[data-tag]').find('.c-playerInitial');
     initials.first().addClass('active');
+    $('.c-playerLetter').off();
     $('.c-playerLetter').on('tap', function() {
         var whichLetter = $(this).html();
         //console.log(initials)
