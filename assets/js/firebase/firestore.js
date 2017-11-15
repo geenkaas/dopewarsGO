@@ -41,15 +41,16 @@ function updateScore(property, change) {
 
             // increment data by one
             // See: https://firebase.google.com/docs/database/web/read-and-write#save_data_as_transactions
-            if (doc.data().property < 1) {
+            if (doc.data()[property] < 1) {
                 propertyNew = 1;
             } else {
-                propertyNew = doc.data().property + change;
+                propertyNew = doc.data()[property] + change;
             }
 
             userData.update({
                 uid: userId,
                 arcadeName: arcadeName,
+                // This does not work!
                 property: propertyNew
             });
         } else {
