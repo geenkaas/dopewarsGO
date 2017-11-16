@@ -13,16 +13,14 @@ function initFirestore() {
     //var gamesPlayed = fb.currentUser.gamesPlayed;
     //console.log(gamesPlayed);
 
+
     buttonGameNew.on('tap', function() {
-        updateScore('gamesPlayed', 1)
+        updateUser();
+        updateScore('gamesPlayed', 1);
     })
 }
 
-function updateScore(property, change) {
-    // New modular function for button handling.
-    // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
-
-
+function updateUser() {
     var fb = firebase.auth();
     var userId = fb.currentUser.uid;
 
@@ -30,16 +28,41 @@ function updateScore(property, change) {
 
     var fs = firebase.firestore();
     // Below are same results
-    var userData = fs.collection('players').doc(userId);
+    //var userData = fs.collection('players').doc(userId);
     // But I prefer this one
     var userData = fs.doc('players/'+ userId);
-
-    var propertyNew;
 
     userData.update({
         uid: userId,
         arcadeName: arcadeName
     });
+
+    var washingtonRef = fs.collection("cities").doc("DC");
+
+    // Set the "capital" field of the city 'DC'
+    return washingtonRef.update({
+        capital: true
+    })
+    .then(function() {
+        console.log("Document successfully updated!");
+    })
+    .catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+    });
+}
+
+function updateScore(property, change) {
+    // New modular function for button handling.
+    // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
+
+    var fb = firebase.auth();
+    var userId = fb.currentUser.uid;
+
+    var fs = firebase.firestore();
+    var userData = fs.doc('players/'+ userId);
+
+    var propertyNew;
 
     userData.get().then(function(doc) {
     if (doc.exists) {
