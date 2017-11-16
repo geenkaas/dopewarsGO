@@ -99,7 +99,7 @@ $colors: (
     link: $green,
     link-hover: $red-dark,
 
-    line-color: $yellow,
+    line-color: $green,
 
     table-row-border: $white-30,
 
@@ -108,8 +108,8 @@ $colors: (
 
     input-color: $blue-dark,
     input-background: $white,
-    input-border: $grey-light,
-    input-background-focus: $grey-light,
+    input-border: $blue-dark,
+    input-background-focus: $white,
     input-border-focus: $blue,
     input-background-autofill: $blue,
     input-border-autofill: $blue,

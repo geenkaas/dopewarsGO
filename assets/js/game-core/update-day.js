@@ -7,11 +7,11 @@ function updateDay() {
     if (player.dayCurr >= player.dayMax) {
 
         dopelist.forEach(function(dope) {
-            var dopeCurr = $('[data-js-dope="'+ dope.name +'"]');
-            var dopeAmount = parseInt(dopeCurr.find('[js-dope-amount]').html());
+            var dopeCurr = $('[data-dope="'+ dope.name +'"]');
+            var dopeAmount = parseInt(dopeCurr.find('[data-dope-amount]').html());
             if (dopeAmount > 0) {
 
-                var cashLeftOver = parseInt(dopeCurr.find('[js-dope-price]').html());
+                var cashLeftOver = parseInt(dopeCurr.find('[data-dope-price]').html());
                 player.cash += cashLeftOver * dopeAmount;
             }
         })
@@ -24,7 +24,7 @@ function updateDay() {
             <h2>Doperun over!</h2>\
             <p>What a run! Your final score is '+ endScore +'</p>\
             <div class="c-button-group">\
-                <div class="button" js-game-restart>Again!</div>\
+                <div class="button" data-game-restart data-game-end data-game-won>Again!</div>\
             </div>\
         ');
         createModal(eventContent);

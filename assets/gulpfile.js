@@ -7,7 +7,6 @@ var project = 'dopewarsgo'; // Project name, used for build
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    reload = browserSync.reload,
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     newer = require('gulp-newer'),
@@ -17,7 +16,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
     imagemin = require('gulp-imagemin'),
-    svgmin = require('gulp-svgmin');
+    svgmin = require('gulp-svgmin'),
+    reload = browserSync.reload;
 
 /**
  * Browser Sync
@@ -41,6 +41,11 @@ gulp.task('browser-sync', function () {
 // Copy Files needed for production
 gulp.task('duplicator', function() {
 
+    var rootfolder = ['./firebase.json'];
+    gulp.src(rootfolder)
+        .pipe(newer('./'))
+        .pipe(gulp.dest('./'));
+
     var fonts = [
         './node_modules/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}',
         './fonts/**/*.{otf,ttf,woff,woff2,eof,eot}'
@@ -49,10 +54,16 @@ gulp.task('duplicator', function() {
         .pipe(newer('./../dist/fonts/'))
         .pipe(gulp.dest('./../dist/fonts/'));
 
-
-    var audio = [
-        './audio/**/*.{mp3,wav}'
+    var firebase = [
+        './node_modules/firebase/firebase-app.js',
+        './node_modules/firebase/firebase-auth.js',
+        './node_modules/firebase/firebase-firestore.js'
     ];
+    gulp.src(firebase)
+        .pipe(newer('./js/vendor/firebase'))
+        .pipe(gulp.dest('./js/vendor/firebase'));
+
+    var audio = ['./audio/**/*.{mp3,wav}'];
     gulp.src(audio)
         .pipe(newer('./../dist/audio/'))
         .pipe(gulp.dest('./../dist/audio/'));
@@ -108,8 +119,12 @@ gulp.task('sass', function () {
 gulp.task('js-vendor', function () {
     // add vendor scripts
     gulp.src([
+            './js/vendor/jquery/jquery.js',
             './js/vendor/jquery-migrate/jquery-migrate.js',
-            './js/vendor/jquery-mobile/jquery.mobile.js'
+            './js/vendor/jquery-mobile/jquery.mobile.custom.min.js',
+            './js/vendor/firebase/firebase-app.js',
+            './js/vendor/firebase/firebase-auth.js',
+            './js/vendor/firebase/firebase-firestore.js'
         ])
         .pipe(plumber())
         .pipe(concat('vendor.js'))
@@ -176,3 +191,9 @@ gulp.task('default', ['duplicator', 'sass', 'js-vendor', 'js-custom', 'images', 
     gulp.watch(['scss/**/*.{scss, css}'], ['sass']);
     gulp.watch(['./js/**/*.js', './js/vendor/**/*.js', '!./js/**/*.min.js'], ['js-watch']);
 });
+
+// todo sync firebase serve:
+//https://gist.github.com/dubyajaysmith/e48721addf954a4fd5cf8dbe5d4d82cf
+
+// browser-sync start --proxy "localhost:5000" --files "./../dist/*"
+// https://stackoverflow.com/questions/44778167/firebase-local-server-how-to-refresh-browser-when-files-changed

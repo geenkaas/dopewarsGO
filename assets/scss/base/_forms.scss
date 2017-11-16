@@ -28,13 +28,10 @@ input,
 button,
 select,
 textarea {
-    background: color(input-background);
-    color: color(input-color);
-    cursor: pointer;
-    font-size: $font-size-medium;
-    margin-bottom: $margin-medium;
-    padding: 0.7em 0.5em;
-    width: 100%;
+    -webkit-text-size-adjust: initial;
+    -webkit-touch-callout: initial;
+    -webkit-user-select: initial;
+    user-select: initial;
 }
 
 input[type="checkbox"]{
@@ -58,9 +55,16 @@ input[type="week"],
 input[type="file"],
 select,
 textarea {
-    border: 1px solid color(line-color);
+    background: color(input-background);
+    border: 3px solid color(input-border);
     border-radius: 0;
+    color: color(input-color);
+    cursor: pointer;
+    font-size: $font-size-medium;
+    margin-bottom: $margin-small;
     min-width: 1px;
+    padding: 0.7em 0.5em;
+    width: 100%;
 
     &:focus {
         background-color: color(input-background-focus);

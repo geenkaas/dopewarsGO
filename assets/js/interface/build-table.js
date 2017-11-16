@@ -6,13 +6,13 @@
 function buildTable() {
 
     dopelist.forEach(function(dope) {
-        $('[js-dope-table-content]').append('\
-            <tr js-dope data-js-dope="'+ dope.name +'">\
+        $('[data-dope-table-content]').append('\
+            <tr data-dope="'+ dope.name +'">\
                 <td>'+dope.name+'</td>\
-                <td js-dope-amount>'+ dope.amount +'</td>\
-                <td js-dope-sell><button class="button button--trade button--sell"></button></td>\
-                <td js-dope-price></td>\
-                <td js-dope-buy><button class="button button--trade button--buy"></button></td>\
+                <td data-dope-amount>'+ dope.amount +'</td>\
+                <td data-dope-sell><button class="button button--trade button--sell"></button></td>\
+                <td data-dope-price></td>\
+                <td data-dope-buy><button class="button button--trade button--buy"></button></td>\
             </tr>\
         ')
     });

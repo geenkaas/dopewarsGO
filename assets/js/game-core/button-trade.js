@@ -20,8 +20,8 @@ function buttonTrade(thisButton, action) {
     if (!thisButton.hasClass('button--disabled')) {
 
         var clickRow = thisButton.closest('tr');
-        var clickDope = clickRow.attr('data-js-dope');
-        var cashTrade = parseInt(clickRow.find('[js-dope-price]').html());
+        var clickDope = clickRow.attr('data-dope');
+        var cashTrade = parseInt(clickRow.find('[data-dope-price]').html());
 
         var amount;
 
@@ -36,7 +36,7 @@ function buttonTrade(thisButton, action) {
             if (thisButton.hasClass('button--buy')) {
                 amount = Math.floor(player.cash / cashTrade);
             } else {
-                amount = clickRow.find('[js-dope-amount]').html() * - 1;
+                amount = clickRow.find('[data-dope-amount]').html() * - 1;
             }
         }
 

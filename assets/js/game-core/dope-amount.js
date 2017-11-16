@@ -8,7 +8,7 @@ function updateDopeAmount(whichDope, changeAmount) {
         //console.log(dope);
         if (dopelist[dope].name == whichDope) {
             dopelist[dope].amount += changeAmount;
-            $('[data-js-dope="'+ whichDope +'"]').find('[js-dope-amount]').html(dopelist[dope].amount);
+            $('[data-dope="'+ whichDope +'"]').find('[data-dope-amount]').html(dopelist[dope].amount);
         }
     }
     //updateInv(changeAmount);

@@ -17,7 +17,7 @@ function dopeLow() {
     var eventContent = ('\
         <h2>Market flooded!</h2>\
         <p>'+ dopeText +'</p>\
-        <div class="button" js-modal-close>Cool</div>\
+        <div class="button" data-modal-close>Cool</div>\
     ');
     var sendDopeName = dopelist.filter(function( eventDope ) {
         return dopelist.name === eventDope;

@@ -11,7 +11,7 @@ function setRandomPrices() {
 function updateDopePrice(dope, multiplier) {
 
     var dopePriceNew = dope.priceCurr(multiplier);
-    var dopeToSet = $('[data-js-dope="'+ dope.name +'"]').find('[js-dope-price]');
+    var dopeToSet = $('[data-dope="'+ dope.name +'"]').find('[data-dope-price]');
     dopeToSet.html(dopePriceNew);
 
     if (dopePriceNew < dope.priceMin ) {

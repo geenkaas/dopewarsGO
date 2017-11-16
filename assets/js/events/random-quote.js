@@ -11,8 +11,8 @@ function randomQuote() {
         'I tried marijuana once. I did not inhale',
         'Who are the Warriors?',
         'I am not a demon. I am a lizard, a shark, a heat-seeking panther',
-        'Avoid all needle drugs, the only dope worth shooting is Richard Nixon',
-        'I have never been to New Zealand before. But one of my role models, Xena, the warrior princess, comes from there'
+        'The only dope worth shooting is Richard Nixon',
+        'I have never been to New Zealand before. But Xena, the warrior princess, comes from there'
     ];
     var quoteSelect = randomFrom(quoteArray);
 
@@ -31,7 +31,7 @@ function randomQuote() {
     var eventContent = ('\
         <h2>A new day</h2>\
         <p>'+ quoterSelect +'</p>\
-        <div class="button" js-modal-close>Lets deal</div>\
+        <div class="button" data-modal-close>Lets deal</div>\
     ');
     createModal(eventContent);
 }

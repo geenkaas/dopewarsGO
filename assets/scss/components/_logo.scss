@@ -17,7 +17,7 @@
 
 .c-logo-splash {
     @include text-shadow-large;
-    margin: 0 0 12vh;
+    margin: 0 0 $margin-larger;
     position: relative;
 }
 
@@ -57,4 +57,5 @@
     transform: rotate(-10deg);
     right: 10%;
     width: 60%;
+    max-width: 300px;
 }

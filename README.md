@@ -14,14 +14,20 @@ The game should stay close to the original as much as it can but fix existing pr
 ### Setup:
 * Download repo
 * From assets folder:
-* run `nvm`
-* run `npm install`
-* run `gulp`
+* $ nvm
+* $ npm install
+* $ gulp
 * Load the /dist/index.html in your browser.
 
+### Install Firebase:
+* Make sure you have the latest dependencies ($ npm install)
+* Install Firebase globally:
+* $ npm install -g firebase-tools
+* $ firebase login
+* $ firebase serve
+* Load localhost:5000 in your browser.
+
 ### In progress
-* Random events (Arne)
-* Design and Style (Arne)
 * Dope Icons (Marley)
 * Script cleanup (Michael)
 * Music (Robin)
@@ -32,14 +38,12 @@ The game should stay close to the original as much as it can but fix existing pr
 #### Front End
 * Geolocation
 * Time based
-* Buggy controls mobile (doubletap zoom)
+* Buggy controls mobile (doubletap zoom, input iOs)
 * Tutorial
-* Hamburger menu
-* Player stats
 * Logo
+* Flowchart game loop
 
 #### Back end
-* User registration (FB? Google? Email?)
 * Database storage of user data
 * Leaderboards (personal, friends and Wordlwide)
 * Achievements
@@ -48,8 +52,8 @@ The game should stay close to the original as much as it can but fix existing pr
 
 #### Long term
 * Random events (minigames)
+* Monetisation after 100 users
 * Hint and information system
-* Flowchart game loop
 * Artwork
 * Monetisation
 * Game polish
@@ -68,3 +72,12 @@ The game should stay close to the original as much as it can but fix existing pr
 -- 23 oct 2017
 * Random events
 * Interface improvements
+-- 4 nov 2017
+* Hamburger menu
+* Player stats
+* Popups
+-- 8 nov 2017
+* Random events (Arne)
+* Design and Style (Arne)
+* Install Firebase (Arne)
+* User registration (FB!)
