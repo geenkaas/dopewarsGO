@@ -36,10 +36,10 @@ function updateScore(property, change) {
 
     var propertyNew;
 
-    userData.update({
+    var setWithMerge = userData.set({
         uid: userId,
         arcadeName: arcadeName
-    });
+    }, { merge: true });
 
     userData.get().then(function(doc) {
     if (doc.exists) {
