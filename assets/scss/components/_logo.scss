@@ -49,7 +49,7 @@
     @include pixelfont;
     @include box-shadow-medium;
     background: color(banner-background);
-    bottom: -6vh;
+    bottom: -$margin-medium;
     color: color(banner-text);
     padding: 10px;
     position: absolute;
