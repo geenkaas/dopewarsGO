@@ -6,6 +6,10 @@ function updateDay() {
     setRandomPrices();
     if (player.dayCurr >= player.dayMax) {
 
+        // FIRESTORE
+        // Add one to your player finished game counter in Firebase
+        updateScore('gamesFinished', 1);
+
         dopelist.forEach(function(dope) {
             var dopeCurr = $('[data-dope="'+ dope.name +'"]');
             var dopeAmount = parseInt(dopeCurr.find('[data-dope-amount]').html());

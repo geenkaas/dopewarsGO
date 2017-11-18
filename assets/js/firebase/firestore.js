@@ -7,21 +7,24 @@ function initFirestore() {
     var buttonGameNew = $('[data-game-start]');
     var buttonGameEnd = $('[data-game-end]');
 
-    var buttonGameWon = $('[data-game-end]');
-    var buttonGameLost = $('[data-game-end]');
+    var buttonGameWon = $('[data-game-won]');
+    var buttonGameLost = $('[data-game-lost]');
 
     //var gamesPlayed = fb.currentUser.gamesPlayed;
     //console.log(gamesPlayed);
 
     buttonGameNew.on('tap', function() {
-        updateScore('gamesPlayed', 1)
+        updateScore('gamesPlayed', 1);
+    })
+
+    buttonGameEnd.on('tap', function() {
+        console.log('Won!');
     })
 }
 
 function updateScore(property, change) {
     // New modular function for button handling.
     // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
-
 
     var fb = firebase.auth();
     var userId = fb.currentUser.uid;
@@ -34,12 +37,12 @@ function updateScore(property, change) {
     // But I prefer this one
     var userData = fs.doc('players/'+ userId);
 
-    var propertyNew;
-
-    var setWithMerge = userData.set({
+    userData.set({
         uid: userId,
         arcadeName: arcadeName
     }, { merge: true });
+
+    var propertyNew;
 
     userData.get().then(function(doc) {
     if (doc.exists) {
@@ -47,7 +50,7 @@ function updateScore(property, change) {
 
         // increment data by one
         // See: https://firebase.google.com/docs/database/web/read-and-write#save_data_as_transactions
-        console.log(doc.data()[property]);
+        //console.log(doc.data()[property]);
         if (typeof doc.data()[property] === 'undefined') {
             console.log('property not found');
             propertyNew = 1;
