@@ -2,29 +2,8 @@
 
 'use strict';
 
-function initFirestore() {
-
-    var buttonGameNew = $('[data-game-start]');
-    var buttonGameEnd = $('[data-game-end]');
-
-    var buttonGameWon = $('[data-game-won]');
-    var buttonGameLost = $('[data-game-lost]');
-
-    //var gamesPlayed = fb.currentUser.gamesPlayed;
-    //console.log(gamesPlayed);
-
-    buttonGameNew.on('tap', function() {
-        updateScore('gamesPlayed', 1);
-    })
-
-    buttonGameEnd.on('tap', function() {
-        console.log('Won!');
-    })
-}
-
-function updateScore(property, change) {
+function fireStoreUpdate(property, change) {
     // New modular function for button handling.
-    // Optimal: call function like: updateScore(killedByHardass, 1); and add one to your deaths deu to hardass.
 
     var fb = firebase.auth();
     var userId = fb.currentUser.uid;
@@ -69,8 +48,4 @@ function updateScore(property, change) {
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
-}
-
-window.onload = function() {
-    initFirestore();
 }

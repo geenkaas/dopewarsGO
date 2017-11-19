@@ -63,6 +63,7 @@ function randomEvents() {
     var randomEventChance = Math.random();
     if (randomEventChance >= 1 - randomChanceTrigger) {
         var randomEvent = getRandomEvent(eventMap);
+        //storeEvents(randomEvent.name);
         //console.log(randomEvent);
         // This loads a function with the name of the event selected randomly
         window[randomEvent.name]();

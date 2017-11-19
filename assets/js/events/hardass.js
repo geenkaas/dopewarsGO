@@ -85,6 +85,12 @@ function officerHardass() {
                 player.health -= biteDamage;
 
                 if (player.health <= 0) {
+
+                    // FIRESTORE
+                    // Add one to your player finished game counter in Firebase
+                    fireStoreUpdate('gamesFinished', 1);
+                    fireStoreUpdate('gamesLost', 1);
+
                     player.health = 0;
                     $('.c-combat__controls').hide();
                     roundText = 'Police dogs grab you and you bleed out on the streets. Your final score is: ' + digits(player.cash);
@@ -109,6 +115,11 @@ function officerHardass() {
             var damageDone = Math.ceil(player.damage * Math.random()) * (player.gun + 1) + player.damage;
             hardass.health -= damageDone;
             if (hardass.health <= 0) {
+
+                // FIRESTORE
+                // Add one to your player finished game counter in Firebase
+                fireStoreUpdate('killedHardass', 1);
+
                 hardass.health = 0;
                 $('.c-combat__controls').hide();
                 var lootCash = Math.ceil(hardass.loot * Math.random()) + hardass.loot;
@@ -126,6 +137,13 @@ function officerHardass() {
             player.health -= damageReceived;
 
             if (player.health <= 0) {
+
+                // FIRESTORE
+                // Add one to your player finished game counter in Firebase
+                fireStoreUpdate('gamesFinished', 1);
+                fireStoreUpdate('gamesLost', 1);
+                fireStoreUpdate('killedbyHardass', 1);
+
                 player.health = 0;
                 $('.c-combat__controls').hide();
                 roundText = 'Officer Hardass shot you dead sucker!<br />Your final score is: ' + digits(player.cash);

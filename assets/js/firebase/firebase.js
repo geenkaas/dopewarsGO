@@ -61,8 +61,6 @@ function initApp() {
     document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
     document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
-
-    initFirestore();
 }
 
 window.onload = function() {

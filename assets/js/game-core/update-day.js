@@ -8,7 +8,8 @@ function updateDay() {
 
         // FIRESTORE
         // Add one to your player finished game counter in Firebase
-        updateScore('gamesFinished', 1);
+        fireStoreUpdate('gamesFinished', 1);
+        fireStoreUpdate('gamesWon', 1);
 
         dopelist.forEach(function(dope) {
             var dopeCurr = $('[data-dope="'+ dope.name +'"]');

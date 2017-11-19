@@ -49,3 +49,12 @@ function buttonDays() {
     });
 
 }
+
+function buttonGameStart() {
+
+    var buttonGameNew = $('[data-game-start]');
+
+    buttonGameNew.on('tap', function() {
+        fireStoreUpdate('gamesPlayed', 1);
+    })
+}
