@@ -63,9 +63,33 @@ function randomEvents() {
     var randomEventChance = Math.random();
     if (randomEventChance >= 1 - randomChanceTrigger) {
         var randomEvent = getRandomEvent(eventMap);
-        //storeEvents(randomEvent.name);
+        storeEvents(randomEvent.name);
         //console.log(randomEvent);
         // This loads a function with the name of the event selected randomly
         window[randomEvent.name]();
     }
+}
+
+function storeEvents(event) {
+
+    console.log(event);
+
+    var cookieData = readCookie('storeEvents');
+    if (cookieData === null) {
+        console.log('no cookie exists yet. Creating');
+        createCookie('storeEvents', 'start');
+    } else {
+        console.log('exists: '+ readCookie('storeEvents') );
+    }
+    console.log('readcookie: '+ cookieData);
+
+    var eventsStore = readCookie('storeEvents');
+
+    eventsStore += event;
+    createCookie('storeEvents', eventsStore);
+
+    cookieData = readCookie('storeEvents');
+
+    console.log('readcookie 2: '+ cookieData);
+
 }
