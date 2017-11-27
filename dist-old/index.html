@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Dopewars GO</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="referrer" content="no-referrer">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700%7CPress+Start+2P" rel="stylesheet">
+        <meta name="HandheldFriendly" content="true" />
+        <link rel="stylesheet" href="css/style.min.css?version=1.0.8">
+    </head>
+    <body>
+        <div class="s-site">
+
+            <header class="s-site__masthead">
+                <div class="c-logo c-logo--main">Dopewars<span>GO</span></div>
+                <nav class="c-hamburger" role="navigation" data-toggle="c-mainmenu"></nav>
+
+                <div class="c-stats">
+                    <div class="c-stats__day">
+                        Day: <span class="c--stats__day-current" data-day-curr></span>/<span class="c-stats__day--max" data-day-max></span>
+                    </div>
+                    <div class="c-stats__cash" data-cash>Cash: <span></span></div>
+                    <div class="c-stats__inventory">
+                        Inv: <span class="c--stats__inventory-current" data-inv-curr></span>/<span class="c-stats__inventory--max" data-inv-max></span>
+                    </div>
+                </div>
+
+                <div class="c-mainmenu">
+                    <div class="s-gallery s-gallery--third">
+                        <div class="s-gallery__column c-mainmenu__item">
+                            <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" data-changename />
+                            <p>Name</p>
+                        </div>
+                        <div class="s-gallery__column c-mainmenu__item" data-audio-toggle>
+                            <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
+                            <p>Sound</p>
+                        </div>
+                        <div class="s-gallery__column c-mainmenu__item" data-popup="data-popup-register">
+                            <img src="images/icon-pill-16x16.png" class="c-mainmenu__icon" />
+                            <p>Account</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="s-site__content">
+
+                <!-- Splash screen -->
+                <article class="c-article--main c-slide c-slide--active" data-slide__start>
+                    <header class="c-logo c-logo-splash">
+                        <h1 class="c-logo-splash__top">Dopewars</h1>
+                        <span class="c-logo-splash__bottom">GO</span>
+                        <div class="c-logo__banner" data-version-quote></div>
+                    </header>
+
+                    <p>Your doperun is about to start. Can you dig it?<br />
+                    Buy dope when it's green, sell when it's red.</p>
+
+                    <div class="u-hidden" data-logged-out>
+                        <button class="button button--home-register" data-popup="data-popup-register">Register</button>
+
+                        <p>or</p>
+                    </div>
+
+                    <div class="c-button-group c-gamelength__controls">
+                        <div class="button button--inline button--icon button--icon-audio" data-audio-toggle></div>
+                        <div class="button button--inline" data-game-length="7">7 Days</div>
+                        <div class="button button--inline button--deselect" data-game-length="30">30 Days</div>
+                    </div>
+
+                    <button class="button button--primary" data-game-start data-slide-target="trade">Hit the streets!</button>
+
+                    <div class="c-version" data-version-number></div>
+
+                </article>
+
+                <!-- Trade screen -->
+                <article class="c-article--main c-slide" data-slide data-slide__trade>
+                    <table class="c-tradescreen">
+                        <thead>
+                            <tr>
+                                <th width="40%">Dope</th>
+                                <th width="10%">#</th>
+                                <th width="10%">Sell</th>
+                                <th width="30%">Price</th>
+                                <th width="10%">Buy</th>
+                            </tr>
+                        </thead>
+                        <tbody data-dope-table-content>
+                        </tbody>
+                    </table>
+
+                    <button class="button button--primary" data-button-jet>Jet outa here</button>
+
+                </article>
+
+            </main>
+
+            <div class="c-background"></div>
+
+            <div class="c-popups">
+                <div class="c-popup c-popup--playerName" data-popup-playerName>
+                    <h3 class="c-popup__header">Whatsup player?</h3>
+                    <p>We want to know who's running the block, build up your streetcreds you know?</p>
+
+                    <div class="s-row c-playerInitials" data-tag>
+                        <div class="s-row__column s-row__column--third c-playerInitial"></div>
+                        <div class="s-row__column s-row__column--third c-playerInitial"></div>
+                        <div class="s-row__column s-row__column--third c-playerInitial"></div>
+                    </div>
+
+                    <div class="s-gallery s-gallery--tenth">
+                        <div class="s-gallery__column c-playerLetter">a</div>
+                        <div class="s-gallery__column c-playerLetter">b</div>
+                        <div class="s-gallery__column c-playerLetter">c</div>
+                        <div class="s-gallery__column c-playerLetter">d</div>
+                        <div class="s-gallery__column c-playerLetter">e</div>
+                        <div class="s-gallery__column c-playerLetter">f</div>
+                        <div class="s-gallery__column c-playerLetter">g</div>
+                        <div class="s-gallery__column c-playerLetter">h</div>
+                        <div class="s-gallery__column c-playerLetter">i</div>
+                        <div class="s-gallery__column c-playerLetter">j</div>
+                        <div class="s-gallery__column c-playerLetter">k</div>
+                        <div class="s-gallery__column c-playerLetter">l</div>
+                        <div class="s-gallery__column c-playerLetter">m</div>
+                        <div class="s-gallery__column c-playerLetter">n</div>
+                        <div class="s-gallery__column c-playerLetter">o</div>
+                        <div class="s-gallery__column c-playerLetter">p</div>
+                        <div class="s-gallery__column c-playerLetter">q</div>
+                        <div class="s-gallery__column c-playerLetter">r</div>
+                        <div class="s-gallery__column c-playerLetter">s</div>
+                        <div class="s-gallery__column c-playerLetter">t</div>
+                        <div class="s-gallery__column c-playerLetter">u</div>
+                        <div class="s-gallery__column c-playerLetter">v</div>
+                        <div class="s-gallery__column c-playerLetter">w</div>
+                        <div class="s-gallery__column c-playerLetter">x</div>
+                        <div class="s-gallery__column c-playerLetter">y</div>
+                        <div class="s-gallery__column c-playerLetter">z</div>
+                        <div class="s-gallery__column c-playerLetter">1</div>
+                        <div class="s-gallery__column c-playerLetter">2</div>
+                        <div class="s-gallery__column c-playerLetter">3</div>
+                        <div class="s-gallery__column c-playerLetter">4</div>
+                        <div class="s-gallery__column c-playerLetter">5</div>
+                        <div class="s-gallery__column c-playerLetter">6</div>
+                        <div class="s-gallery__column c-playerLetter">7</div>
+                        <div class="s-gallery__column c-playerLetter">8</div>
+                        <div class="s-gallery__column c-playerLetter">9</div>
+                        <div class="s-gallery__column c-playerLetter">0</div>
+                    </div>
+                    <button class="button button--primary button--disabled" data-button-saveName>Thats me!</button>
+                </div>
+
+                <div class="c-popup c-popup--register" data-popup-register>
+                    <h3 class="c-popup__header">Can I see some ID?</h3>
+                    <p>Enter an email and password below and either sign in to an existing account or sign up</p>
+
+                    <input type="email" id="email" name="email" placeholder="Email"/>
+                    <input type="password" id="password" name="password" placeholder="Password"/>
+                    <hr />
+                    <button class="button" id="quickstart-sign-up" name="signup">Register</button>
+                    <button disabled class="button" id="quickstart-sign-in" name="signin">Login</button>
+                    <hr />
+                    <p class="u-small">
+                        <a disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</a>
+                        |
+                        <a id="quickstart-password-reset" name="verify-email">Send Password Reset Email</a>
+                    </p>
+                    <hr />
+
+                    <p>Log in with your Facebook account below.</p>
+
+                    <!-- [START facebook_button] -->
+                    <!-- <fb:login-button data-auto-logout-link="true" scope="public_profile,email" size="large"></fb:login-button> -->
+                    <!-- [END facebook_button] -->
+
+                    <!-- Container where we'll display the user details -->
+                    <div class="u-hidden u-smallest">
+                        Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                        <div>Firebase auth <code>currentUser</code> object value:</div>
+                        <p id="quickstart-account-details">null</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="js/vendor.min.js?version=1.0.8"></script>
+        <script type="text/javascript" src="js/script.min.js?version=1.0.8"></script>
+
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-6462419-4','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+    </body>
+
+</html>

@@ -1,8 +1,6 @@
 // buttons.js
 // General button funtionality
 
-'use strict';
-
 function buttonRestart() {
 
     $('[data-game-restart]').on('tap', function() {
@@ -14,6 +12,8 @@ function buttonRestart() {
 
 function buttonModal() {
 
+    'use strict';
+
     $('[data-modal-close]').on('tap', function() {
         $(this).closest('.c-modal').fadeOut(200, function() {
         	$(this).remove();
@@ -23,6 +23,8 @@ function buttonModal() {
 }
 
 function buttonJet() {
+
+    'use strict';
 
     $('[data-button-jet]').on('tap', function() {
         if (!$(this).hasClass('button--disabled')) {
@@ -34,9 +36,11 @@ function buttonJet() {
 
 function buttonDays() {
 
+    'use strict';
+
     $('[data-game-length]').on('tap', function() {
         $(this).removeClass('button--deselect');
-        $('[data-game-length]').not($(this)).addClass('button--deselect')
+        $('[data-game-length]').not($(this)).addClass('button--deselect');
         var length = $(this).attr('data-game-length');
         if (length > 7) {
             player.invMax = 100;
