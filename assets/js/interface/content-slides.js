@@ -1,6 +1,6 @@
 // Content slides
 
-'use strict';
+// 'use strict';
 
 function slideButtons() {
 
@@ -17,8 +17,8 @@ function slideButtons() {
 
             // Show header with score
             $('.s-site__masthead').addClass('lowered');
-        })
-    })
+        });
+    });
 
 }
 

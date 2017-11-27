@@ -1,12 +1,12 @@
 // Dope prices
 
-'use strict';
+// 'use strict';
 
 var dopelist = [];
 
 // Dope constructor function
 function Dope(name, priceMin, priceMax, amount) {
-    this.name = name
+    this.name = name;
     this.priceMin = priceMin;
     this.priceMax = priceMax;
     this.amount = amount;
@@ -27,7 +27,7 @@ function Dope(name, priceMin, priceMax, amount) {
         var dopeRandom = Math.random();
         this.random = dopeRandom;
         return Math.floor(((priceTempMax - priceTempMin) + 1) * dopeRandom + priceTempMin);
-    }
+    };
     //https://jsfiddle.net/Panomosh/8bpmrso1/
     dopelist.push(this);
 }

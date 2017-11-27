@@ -1,6 +1,6 @@
 // dope-amount.js
 
-'use strict';
+// 'use strict';
 
 function updateDopeAmount(whichDope, changeAmount) {
     // console.log(whichDope + ' ' + changeAmount);

@@ -1,7 +1,7 @@
 // hardass.js
 // Script for handling encounters with Officer Hardass
 
-'use strict';
+// 'use strict';
 
 function officerHardass() {
 
@@ -14,7 +14,7 @@ function officerHardass() {
         biteChance: 70,
         dropChance: 50,
         bribeCost: 500
-    }
+    };
 
     // Create new player type called player1
     var hardass = Object.create(HardassConstruct);
@@ -47,7 +47,7 @@ function officerHardass() {
         var bribeAmount = Math.ceil(hardass.bribeCost * Math.random()) + hardass.bribeCost;
         var roundText;
         if (player.cash < bribeAmount) {
-            roundText = 'Maybe you should save some cash first, dipshit...'
+            roundText = 'Maybe you should save some cash first, dipshit...';
             $('[data-combat-bribe]').hide();
         } else {
             roundText = 'Ill see it through the fingers this time.<br />But its gonna cost ya $'+ bribeAmount +'.';

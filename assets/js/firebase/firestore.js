@@ -1,6 +1,6 @@
 // Initialize Cloud Firestore through Firebase
 
-'use strict';
+// 'use strict';
 
 function initFirestore() {
 
@@ -14,8 +14,8 @@ function initFirestore() {
     //console.log(gamesPlayed);
 
     buttonGameNew.on('tap', function() {
-        updateScore('gamesPlayed', 1)
-    })
+        updateScore('gamesPlayed', 1);
+    });
 }
 
 function updateScore(property, change) {
@@ -30,7 +30,7 @@ function updateScore(property, change) {
 
     var fs = firebase.firestore();
     // Below are same results
-    var userData = fs.collection('players').doc(userId);
+    // var userData = fs.collection('players').doc(userId);
     // But I prefer this one
     var userData = fs.doc('players/'+ userId);
 
@@ -70,4 +70,4 @@ function updateScore(property, change) {
 
 window.onload = function() {
     initFirestore();
-}
+};

@@ -1,13 +1,14 @@
 // find-gun.js
 // Script for handling encounters
 
-'use strict';
+// 'use strict';
 
 function findGun() {
 
     var gunPrice = 100;
+    var eventContent;
     if (player.cash >= gunPrice) {
-        var eventContent = ('\
+        eventContent = ('\
             <h2>Carrying</h2>\
             <p>Do you want to buy a gun for $'+ gunPrice +'?</p>\
             <div class="c-button-group c-gun__controls">\
@@ -16,7 +17,7 @@ function findGun() {
             </div>\
         ');
     } else {
-        var eventContent = ('\
+        eventContent = ('\
             <h2>Low on cash</h2>\
             <p>Someone offers to sell you a bigger gun for $'+ gunPrice +' but you are broke!</p>\
             <div class="c-gun__controls">\

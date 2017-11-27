@@ -1,7 +1,7 @@
 // digits.js
 // Replace numbers with digits
 
-'use strict';
+// 'use strict';
 
 function digits(number, decimals, dec_point, thousands_point) {
     if (number == null || !isFinite(number)) {

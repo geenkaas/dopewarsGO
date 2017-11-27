@@ -1,7 +1,7 @@
 // modal.js
 // jQuery modular popup functionalities
 
-'use strict';
+// 'use strict';
 
 function createModal(content) {
 

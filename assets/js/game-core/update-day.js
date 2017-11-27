@@ -1,6 +1,6 @@
 // update-day.js
 
-'use strict';
+// 'use strict';
 
 function updateDay() {
     setRandomPrices();
@@ -14,11 +14,11 @@ function updateDay() {
                 var cashLeftOver = parseInt(dopeCurr.find('[data-dope-price]').html());
                 player.cash += cashLeftOver * dopeAmount;
             }
-        })
+        });
         updateStats();
         removeSlide($(this).closest('.c-slide'));
 
-        var endScore = digits(player.cash)
+        var endScore = digits(player.cash);
 
         var eventContent = ('\
             <h2>Doperun over!</h2>\

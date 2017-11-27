@@ -1,7 +1,7 @@
 // random-events.js
 // Scripts that initiate random events, called from dope-prices.js
 
-'use strict';
+// 'use strict';
 
 // Create event list
 var eventList = [];
@@ -10,7 +10,7 @@ var randomChanceTrigger = 1;
 
 // Dope constructor function
 function Event(name, chance) {
-    this.name = name
+    this.name = name;
     this.chance = chance;
     //https://jsfiddle.net/Panomosh/8bpmrso1/
     eventList.push(this);
@@ -49,7 +49,7 @@ function getRandomEvent(eventMap) {
 var eventTotal = 0;
 eventList.forEach(function(event) {
     eventTotal += event.chance;
-})
+});
 
 var eventMap = [];
 var range = 0;
@@ -57,7 +57,7 @@ eventList.forEach(function(event) {
     range += getEventChange(event, eventTotal);
     eventMap.push(new Event(event.name, range));
     //console.log(event.name + " chance: " + getEventChange(event, eventTotal) + '%. Range <= ' + range);
-})
+});
 
 function randomEvents() {
     var randomEventChance = Math.random();

@@ -1,7 +1,7 @@
 // dope-high.js
 // Script for handling encounters
 
-'use strict';
+// 'use strict';
 
 function dopeHigh() {
 

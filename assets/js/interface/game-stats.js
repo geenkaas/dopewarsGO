@@ -1,7 +1,7 @@
 // game-stats.js
 // Update game stats
 
-'use strict';
+// 'use strict';
 
 function updateStats() {
     $('[data-day-curr]').html(player.dayCurr);

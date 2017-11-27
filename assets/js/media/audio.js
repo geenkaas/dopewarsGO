@@ -1,6 +1,6 @@
 //audio.js
 
-'use strict';
+// 'use strict';
 
 var theme = new Audio();
 theme.src = '../dist/audio/dopewars-theme-v1.mp3';
@@ -13,7 +13,7 @@ $('[data-audio-toggle]').on('click', function() {
         theme.pause();
         $(this).removeClass('playing');
     }
-})
+});
 
 //The Warriors Full Theme Song
 //https://www.youtube.com/watch?v=ByT0FErPgfQ

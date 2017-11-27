@@ -1,6 +1,6 @@
 // dope-prices.js
 
-'use strict';
+// 'use strict';
 
 function setRandomPrices() {
     dopelist.forEach(function(dope) {

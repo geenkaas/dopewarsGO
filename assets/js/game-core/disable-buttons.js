@@ -1,6 +1,6 @@
 // update-buttons.js
 
-'use strict';
+// 'use strict';
 
 function disableButtons() {
 
@@ -38,6 +38,6 @@ function disableButtons() {
             buttonBuy.addClass('button--disabled');
         }
 
-    })
+    });
 
 }

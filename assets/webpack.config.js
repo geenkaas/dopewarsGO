@@ -1,33 +1,25 @@
 // webpack.config.js
-
 'use strict';
-
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 module.exports = {
     context: __dirname,
     devtool: 'inline-sourcemap',
-
     entry: {
         main: './js/script.js',
     },
-
     devServer: {
        headers: { 'Access-Control-Allow-Origin': '*' }
     },
-
     resolve: {
         modules: [path.resolve(__dirname), 'node_modules'],
     },
-
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'script.min.js',
         publicPath: '/',
     },
-
     module: {
         rules: [
             {
@@ -60,13 +52,16 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: 'jshint-loader'
+                        loader: 'jshint-loader',
+                        options: {
+                            esversion: 6,
+                            multistr: true,
+                        },
                     }
                 ]
             },
         ],
     },
-
     plugins: [
         new ExtractTextPlugin('style.css'),
         new webpack.ProvidePlugin({

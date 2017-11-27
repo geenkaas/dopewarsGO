@@ -1,7 +1,7 @@
 // random-quote.js
 // Script for handling encounters
 
-'use strict';
+// 'use strict';
 
 function randomQuote() {
 

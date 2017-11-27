@@ -1,7 +1,7 @@
 //build-table.js
 //https://stackoverflow.com/questions/31180331/loop-through-each-new-object-from-constructor#31180444
 
-'use strict';
+// 'use strict';
 
 function buildTable() {
     
@@ -14,7 +14,7 @@ function buildTable() {
                 <td data-dope-price></td>\
                 <td data-dope-buy><button class="button button--trade button--buy"></button></td>\
             </tr>\
-        ')
+        ');
     });
 
     buttonTradeInit();

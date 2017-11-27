@@ -1,6 +1,6 @@
 //player-name.js
 
-'use strict';
+// 'use strict';
 
 function popupPlayerName() {
 
@@ -16,7 +16,7 @@ function popupPlayerName() {
 $('[data-changename]').on('tap', function() {
     $('.c-mainmenu').hide();
     playerNameSelect();
-})
+});
 
 function playerNameSelect() {
     $('[data-popup-playerName]').addClass('active').show();
@@ -44,18 +44,18 @@ function playerNameSelect() {
                 $(this).html('preinitial');
                 initials.each(function() {
                     newName += $(this).html();
-                })
+                });
                 createCookie('playerName', newName);
                 //console.log(readCookie('playerName'));
                 $(this).html(newName);
                 $('[data-popup-playerName]').fadeOut(200);
             });
         }
-    })
+    });
 
     // Maunual select initial to change
     $('.c-playerInitial').on('tap', function() {
         $('.c-playerInitial').removeClass('active');
         $(this).addClass('active');
-    })
+    });
 }

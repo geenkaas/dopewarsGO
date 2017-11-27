@@ -1,11 +1,11 @@
 // random-dope.js
 
-'use strict';
+// 'use strict';
 
 // Get a simple list with all dope
 // Dope list constructor function
 function dopeArray(name) {
-    this.name = name
+    this.name = name;
 }
 
 var dopeMap = [];
@@ -17,6 +17,6 @@ dopelist.forEach(function(dope) {
 // General function to select one random dope
 // https://stackoverflow.com/questions/45950245/jquery-pick-a-random-property-from-an-object
 var randomDope = function(obj) {
-    var keys = Object.keys(obj)
+    var keys = Object.keys(obj);
     return obj[keys[ keys.length * Math.random() << 0]];
-}
+};

@@ -1,13 +1,13 @@
 // version.js
 
-'use strict';
+// 'use strict';
 
 var VersionConstruct = {
     number: '1.0.8',
     name: 	'gamesPlayed',
     quote: 	'Work hard, Play hard',
     date: 	'16 nov 2017'
-}
+};
 
 var Version = Object.create(VersionConstruct);
 

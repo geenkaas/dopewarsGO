@@ -1,7 +1,7 @@
 // dope-low.js
 // Script for handling encounters
 
-'use strict';
+// 'use strict';
 
 function dopeLow() {
 
@@ -9,9 +9,9 @@ function dopeLow() {
 
     var dopeText;
     if (eventDope === 'Hashish') {
-        dopeText = 'The Marrakesh Express has arrived!'
+        dopeText = 'The Marrakesh Express has arrived!';
     } else {
-        dopeText = 'Rival gangs raided some pharmacies and cheap '+ eventDope.name +' has flooded the market'
+        dopeText = 'Rival gangs raided some pharmacies and cheap '+ eventDope.name +' has flooded the market';
     }
 
     var eventContent = ('\
@@ -23,5 +23,5 @@ function dopeLow() {
         return dopelist.name === eventDope;
     });
     createModal(eventContent);
-    updateDopePrice(eventDope, 0.1)
+    updateDopePrice(eventDope, 0.1);
 }

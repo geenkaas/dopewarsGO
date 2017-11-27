@@ -2,12 +2,12 @@
 // https://firebase.google.com/docs/auth/web/start
 // https://github.com/firebase/quickstart-js/blob/master/auth/email.html#L60-L73
 
-'use strict';
 
 /**
  * Handles the sign in button press.
  */
 function toggleSignIn() {
+'use strict';
     if (firebase.auth().currentUser) {
         // [START signout]
         firebase.auth().signOut();
@@ -47,6 +47,7 @@ function toggleSignIn() {
  * Handles the sign up button press.
  */
 function handleSignUp() {
+'use strict';
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     if (email.length < 4) {
@@ -78,6 +79,7 @@ function handleSignUp() {
  * Sends an email verification to the user.
  */
 function sendEmailVerification() {
+'use strict';
     // [START sendemailverification]
     firebase.auth().currentUser.sendEmailVerification().then(function() {
         // Email Verification sent!
@@ -88,6 +90,7 @@ function sendEmailVerification() {
     // [END sendemailverification]
 }
 function sendPasswordReset() {
+'use strict';
     var email = document.getElementById('email').value;
     // [START sendpasswordemail]
     firebase.auth().sendPasswordResetEmail(email).then(function() {
@@ -116,6 +119,7 @@ function sendPasswordReset() {
  *    out, and that is where we update the UI.
  */
 function initApp() {
+'use strict';
     // Listening for auth state changes.
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
@@ -162,5 +166,6 @@ function initApp() {
 }
 
 window.onload = function() {
+'use strict';
     initApp();
-}
+};

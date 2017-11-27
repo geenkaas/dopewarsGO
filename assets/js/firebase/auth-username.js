@@ -1,8 +1,6 @@
 // auth-username.js
 // Add username to authenticated user
 
-'use strict';
-
 function addUserName(arcadeName) {
 
     var user = firebase.auth().currentUser;

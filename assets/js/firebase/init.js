@@ -1,6 +1,6 @@
 // Initialize Firebase
 
-'use strict';
+// 'use strict';
 
 var config = {
     apiKey: "AIzaSyD3KptP-Zcb7wDW_f1QjXfd5vzKyPhiovs",
@@ -67,4 +67,4 @@ function initApp() {
 
 window.onload = function() {
     initApp();
-}
+};

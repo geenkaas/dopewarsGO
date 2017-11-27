@@ -1,6 +1,6 @@
 // random-array.js
 
-'use strict';
+// 'use strict';
 
 // General function to get one random form array
 // https://stackoverflow.com/questions/6470121/jquery-pick-a-random-value-from-a-array-of-strings

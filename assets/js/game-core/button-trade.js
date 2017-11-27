@@ -1,6 +1,6 @@
 // button-trade.js
 
-'use strict';
+// 'use strict';
 
 function buttonTradeInit() {
     //console.log('buttons init');
