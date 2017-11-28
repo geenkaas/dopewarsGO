@@ -1,6 +1,8 @@
 // init-screen.js
 // Screen refreshing and buildup
 
+// Start the SCSS build
+require('./../scss/style.scss');
 
 // Import ALL the scripts
 // TODO: place import.js in each subfolder and call single files from there.

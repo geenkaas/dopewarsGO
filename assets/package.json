@@ -2,6 +2,7 @@
   "name": "event_api",
   "version": "1.0.0",
   "devDependencies": {
+    "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.28.7",
     "datatables": "^1.10.13",
     "extract-text-webpack-plugin": "^3.0.2",

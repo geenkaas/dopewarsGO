@@ -3,6 +3,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const extractSass = new ExtractTextPlugin({
+    filename: '/css/style.min.css',
+});
 module.exports = {
     context: __dirname,
     devtool: 'inline-sourcemap',
@@ -44,7 +48,7 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader', 'sass-loader'],
-                })
+                }),
             },
             {
                 test: /\.js$/,
@@ -66,8 +70,15 @@ module.exports = {
         new ExtractTextPlugin('style.css'),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jquery: "jQuery",
-            "windows.jQuery": "jquery",
+            jquery: 'jQuery',
+            'windows.jQuery': 'jquery',
         }),
+        extractSass,
+        new CopyWebpackPlugin([
+
+            // {output}/to/file.txt
+            // {output}/to/directory/file.txt
+            { from: './index.html', to: './index.html' },
+        ]),
     ]
 };
