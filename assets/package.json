@@ -2,6 +2,8 @@
   "name": "event_api",
   "version": "1.0.0",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.28.7",
     "datatables": "^1.10.13",
@@ -28,6 +30,7 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server",
-    "production": "NODE_ENV=production webpack -p"
+    "production": "NODE_ENV=production webpack -p",
+    "build": "webpack"
   }
 }

@@ -2,16 +2,24 @@
 'use strict';
 const webpack = require('webpack');
 const path = require('path');
+// Constant with our paths
+const paths = {
+    ASSETS: path.resolve(__dirname, ''),
+    JS: path.resolve(__dirname, 'js'),
+    DIST: path.resolve(__dirname, '../dist'),
+};
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const extractSass = new ExtractTextPlugin({
-    filename: '/css/style.min.css',
-});
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const babelLoader = require('babel-loader');
+
 module.exports = {
     context: __dirname,
     devtool: 'inline-sourcemap',
     entry: {
-        main: './js/script.js',
+        init: path.join(paths.JS, 'script.js'),
     },
     devServer: {
        headers: { 'Access-Control-Allow-Origin': '*' }
@@ -20,7 +28,7 @@ module.exports = {
         modules: [path.resolve(__dirname), 'node_modules'],
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: paths.DIST,
         filename: 'script.min.js',
         publicPath: '/',
     },
@@ -56,29 +64,37 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: 'jshint-loader',
-                        options: {
-                            esversion: 6,
-                            multistr: true,
-                        },
+                        loader: 'babel-loader',
+                        // loader: 'jshint-loader',
+                        // options: {
+                        //     esversion: 6,
+                        //     multistr: true,
+                        // },
                     }
                 ]
             },
         ],
     },
     plugins: [
-        new ExtractTextPlugin('style.css'),
+        // new ExtractTextPlugin('style.css'),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jquery: 'jQuery',
             'windows.jQuery': 'jquery',
         }),
-        extractSass,
-        new CopyWebpackPlugin([
+        // new CopyWebpackPlugin([
 
-            // {output}/to/file.txt
-            // {output}/to/directory/file.txt
-            { from: './index.html', to: './index.html' },
-        ]),
+        //     // {output}/to/file.txt
+        //     // {output}/to/directory/file.txt
+        //     { from: './index.html', to: './index.html' },
+        // ]),
+
+        new HtmlWebpackPlugin({
+          template: path.join(paths.ASSETS, 'index.html'),
+        }),
+        // TODO export AND link the css file correctly
+        new ExtractTextPlugin({
+            filename: path.join(paths.DIST, 'css/style.min.css'),
+        }),
     ]
 };
