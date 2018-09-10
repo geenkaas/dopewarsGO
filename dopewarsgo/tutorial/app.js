@@ -1,6 +1,21 @@
 new Vue({
     el: '#vue-app',
     data: {
+        player: [
+            {
+                name: 'wetnose',
+                health: 100,
+                cash: 2000,
+                pockets: 50,
+            }
+        ],
+        game: [
+            {
+                id: 1,
+                length: 7,
+                day: 1,
+            }
+        ],
         dopelist: [
             {
                 name: 'Peyote',

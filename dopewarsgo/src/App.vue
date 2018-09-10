@@ -1,18 +1,51 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <h1>{{ title }}</h1>
-    test
-    <router-view/>
+    <dopelist></dopelist>
   </div>
 </template>
 
 <script>
+
+import Dopelist from './Dopelist';
+
 export default {
+  components: {
+    dopelist: Dopelist,
+  },
   name: 'App',
   data() {
     return {
-      title: 'test',
+      title: 'Test GO',
+      player: [
+        {
+          name: 'wetnose',
+          health: 100,
+          cash: 2000,
+          pockets: 50,
+        },
+      ],
+      game: [
+        {
+          id: 1,
+          length: 7,
+          day: 1,
+        },
+      ],
+      dopelist: [
+        {
+          name: 'Peyote',
+          min: 1000,
+          max: 2500,
+          amount: 0,
+        },
+        {
+          name: 'Speed',
+          min: 200,
+          max: 500,
+          amount: 0,
+        },
+      ],
     };
   },
 };
