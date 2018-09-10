@@ -1,0 +1,126 @@
+// Colour variables
+//
+// Define your raw colours (with HEX values) and your application colours such as link and header colours.
+//
+// Markup:
+// None: Just define all colours with a descriptive name
+//
+// Styleguide Variables.Colours.Raw
+
+// List all main colours by name (example colours given, adjust and complete with your project needs)
+    $red: #d11822;
+    $orange: #f17c2d;
+    $yellow: #fdcf6b;
+    $green: #80c57d;
+    $teal: #7dc5be;
+    $blue: #7d8cc5;
+    $puple: #7f14e3;
+    $pink: #e3147e;
+
+// Optionally assign primary and secondary colours for easy allocation in the variable function.
+    $primary: $blue;
+    $primary-dark: $blue;
+    $primary-light: $blue;
+
+    $secondary: $orange;
+
+// 50 shades of grey
+// Default set of opinionated grey values.
+// Keep naming consistent (lightest, lighter, light, medium, dark, darker, darkest, etc.)
+    $black: #000;
+    $grey-black: #1a1a1a;
+    $grey-darkest: #404040;
+    $grey-darker: #666;
+    $grey-dark: #737373;
+    $grey-medium: #808080;
+    $grey-light: #999;
+    $grey-lighter: #c0c0c0;
+    $grey-lightest: #e6e6e6;
+    $grey-white: #f3f3f3;
+    $white: #fff;
+
+// Transparent colours, shades of black, grey and white
+// Add colours and variables as you need
+    $black-90: rgba($black,0.9);
+    $black-80: rgba($black,0.8);
+    $black-60: rgba($black,0.6);
+    $black-50: rgba($black,0.5);
+    $black-30: rgba($black,0.3);
+    $black-10: rgba($black,0.1);
+    $black-trans: rgba($black,0);
+
+    $grey-50: rgba($grey-medium,0.5);
+
+    $white-50: rgba($white,0.5);
+    $white-30: rgba($white,0.3);
+
+    $trans: rgba(0,0,0,0);
+
+// Text colours
+    $font-color-dark: $black-90;
+    $font-color-medium: $black-80;
+    $font-color-light: $black-60;
+
+// Colour implementations
+//
+// Markup:
+// These are to be used ouside this file, and will be implemented/used like this:
+//
+// You build an array with all your colour variants, with this method you can group your colours. As an added bonus, these can only be added using the color function.
+// - Using the function should be the only way colours can be added to components.
+// - Grouping variables for a better overview
+// - The $colors must only contain colour names for a specific purpose, so not `red: $red`, but `modal-warning: $red`(Semantic names)
+// - Use the following setup: Element-Variant-Property-Status
+// - Example: menu-main-background-hover
+// - Or simply: link-color for main items.
+//
+// a {
+//     color: color(link);
+// }
+//
+// modal.warning {
+//     background-color: color(modal-warning);
+// }
+
+// Styleguide Variables.Colours.Implementations
+
+$colors: (
+
+    body-background: $primary-light,
+    body-color: $font-color-medium,
+
+    font-color-dark: $font-color-dark,
+    font-color-medium: $font-color-medium,
+    font-color-light: $font-color-light,
+    font-color-header: $secondary,
+
+    link: $primary,
+    link-hover: $secondary,
+
+    line-color: $black-50,
+
+    modal-error: $red,
+    modal-warning: $orange,
+    modal-information: $yellow,
+    modal-success: $green,
+    modal-notice: $blue,
+
+    selection-background: $primary,
+    selection-color: $white,
+
+    placeholder-color: $black-30,
+
+    input-background: $white,
+    input-background-focus: $black-10,
+    input-text: $grey-darker,
+    input-border: $grey-light,
+    input-border-focus: $grey-medium,
+
+    button-background: $grey-light,
+    button-border: $grey-medium,
+    button-text: $grey-darkest,
+    button-hover-background: $grey-medium,
+    button-hover-text: $white,
+    button-disabled-background: $grey-lightest,
+    button-disabled-text: $grey-medium,
+);

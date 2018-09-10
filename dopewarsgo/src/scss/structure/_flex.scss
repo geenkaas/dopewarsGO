@@ -1,0 +1,37 @@
+// Styleguide Components.Flex
+.s-flex {
+    display: flex;
+}
+
+.s-flex--equal {
+    justify-content: space-between;
+
+    .s-flex__item {
+        margin-right: $margin-smaller;
+        width: 100%;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.s-flex--gallery {
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    & > .s-flex__item {
+        flex: 0 0 auto;
+    }
+}
+
+// Chose or add your divisions for galleries, leave out those which are not used (for example a 2,4,8 set)
+$gallery-split: 3,4;
+
+@each $division in $gallery-split {
+    .s-flex--gallery-#{$division} {
+        & > .s-flex__item {
+            @include gallery(#{$division}, #{$margin-small});
+        }
+    }
+}

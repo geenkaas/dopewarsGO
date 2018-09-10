@@ -1,0 +1,75 @@
+// Styleguide Base.General
+
+/* Examples for order only
+.c-element,
+.another-element {
+    @include extends;
+    @include includes;
+    a-property: value;
+    -vendor-prefix: b-property;
+    b-property: value;
+    z-property: value;
+    -vendor-prefix: standalone-property;
+
+    &:pseudo-classes {
+
+    }
+
+    &::pseudo-elements {
+
+    }
+
+    nested-element {
+        use: caution;
+
+        @include media-query {
+            use: caution;
+        }
+    }
+    &:pseudo-classes nested-element {
+        use: extreme caution;
+    }
+
+    @include media-query {
+        exception-property: value;
+    }
+}
+*/
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+    color: color(body-color);
+    font-size: $font-size-large;
+    line-height: $line-height-medium;
+    -webkit-text-size-adjust: 100%;
+
+    @include desktop-up {
+        font-size: $font-size-medium;
+    }
+}
+
+body {
+    background: color(body-background);
+    margin: 0;
+    overflow-x: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    outline: 0;
+}
+
+::selection {
+    background: color(selection-background);
+    color: color(selection-color);
+    text-shadow: none;
+}

@@ -1,0 +1,22 @@
+/* Import stylesheets */
+// Styleguide
+
+$fa-font-path: "../dist/fonts" !default;
+
+// Import Settings and variables
+@import "variables/all";
+
+// Import Mixins and Functions
+@import "functions/all";
+
+// Standard html tag attributes and styles
+@import "base/all";
+
+// Base website structure, containers and divisions
+@import "structure/all";
+
+// Custom project Blocks.
+@import "components/all";
+
+// /* Import Vendor override styles */
+// @import "vendor/slick/slick";

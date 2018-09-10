@@ -1,0 +1,130 @@
+// Styleguide Base.Forms
+
+.c-form__row {
+    @include margin-bottom;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+legend {
+    @include margin-bottom;
+    display: table;
+    white-space:normal;
+}
+
+label,
+.label {
+    margin-bottom: 0;
+}
+
+input,
+button,
+select,
+textarea {
+    border: none;
+    border-radius: 0;
+    border-width: none;
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="file"],
+select,
+textarea {
+    background: color(input-background);
+    border: 1px solid color(line-color);
+    font-family: $font-family-body;
+    font-size: $font-size-medium;
+    line-height: $button-small;
+    min-width: 1px;
+    padding: $margin-smallest $margin-smaller;
+    width: 100%;
+
+    &:focus {
+        background: color(input-background-focus);
+        border: 1px solid color(input-border-focus);
+        box-shadow: 0 0 5px rgba($primary,0.5);
+    }
+}
+
+input:disabled {
+    //OPTIONAL background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==) repeat;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"] {
+    cursor: pointer;
+    width: auto;
+}
+
+textarea {
+    line-height: 1.5;
+    min-height: 7em;
+    resize: vertical;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url();
+    background-position: right -3px center;
+    background-repeat: no-repeat;
+}
+
+form {
+    .s-grid__column {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* http://stackoverflow.com/questions/9707021/how-do-i-auto-hide-placeholder-text-upon-focus-using-css-or-jquery */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: color(form-placeholder);
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: color(form-placeholder);
+    opacity: 1;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: color(form-placeholder);
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: color(form-placeholder);
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}

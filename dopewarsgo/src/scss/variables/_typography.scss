@@ -1,0 +1,36 @@
+// Styleguide Variables.Typography
+
+// Font path
+    $font-path: "../dist/fonts";
+    $font-name: "Custom";
+    $font-filename: "35BDAF_2_0";
+
+// Text sizes
+    // https://css-tricks.com/snippets/sass/correctly-adding-unit-number/
+    // Set this to a number that has a good visibility with your chosen font
+    $font-size-base: 16;
+
+    $font-size-smallest: $font-size-base - 6px;
+    $font-size-smaller: $font-size-base - 4px;
+    $font-size-small: $font-size-base - 2px;
+    $font-size-medium: $font-size-base + 0px;
+    $font-size-large: $font-size-base + 2px;
+    $font-size-larger: $font-size-base + 6px;
+    $font-size-largest: $font-size-base + 10px;
+    $font-size-huge: $font-size-base + 14px;
+
+// Font families
+// See: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack/
+    $font-family-body: Helmet, Freesans, sans-serif;
+    $font-family-header: 'Custom', Helmet, Freesans, sans-serif;
+    $font-family-icon: 'fontawesome', sans-serif;
+
+// Font weights (needs to be set per font, cannot be used blindly)
+    $font-weight-bold: 700;
+    $font-weight-normal: 500;
+
+// Default line height
+    $line-height-base: 1.4;
+    $line-height-small: $line-height-base - 0.2;
+    $line-height-medium: $line-height-base + 0;
+    $line-height-large: $line-height-base + 0.2;

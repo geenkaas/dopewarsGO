@@ -1,0 +1,72 @@
+// Styleguide Base.Headers
+
+/*
+    Use the following headers to give titles SEO weight.
+    Please use individual classes to STYLE titles according to their position.
+
+    H1 - Page or Article title
+    H2 - Chapter of an article
+    H3 - Sub-chapter of an article
+    H4 - Sidebar widget titles (and article sub-sub-titles)
+    H5 - Footer widget titles (and sidebar sub-titles)
+    H6 - Footer sub-titles
+
+    use .h* classes to style an element to LOOK like another header but not give it any SEO weight or keep it's current weight.
+    VIZ: <span class="component__title h3">Looks like a h3</span>
+*/
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    @include margin-bottom;
+    font-feature-settings: 'liga' 1;
+    font-family: $font-family-header;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: $margin-smaller;
+    margin-top: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: $font-weight-bold;
+}
+
+h1,
+.h1 {
+    font-size: $font-size-huge;
+}
+
+h2,
+.h2 {
+    font-size: $font-size-largest;
+}
+
+h3,
+.h3 {
+    font-size: $font-size-larger;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-size: $font-size-large;
+}

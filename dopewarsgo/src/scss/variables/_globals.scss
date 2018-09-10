@@ -1,0 +1,36 @@
+// Styleguide Variables.Global
+
+// Margins
+    $margin-base: 5px;
+
+    $margin-smallest: $margin-base;
+    $margin-smaller: $margin-base * 2;
+    $margin-small: $margin-base * 3;
+    $margin-medium: $margin-base * 4;
+    $margin-large: $margin-base * 5;
+    $margin-larger: $margin-base * 6;
+    $margin-largest: $margin-base * 8;
+
+// Grid
+    $grid-medium: $margin-medium;
+
+// Structure
+    $header-height: 100px;
+    $footer-height: 200px;
+    $body-height: calc(100vh - #{$header-height} - #{$footer-height});
+    $column-right: 336px;
+    $column-left: calc(100% - #{$column-right} - #{$margin-medium});
+    $content-medium: $breakpoint-larger;
+
+// Icons and button sizes
+
+    $button-base: 12px;
+
+    $button-smaller: $button-base * 1;
+    $button-small: $button-base * 1.5;
+    $button-medium: $button-base * 2;
+    $button-large: $button-base * 2.5;
+    $button-larger: $button-base * 3;
+
+// Component settings
+    $logo-width: 200px;

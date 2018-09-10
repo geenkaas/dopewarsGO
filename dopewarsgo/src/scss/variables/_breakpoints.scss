@@ -1,0 +1,24 @@
+// Styleguide Variables.Breakpoints
+
+// These are constant breakpoints, and are division points between "groups" of devices, not an indication of a device size.
+// For example breakpoint 600 splits mobile phones and tablets.
+// Do not use these breakpoints directly for media queries, instead use mixins from functions/mixins.scss
+// For toggling content (like a hamburger menu icon) use the toggle-utility classes in base/utility.scss
+
+// Break between small phones and modern phones (roughly iPhone 4,5,SE)
+$breakpoint-smaller: 350px;
+
+// Break between modern phones and tablets in portrait mode (roughly iPhone 6,7,8,X)
+$breakpoint-small: 400px;
+
+// Between phones and tablets in portrait mode (roughly iPhone 6,7,8 PLUS)
+$breakpoint-medium: 600px;
+
+// between portrait and landscape tablets and desktops
+$breakpoint-large: 900px;
+
+// between Landscape/Desktop and wide screen monitors
+$breakpoint-larger: 1200px;
+
+// From here it's Full HD and 4K screens
+$breakpoint-largest: 1800px;

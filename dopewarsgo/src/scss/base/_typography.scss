@@ -1,0 +1,32 @@
+// Styleguide Base.Typography
+
+html {
+    font-family: $font-family-body;
+    font-weight: $font-weight-normal;
+}
+
+p {
+    @include margin-bottom;
+}
+
+hr {
+    @include margin-bottom;
+    border-top: 1px solid color(line-color);
+    margin-top: 0;
+}
+
+code,
+q {
+    background: $black-10;
+    display: inline-block;
+    padding: 0 $margin-smallest;
+}
+
+pre {
+    @include margin-bottom;
+}
+
+pre > code {
+    padding: 0 $margin-large $margin-medium;
+    width: 100%;
+}

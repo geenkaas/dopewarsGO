@@ -1,0 +1,97 @@
+// Default page layout: Main column, a masthead, body with content and sidebar and a footer
+//
+// Markup
+/*
+<div class="s-column s-column--{{ banded or vertical }}">
+    <header class="s-masthead">
+        <div class="s-column__wrapper">
+        </div>
+    </header>
+    <div class="s-body">
+        <div class="s-column__wrapper">
+            <main class="s-content">
+            </main>
+            <aside class="s-sidebar">
+            </aside>
+        </div>
+    </div>
+    <footer class="s-footer">
+        <div class="s-column__wrapper">
+        </div>
+    </footer>
+</div>
+*/
+// Styleguide Structure.Layout
+
+// Content column settings
+.s-column {
+}
+
+// For sites that have a central column but uses "bands" that stretch from the left to right of the viewport
+.s-column--banded {
+    width: 100%;
+
+    .s-column__wrapper {
+        @include body-container;
+        position: relative;
+    }
+}
+
+// For sites with a single background layer and one central column. No horizontal division.
+.s-column--vertical {
+    @include body-container;
+}
+
+// Structure, this decides dimensions and responsive flow
+// The masthead usually holds the logo, menu and meta-links.
+.s-masthead {
+    @include clearfix;
+    height: $header-height;
+}
+
+// The body holds the content, sidebar, breadcrumbs etc.
+.s-body {
+    @include clearfix;
+    min-height: $body-height;
+}
+
+.s-wrapper {
+    @include clearfix;
+    @include collapse-margins;
+    @include margin-bottom;
+    margin-top: $margin-medium;
+
+    @include widescreen-up {
+        padding: 0;
+    }
+}
+
+// The content holds the actual article
+.s-content {
+    @include clearfix;
+
+    @include desktop-up {
+        float: left;
+        width: $column-left;
+
+        &.s-content--fullwidth {
+            width: 100%;
+        }
+    }
+}
+
+// The sidebar holds widgets and meta-data relevant to the content.
+.s-sidebar {
+    @include clearfix;
+
+    @include desktop-up {
+        float: right;
+        width: $column-right;
+    }
+}
+
+// The footer ends the site and holds menu's and other links to give the reader a destination
+.s-footer {
+    @include collapse-margins;
+    min-height: $footer-height;
+}

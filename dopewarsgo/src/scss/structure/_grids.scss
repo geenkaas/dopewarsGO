@@ -1,0 +1,71 @@
+// Grids
+//
+// These classes form a grid: a single row of elements that are spaced according to their width
+// Typically you'll want to use either a `<div class="s-grid">` wrapping a number `<div class="s-grid__column">` elements.
+//
+// Markup
+/*
+    <div class="s-grid">
+        <div class="s-grid__column s-grid__column--6-12">
+            One half (6/12)
+        </div>
+        <div class="s-grid__column s-grid__column--3-12">
+            One quarter (3/12)
+        </div>
+        <div class="s-grid__column s-grid__column--2-12">
+            One sixth (2/12)
+        </div>
+        <div class="s-grid__column s-grid__column--1-12">
+            One twelfth (1/12)
+        </div>
+    </div>
+*/
+// Styleguide Structure.Grid
+
+.s-grid {
+    @include clearfix;
+    @include margin-bottom;
+    @include collapse-margins;
+
+    > .s-grid__column {
+        float: left;
+        margin-right: $grid-medium;
+        min-height: 1px;
+
+        &:last-child {
+            margin-bottom: 0;
+            margin-right: 0;
+        }
+    }
+
+    // Add a comma separated list of  division you need to use, keep this list as small as possible for example: 10, 12
+    // Keep in mind that with 12 you also covered 2,3,4,6
+    $grid-division: 12;
+
+    @each $grid in $grid-division {
+        @for $i from 1 through $grid-division {
+            .s-grid__column--#{$i}-#{$grid-division} {
+                @include split(#{$i},#{$grid-division});
+            }
+        }
+    }
+}
+
+@include phone-only {
+    .s-grid__column {
+        @include margin-bottom;
+        width: 100% !important;
+
+        &:last-child {
+            @include margin-bottom;
+        }
+    }
+}
+
+form {
+    .s-grid__column {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+// Styleguide Components.Header.Hamburger
+
+/*
+    Code example:
+
+    {# Hamburger #}
+    <input id="toggle-hamburger" class="c-hamburger__checkbox" type="checkbox" />
+    <label for="toggle-hamburger" class="c-hamburger__label"></label>
+*/
+
+/* Hide checkbox and replace with an icon */
+input[type="checkbox"].c-hamburger__checkbox {
+    display: none;
+}
+
+.c-hamburger__label {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    z-index: 6;
+
+    &::before {
+        @include awesome;
+        color: color(header-icon-color);
+        content: "\f0c9";
+        right: 0;
+        text-align: center;
+    }
+
+    /* Hamburger icon hidden on tablets and up */
+    @include tablet-up {
+        display: none;
+    }
+}
+
+/* Target items directly after the checked checkbox */
+input[type="checkbox"].c-hamburger__checkbox:checked {
+
+    & ~ .c-hamburger__label::before {
+        background: color(header-icon-background-active);
+        border-left: 1px solid color(menu-mobile-cover);
+        color: color(header-icon-active);
+    }
+}

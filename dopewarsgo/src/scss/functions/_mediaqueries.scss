@@ -1,0 +1,97 @@
+// Styleguide Functions.Media-queries
+
+// Media queries with custom breakpoints, examples and visual aid
+// Note, most of the time you will not be using all Mediq queries but just a few, mostly phone-down and desktop-up. Use as you see fit.
+
+/*
+
+         Smaller     Phones      Tablet     Desktop    Widescreen    Full-HD
+            V           V           V           V           V           V
+Breakpoints:   small       medium      large       larger      largest
+Pixels:         400         600         900         1200        1800
+
+                 <-------------------------------------------------phone-up-->
+                              <-----------------------------------tablet up-->
+                                         <-----------------------desktop up-->
+                                                        <-----widescreen-up-->
+                                                                 <-fullhd-up->
+                 <--phone-to-tablet------->
+                 <--phone-to-desktop-------------------->
+                              <--tablet-to-desktop------>
+                 <-phone-only->
+                            <-tablet-only->
+                                         <-desktop-only->
+<--smaller-down-->
+<--phone down---------------->
+<--tablet down--------------------------->
+<--desktop-down--------------------------------------->
+<--widescreen-down---------------------------------------------->
+
+*/
+
+// Markup:
+/*
+.element {
+    padding: 10px;
+    @include desktop-up { <!-- THIS IS THE MEDIA QUERY! -->
+        padding: 20px;
+    }
+}
+*/
+
+// Media query Mixins
+// From a certain point up
+@mixin phone-up {
+    @media (min-width: $breakpoint-small) { @content; }
+}
+@mixin tablet-up {
+    @media (min-width: $breakpoint-medium) { @content; }
+}
+@mixin desktop-up {
+    @media (min-width: $breakpoint-large) { @content; }
+}
+@mixin widescreen-up {
+    @media (min-width: $breakpoint-larger) { @content; }
+}
+@mixin fullhd-up {
+    @media (min-width: $breakpoint-largest) { @content; }
+}
+
+// Between two breakpoints
+@mixin phone-to-tablet {
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) { @content; }
+}
+@mixin phone-to-desktop {
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-larger) { @content; }
+}
+@mixin tablet-to-desktop {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-larger) { @content; }
+}
+
+// Device only breakpoints
+@mixin phone-only {
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) { @content; }
+}
+@mixin tablet-only {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) { @content; }
+}
+@mixin desktop-only {
+    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-larger) { @content; }
+}
+
+// From the smallest up to a breakpoint
+@mixin smaller-down {
+    @media (max-width: $breakpoint-small - 1) { @content; }
+}
+@mixin phone-down {
+    @media (max-width: $breakpoint-medium - 1) { @content; }
+}
+@mixin tablet-down {
+    @media (max-width: $breakpoint-large - 1) { @content; }
+}
+@mixin desktop-down {
+    @media (max-width: $breakpoint-larger - 1) { @content; }
+}
+@mixin widescreen-down {
+    @media (max-width: $breakpoint-largest - 1) { @content; }
+}

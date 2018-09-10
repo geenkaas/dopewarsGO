@@ -1,0 +1,48 @@
+// Styleguide Base.Utility
+
+// Toggle classes
+// These show either one or the other element depending on your viewport width.
+
+/*
+    Use in pairs, for example a long text for desktop and a shorter one for handheld items:
+    <span class="u-toggle">
+        <span class="u-show-phone-down">short text</span>
+        <span class="u-show-tablet-up">A much longer text that fits on desktop views</span>
+    </span>
+*/
+
+// Toggle between phones and tablets
+.u-show-phone-down {
+    @include tablet-up {
+        display: none!important;
+    }
+}
+.u-show-tablet-up {
+    @include phone-down {
+        display: none!important;
+    }
+}
+
+// Toggle between tablets and desktops
+.u-show-tablet-down {
+    @include desktop-up {
+        display: none!important;
+    }
+}
+.u-show-desktop-up {
+    @include tablet-down {
+        display: none!important;
+    }
+}
+
+// Toggle betweem desktops and widescreens
+.u-show-desktop-down {
+    @include widescreen-up {
+        display: none!important;
+    }
+}
+.u-show-widescreen-up {
+    @include desktop-down {
+        display: none!important;
+    }
+}

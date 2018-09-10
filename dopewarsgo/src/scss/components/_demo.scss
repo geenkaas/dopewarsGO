@@ -1,0 +1,27 @@
+/* Components */
+// Styleguide Components.Demo
+
+// For testing purposes only, remove this file and classes for production.
+
+
+// For clarification purposes, remove when starting your own design:
+.s-masthead,
+.s-content,
+.s-sidebar,
+.s-footer {
+    background: $grey-white;
+}
+
+// Demo for Grids
+.c-demo {
+    .s-grid__column {
+        background: $black-10;
+    }
+}
+
+// Demo for Galleries
+.c-demo {
+    .s-gallery__column {
+        background: $black-10;
+    }
+}

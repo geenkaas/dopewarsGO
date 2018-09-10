@@ -1,0 +1,53 @@
+// Styleguide Components.Forms.Radio-replace
+// https://stackoverflow.com/questions/5112995/how-to-replace-replace-radio-buttons-with-images
+
+.c-radio-replace {
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        position: absolute;
+        left: -666em;
+    }
+
+    label {
+        cursor: pointer;
+        margin-bottom: $margin-small;
+        padding-left: $margin-medium;
+        position: relative;
+
+        &:hover {
+            color: color(input-radio-hover);
+        }
+
+        &::before {
+            content: 'O';
+            transform: scale(1);
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+    }
+
+    input[type="checkbox"] + label::before {
+        // When using Material icons:
+        // content: 'check_box_outline_blank';
+    }
+
+    input[type="radio"]:focus + label::before,
+    input[type="checkbox"]:focus + label::before {
+        color: color(input-radio-focus);
+    }
+
+    input:checked + label {
+
+        &::before {
+            animation: pop-in 200ms;
+            color: color(input-radio-checked);
+            content: 'X';
+        }
+    }
+
+    input[type="checkbox"]:checked + label::before {
+        content: 'X';
+    }
+}

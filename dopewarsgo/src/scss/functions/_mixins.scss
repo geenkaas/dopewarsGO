@@ -1,0 +1,162 @@
+// Styleguide Functions.Mixins
+
+// Font-awesome and typography
+@mixin awesome {
+    display: inline-block;
+    font-size: $font-size-smallest;
+    font-family: $font-family-icon;
+    line-height: 1em;
+    vertical-align: middle;
+    width: 1em;
+}
+
+@mixin truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Customisable mixins: Padding and Margins
+@mixin padding-body {
+    padding: 0 $margin-small;
+
+    @include widescreen-up {
+        padding: 0;
+    }
+}
+
+@mixin collapse-margins {
+    /*
+        This mixin solves the age old problem with consistent paddings in containers where the content adds it's own margins creating a double gap.
+        The solution is to remove the top and bottom padding and replace it with a pseudo-element with top and bottom MARGIN.
+        These collapse with the content's margins and leaving only the largest of the two, resulting in a nicer view with less exceptions.
+        Just add this mixing to an element, like so:
+
+        .element {
+            @include collapse-margins;
+        }
+    */
+
+    // Needs to overwrite any previous set padding and not be overwritten itself.
+    padding: 0 $margin-smaller !important;
+
+        // NB: tablet and desktop queries can be omited
+        @include tablet-up {
+            padding: 0 $margin-small !important;
+        }
+
+        @include desktop-up {
+            padding: 0 $margin-medium !important;
+        }
+
+    &::before,
+    &::after {
+        display: block;
+        content: "";
+        height: 0;
+        pointer-events: none;
+    }
+
+    &::before {
+        margin-bottom: $margin-smaller;
+
+        @include tablet-up {
+            margin-bottom: $margin-small;
+        }
+
+        @include desktop-up {
+            margin-bottom: $margin-medium;
+        }
+    }
+
+    &::after {
+        margin-top: $margin-smaller;
+
+        @include tablet-up {
+            margin-top: $margin-small;
+        }
+
+        @include desktop-up {
+            margin-top: $margin-medium;
+        }
+    }
+}
+
+@mixin margin-bottom {
+    margin-bottom: $margin-smaller;
+
+    @include tablet-up {
+        margin-bottom: $margin-small;
+    }
+
+    @include desktop-up {
+        margin-top: $margin-medium;
+    }
+}
+
+// Positioning
+@mixin pos-fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// Containers and general styling
+@mixin body-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: $breakpoint-larger;
+}
+
+// Element styling
+@mixin clearlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+// Transitions and animations.
+@mixin transition-slow {
+    transition: all 500ms ease-out;
+}
+@mixin transition-slow {
+    transition: all 400ms ease-out;
+}
+@mixin transition-normal {
+    transition: all 300ms ease-out;
+}
+@mixin transition-fast {
+    transition: all 200ms ease-out;
+}
+@mixin transition-faster {
+    transition: all 100ms ease-out;
+}
+
+// Grids and Galleries
+@mixin split($column, $total) {
+    width: calc( (100% - ((#{$total} - 1) * #{$grid-medium}) ) / #{$total} * #{$column} + ((#{$column} - 1) * #{$grid-medium}) );
+}
+
+// Clearfix for wrapping a container around floating elements. Call with @include clearfix;
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Visibility
+@mixin toggle-show {
+    opacity: 1;
+    height: auto;
+}
+
+@mixin toggle-hide {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}

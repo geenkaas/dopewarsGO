@@ -1,0 +1,107 @@
+// Styleguide Functions.Animations
+
+.c-animation {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform-origin: center center;
+}
+
+.c-animation--swing {
+    animation: swing 8000ms infinite ease-in-out;
+    transform-origin: top center;
+}
+
+@keyframes swing {
+    82% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    88% {
+        transform: rotate3d(0, 0, 1, 15deg);
+    }
+    90% {
+        transform: rotate3d(0, 0, 1, -10deg);
+    }
+    92% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    94% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    96% {
+        transform: rotate3d(0, 0, 1, 2deg);
+    }
+    98% {
+        transform: rotate3d(0, 0, 1, -2deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.c-animation--wiggle {
+    &:hover {
+        animation: wiggle 200ms;
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    33% {
+        transform: rotate3d(0, 0, 1, 3deg);
+    }
+    66% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.c-animation--bandit {
+    overflow: hidden;
+
+    &:hover:after {
+        animation: bandit 300ms ease-in-out;
+    }
+}
+
+@keyframes bandit {
+    0% {
+        color: color(link);
+        transform: translateY(0);
+    }
+    50% {
+        color: color(link);
+        transform: translateY(-80%);
+    }
+    51% {
+        color: color(link-hover);
+        transform: translateY(80%);
+    }
+    100% {
+        color: color(link-hover);
+        transform: translateY(0);
+    }
+}
+
+.c-animation--pulse {
+    animation: pulse 750ms linear;
+    animation-iteration-count: infinite;
+}
+
+ @keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    10% {
+        opacity: 0.9;
+        transform: scale(1.25);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

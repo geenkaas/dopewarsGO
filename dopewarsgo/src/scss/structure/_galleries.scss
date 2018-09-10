@@ -1,0 +1,74 @@
+// Galleries
+//
+// These classes form a gallery: a block of elements that are repeated for as many elements as are included. Rows wrap when the set number is reached
+// Typically you'll want to use a `<div class="s-gallery">` wrapping any number `<div class="s-gallery__column">` elements.
+//
+// Markup
+/*
+    <div class="s-gallery s-gallery--4">
+        <div class="s-gallery__column">
+            Item
+        </div>
+        <div class="s-gallery__column">
+            Item
+        </div>
+        <div class="s-gallery__column">
+            Item
+        </div>
+        <div class="s-gallery__column">
+            Item
+        </div>
+        <div class="s-gallery__column">
+            Item
+        </div>
+        <div class="s-gallery__column">
+            Item
+        </div>
+    </div>
+*/
+// Styleguide Structure.Gallery
+
+.s-gallery {
+    @include clearfix;
+    @include margin-bottom;
+}
+
+.s-gallery__column {
+    float: left;
+    margin-right: $grid-medium;
+    width: 100%;
+}
+
+// Chose or add your divisions for galleries, leave out those which are not used (for eaxmple a 2,4,8 set)
+$gallery-divisions: 2,3,4,8;
+
+@each $grid in $gallery-divisions {
+    .s-gallery--#{$grid} .s-gallery__column {
+        @include split(1,#{$grid});
+        &:nth-child(#{$grid}n) {
+            @include margin-bottom;
+            margin-right: 0;
+        }
+        &:nth-child(#{$grid}n + 1) {
+            clear: both;
+        }
+    }
+
+}
+
+@include phone-only {
+    .s-gallery--responsive {
+        .s-gallery__column {
+            @include margin-bottom;
+            width: 100%;
+        }
+    }
+}
+
+form {
+    .s-gallery__column {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
