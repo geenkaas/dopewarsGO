@@ -31,7 +31,7 @@ $gallery-split: 3,4;
 @each $division in $gallery-split {
     .s-flex--gallery-#{$division} {
         & > .s-flex__item {
-            @include gallery(#{$division}, #{$margin-small});
+            @include split(#{$division}, #{$margin-small});
         }
     }
 }
