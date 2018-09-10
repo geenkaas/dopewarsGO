@@ -1,12 +1,10 @@
 <template>
-  <div>
-  <div v-for="(dope, i) in dopelist" :key='i'>
-    {{ dope.name }}
-    {{ dope.amount }}
-    <button v-on:click="subtract(i, 1)">-</button>
-    <span>{{ randomPrice(i) }}</span>
-    <button v-on:click="add(i, 1)">+</button>
-  </div>
+  <div v-for="(dope, i) in dopelist" :key='i' class="c-dopelist s-flex s-flex--equal">
+    <span class="s-flex__item">{{ dope.name }}</span>
+    <span class="s-flex__item">{{ dope.amount }}</span>
+    <span class="s-flex__item"><button v-on:click="subtract(i, 1)">-</button></span>
+    <span class="s-flex__item">{{ randomPrice(i) }}</span>
+    <span class="s-flex__item"><button v-on:click="add(i, 1)">+</button></span>
   </div>
 </template>
 
@@ -32,11 +30,11 @@ export default {
   },
   methods: {
     add(dope, inc) {
-      this.dopelist[dope].amount += inc;
+      //this.dopelist[dope].amount += inc;
     },
     subtract(dope, dec) {
       if (this.dopelist[dope].amount > 0) {
-        this.dopelist[dope].amount -= dec;
+        //this.dopelist[dope].amount -= dec;
       }
     },
     /* updates EVERY time... */
@@ -54,5 +52,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.c-dopelist {
+  max-width: 375px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.s-flex__item {
+  border: 1px solid red;
+
+}
 
 </style>

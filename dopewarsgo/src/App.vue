@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <h1>{{ title }}</h1>
-    <dopelist></dopelist>
+    <c-dopelist/>
   </div>
 </template>
 
@@ -11,7 +10,7 @@ import Dopelist from './Dopelist';
 
 export default {
   components: {
-    dopelist: Dopelist,
+    'c-dopelist': Dopelist,
   },
   name: 'App',
   data() {
@@ -30,20 +29,6 @@ export default {
           id: 1,
           length: 7,
           day: 1,
-        },
-      ],
-      dopelist: [
-        {
-          name: 'Peyote',
-          min: 1000,
-          max: 2500,
-          amount: 0,
-        },
-        {
-          name: 'Speed',
-          min: 200,
-          max: 500,
-          amount: 0,
         },
       ],
     };
