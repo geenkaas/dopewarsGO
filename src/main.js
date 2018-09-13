@@ -3,6 +3,9 @@
 import Vue from 'vue';
 import App from './App';
 
+// Disable VUE config
+Vue.config.devtools = false;
+
 // import vuefire from 'vuefire';
 // Vue.use(VueFire);
 

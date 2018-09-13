@@ -29,6 +29,7 @@ export default {
           id: 1,
           length: 7,
           day: 1,
+          inventory: {},
         },
       ],
     };

@@ -1,10 +1,12 @@
 <template>
-  <div v-for="(dope, i) in dopelist" :key='i' class="c-dopelist s-flex s-flex--equal">
-    <span class="s-flex__item">{{ dope.name }}</span>
-    <span class="s-flex__item">{{ dope.amount }}</span>
-    <span class="s-flex__item"><button v-on:click="subtract(i, 1)">-</button></span>
-    <span class="s-flex__item">{{ randomPrice(i) }}</span>
-    <span class="s-flex__item"><button v-on:click="add(i, 1)">+</button></span>
+  <div>
+    <div v-for="(dope, i) in dopelist" :key='i' class="c-dopelist s-flex s-flex--equal">
+      <span class="s-flex__item">{{ dope.name }}</span>
+      <span class="s-flex__item">{{ dope.amount }}</span>
+      <span class="s-flex__item"><button v-on:click="subtract(i, 1)">-</button></span>
+      <span class="s-flex__item">{{ randomPrice(i) }}</span>
+      <span class="s-flex__item"><button v-on:click="add(i, 1)">+</button></span>
+    </div>
   </div>
 </template>
 
@@ -29,12 +31,14 @@ export default {
     };
   },
   methods: {
+    // eslint-disable-next-line
     add(dope, inc) {
-      //this.dopelist[dope].amount += inc;
+      // this.dopelist[dope].amount += inc;
     },
+    // eslint-disable-next-line
     subtract(dope, dec) {
       if (this.dopelist[dope].amount > 0) {
-        //this.dopelist[dope].amount -= dec;
+        // this.dopelist[dope].amount -= dec;
       }
     },
     /* updates EVERY time... */
