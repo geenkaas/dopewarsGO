@@ -1,4 +1,49 @@
 // Styleguide Components.Pages.Articles
 
-.c-content {
+.c-dopelist {
+    @include pos-fill;
+    border: 5px solid green;
+    display: flex;
+    max-width: 480px;
+    margin: 0 auto;
+    align-items: center;
+    height: 600px;
+    max-height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 100px;
+}
+
+.c-dopelist__row {
+    border: 2px solid yellow;
+    flex: 1 1 auto;
+}
+
+.c-dopelist__cell {
+    align-self: center;
+    border: 2px solid red;
+    width: 100%;
+}
+
+.c-dopelist__name {
+    flex: 10 1 auto;
+}
+
+.c-dopelist__amount {
+    flex: 3 1 15%;
+
+}
+
+.c-dopelist__subtract {
+    flex: 1 1 $button-medium;
+
+}
+
+.c-dopelist__current {
+    flex: 5 1 20%;
+}
+
+.c-dopelist__add {
+    flex: 1 1 $button-medium;
+
 }

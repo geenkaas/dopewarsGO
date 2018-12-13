@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <c-dopelist/>
+    <vue-dopelist v-bind:title="title" v-bind:player="player" v-bind:game="game"></vue-dopelist>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import Dopelist from './Dopelist';
 
 export default {
   components: {
-    'c-dopelist': Dopelist,
+    'vue-dopelist': Dopelist,
   },
   name: 'App',
   data() {
@@ -21,6 +21,7 @@ export default {
           name: 'wetnose',
           health: 100,
           cash: 2000,
+          inventory: 0,
           pockets: 50,
         },
       ],
