@@ -1,5 +1,5 @@
 <template>
-  <div class="c-dopelist">
+  <div class="c-dopelist__wrapper" v-bind:game="game">
     <div v-for="(dope, i) in dopelist" :key='i' class="c-dopelist__row s-flex s-flex--equal">
       <span class="c-dopelist__cell c-dopelist__name">
         {{ dope.name }}
@@ -21,6 +21,9 @@
 </template>
 
 <script>
+
+import { bus } from './main';
+
 export default {
   data() {
     return {
@@ -104,22 +107,14 @@ export default {
         },
       ],
     };
-  },
+  }, // end data
 
   // https://www.youtube.com/watch?v=9qqFH60isFc&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=23
   props: {
     title: {
       Type: String
     },
-    player: {
-      Type: Array,
-      required: true,
-    },
-    game: {
-      Type: Array,
-      required: true,
-    },
-  },
+  }, // end props
 
   created() {
     // fetch the data when the view is created and the data is
@@ -127,49 +122,64 @@ export default {
     let that = this;
     this.dopelist.forEach(function(value, dope) {
 
-      const priceMax = that.dopelist[dope].max;
-      const priceMin = that.dopelist[dope].min;
-      const priceBandwidth = priceMax - priceMin;
-      let priceRandy = Math.random();
-      let priceCurrent =  Math.ceil(priceBandwidth * priceRandy) + priceMin;
-      that.dopelist[dope].current = priceCurrent;
+      // const priceMax = that.dopelist[dope].max;
+      // const priceMin = that.dopelist[dope].min;
+      // const priceBandwidth = priceMax - priceMin;
+      // let priceRandy = Math.random();
+      // let priceCurrent =  Math.ceil(priceBandwidth * priceRandy) + priceMin;
+      // that.dopelist[dope].current = priceCurrent;
+      that.randomPrice(dope);
 
     });
-  },
+  }, // end created
 
   methods: {
     add(dope, inc) {
 
+        // console.log('clicked ADD');
+        // // post to database: https://www.youtube.com/watch?v=btDfVBPYI-U&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=33
+        // this.$http.post('https://jsonplaceholder.typicode.com/posts', {
+        //     title: 'mytitle',
+        //     body: 'blLBblBLblll alalbalblablabla lblabalball ablb alblbalbalb alblbal ablabal ba lb',
+        //     userId: 666,
+        // }).then(function(data) {
+        //     console.log(data);
+        // })
+
       // Check if player has enough pocket space
-      let playerInventory = this.player[0].inventory;
-      let playerPockets = this.player[0].pockets;
-      if (playerInventory < playerPockets) {
+      // let playerInventory = Player.player[0].inventory;
+      // let playerPockets = this.player[0].pockets;
+      // if (playerInventory < playerPockets) {
 
-        // Check if player has enough cash
-        let playerCash = this.player[0].cash;
-        let dopePrice = this.dopelist[dope].current;
-        if (this.player[0].cash >= this.dopelist[dope].current) {
+      //   // Check if player has enough cash
+      //   let playerCash = this.player[0].cash;
+      //   let dopePrice = this.dopelist[dope].current;
+      //   if (this.player[0].cash >= this.dopelist[dope].current) {
 
-          // Add one to amount of dope
-          this.dopelist[dope].amount += inc;
-          // Add one to inventory
-          this.player[0].inventory++;
-          // Remove cash for the dope
-          this.player[0].cash -= this.dopelist[dope].current;
+      //     // Add one to amount of dope
+      //     this.dopelist[dope].amount += inc;
+      //     // Add one to inventory
+      //     //this.player[0].inventory++;
+      //     // Remove cash for the dope
+      //     //this.player[0].cash -= this.dopelist[dope].current;
 
-        } else {
-          // Player has no cash left
-          this.checkButton;
-        }
-      }
-    },
+      //     //https://www.youtube.com/watch?v=jzh4zQcfB0o&index=26&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa
+      //     bus.$emit('buy', dopePrice);
+      //     // TODO replace for FireBase or Axios.
+
+      //   } else {
+      //     // Player has no cash left
+      //     this.checkButton;
+      //   }
+      // }
+    }, // end method add
 
     subtract(dope, dec) {
       if (this.dopelist[dope].amount > 0) {
         this.dopelist[dope].amount -= dec;
         this.player[0].inventory--;
       }
-    },
+    }, // end method subtract
 
     randomPrice(dope) {
       const priceMax = this.dopelist[dope].max;
@@ -179,11 +189,15 @@ export default {
       let priceCurrent =  Math.ceil(priceBandwidth * priceRandy) + priceMin;
       this.dopelist[dope].current = priceCurrent;
       //return Math.ceil(priceBandwidth * priceRandy) + priceMin;
-    },
-  },
+    }, // end method randomPrice
+
+  }, // end methods
 
   computed: {
-  },
+  }, // end computed
+
+  mixins: {
+  }, // end mixins
 
 };
 </script>
