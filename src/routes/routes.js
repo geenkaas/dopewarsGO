@@ -1,6 +1,7 @@
 import game from './../Game';
 import player from './../Player';
 import dope from './../Dopelist';
+import location from './../Location';
 
 export default[
     {
@@ -14,5 +15,9 @@ export default[
     {
         path: '/dope',
         component: dope
+    },
+    {
+        path: '/location/:lonlat',
+        component: location
     },
 ]

@@ -1,5 +1,5 @@
 <template>
-  <div class="c-dopelist__wrapper" v-bind:game="game">
+  <div class="c-dopelist__wrapper">
     <div v-for="(dope, i) in dopelist" :key='i' class="c-dopelist__row s-flex s-flex--equal">
       <span class="c-dopelist__cell c-dopelist__name">
         {{ dope.name }}
@@ -23,6 +23,7 @@
 <script>
 
 import { bus } from './main';
+import game from './Game';
 
 export default {
   data() {
@@ -108,6 +109,10 @@ export default {
       ],
     };
   }, // end data
+
+  components: {
+    'vue-game': game,
+  }, // end components
 
   // https://www.youtube.com/watch?v=9qqFH60isFc&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=23
   props: {
