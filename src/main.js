@@ -20,8 +20,6 @@ const router = new vueRouter({
 Vue.config.devtools = false;
 
 // READ FB: https://stackoverflow.com/questions/44352042/vuejs-vuex-firebase-where-to-hook-up-firebase
-
-
 import * as firebase from 'firebase';
 
 // Initialize Firebase

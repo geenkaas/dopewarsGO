@@ -4,7 +4,7 @@
         <p>dd3: {{ player[0].cash }}</p>
         <p>dd4: {{ player[0].health }}</p>
         <get-demo></get-demo>
-        <button v-on:click="firebase">upload to firebase</button>
+        <button v-on:click="fbsend">upload to firebase</button>
     </div>
 </template>
 
@@ -43,7 +43,6 @@ export default {
         };
     }, // end data
 
-    // https://www.youtube.com/watch?v=9qqFH60isFc&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=23
     props: {
         title: {
             Type: String
@@ -54,13 +53,16 @@ export default {
         // fetch the data when the view is created and the data is
         // already being observed
         let that = this;
-
-        bus.$on('buy', (data) => {
-            this.player[0].cash -= data;
-        })
     }, // end created
 
     methods: {
+        fbsend: function() {
+            console.log('hoi');
+            // https://www.youtube.com/watch?v=CzJyGo5rh7M&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=45&t=0s
+            this.$http.post('https://dopewars-go.firebaseio.com/dope.json', this.dope).then(function(data) {
+                console.log(data);
+            });
+        }
     }, // end methods
 
     computed: {
