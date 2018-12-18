@@ -35,10 +35,65 @@ export default {
             ],
             dope: [
                 {
-                    name: 'acid',
+                    name: 'Acid',
                     minPrice: 1000,
                     maxPrice: 4400,
-                }
+                },
+                {
+                    name: 'Cocaine',
+                    minPrice: 15000,
+                    maxPrice: 2900,
+                },
+                {
+                    name: 'Hashish',
+                    minPrice: 480,
+                    maxPrice: 1280,
+                },
+                {
+                    name: 'Heroin',
+                    minPrice: 5500,
+                    maxPrice: 1300,
+                },
+                {
+                    name: 'Ludes',
+                    minPrice: 11,
+                    maxPrice: 60,
+                },
+                {
+                    name: 'MDA',
+                    minPrice: 1500,
+                    maxPrice: 4400,
+                },
+                {
+                    name: 'Opium',
+                    minPrice: 540,
+                    maxPrice: 1250,
+                },
+                {
+                    name: 'PCP',
+                    minPrice: 1000,
+                    maxPrice: 2500,
+                },
+                {
+                    name: 'Peyote',
+                    minPrice: 220,
+                    maxPrice: 700,
+                },
+                {
+                    name: 'Shrooms',
+                    minPrice: 630,
+                    maxPrice: 1300,
+                },
+                {
+                    name: 'Speed',
+                    minPrice: 90,
+                    maxPrice: 250,
+                },
+                {
+                    name: 'Weed',
+                    minPrice: 315,
+                    maxPrice: 890,
+                },
             ],
             auth: firebase.auth().currentUser.email,
         };
@@ -58,7 +113,7 @@ export default {
         const ref = firebase.database().ref('dope');
         ref.once('value').then((snapshot) => {
             console.log(snapshot.val());
-            this.dope = snapshot.val();
+            //this.dope = snapshot.val();
         })
     }, // end created
 
@@ -69,12 +124,16 @@ export default {
             // this.$http.post('https://dopewars-go.firebaseio.com/dope.json', this.dope).then(function(data) {
             //     console.log(data);
             // });
-            const ref = firebase.database().ref('dope2').push();
-            const key = ref.key;
-            ref.set({
-                key,
-                test: false
-            })
+            const ref = firebase.database().ref('dope');
+            ref.set(this.dope);
+
+
+            // const ref = firebase.database().ref('dope2').push();
+            // const key = ref.key;
+            // ref.set({
+            //     key,
+            //     test: false
+            // })
 
         }
     }, // end methods
