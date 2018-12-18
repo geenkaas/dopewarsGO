@@ -3,7 +3,10 @@ import player from './../player';
 import dope from './../dopeList';
 import location from './../location';
 
-export default[
+import login from './../firebase/login';
+import register from './../firebase/register';
+
+export const routes = [
     {
         path: '/',
         component: game
@@ -19,5 +22,15 @@ export default[
     {
         path: '/location/:lonlat',
         component: location
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: login
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: register
     },
 ]
