@@ -15,9 +15,6 @@ export default {
 
     // https://www.youtube.com/watch?v=9qqFH60isFc&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=23
     props: {
-        title: {
-            Type: String
-        },
     }, // end props
 
     created() {

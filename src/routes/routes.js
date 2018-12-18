@@ -1,7 +1,7 @@
-import game from './../Game';
-import player from './../Player';
-import dope from './../Dopelist';
-import location from './../Location';
+import game from './../game';
+import player from './../player';
+import dope from './../dopeList';
+import location from './../location';
 
 export default[
     {

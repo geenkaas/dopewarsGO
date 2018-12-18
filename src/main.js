@@ -8,6 +8,7 @@ Vue.use(vueResource);
 
 import vueRouter from 'vue-router';
 Vue.use(vueRouter);
+
 import Routes from './routes/routes';
 
 const router = new vueRouter({
@@ -18,10 +19,23 @@ const router = new vueRouter({
 // Disable VUE config
 Vue.config.devtools = false;
 
-
 // READ FB: https://stackoverflow.com/questions/44352042/vuejs-vuex-firebase-where-to-hook-up-firebase
-// import vuefire from 'vuefire';
-// Vue.use(VueFire);
+
+
+import * as firebase from 'firebase';
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyD3KptP-Zcb7wDW_f1QjXfd5vzKyPhiovs",
+    authDomain: "dopewars-go.firebaseapp.com",
+    databaseURL: "https://dopewars-go.firebaseio.com",
+    projectId: "dopewars-go",
+    storageBucket: "dopewars-go.appspot.com",
+    messagingSenderId: "532369668543"
+};
+
+firebase.initializeApp(config);
+Vue.prototype.$firebase = firebase;
 
 // Filters
 Vue.filter('to-uppercase', function(value) {
@@ -29,8 +43,6 @@ Vue.filter('to-uppercase', function(value) {
 })
 
 Vue.config.productionTip = false;
-
-export const bus = new Vue();
 
 new Vue({
   el: '#app',

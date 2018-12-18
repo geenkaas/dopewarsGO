@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Game from './Game';
+import game from './game';
 
 export default {
   name: 'App',

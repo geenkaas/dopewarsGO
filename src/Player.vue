@@ -4,6 +4,7 @@
         <p>dd3: {{ player[0].cash }}</p>
         <p>dd4: {{ player[0].health }}</p>
         <get-demo></get-demo>
+        <button v-on:click="firebase">upload to firebase</button>
     </div>
 </template>
 
@@ -11,7 +12,7 @@
 
 import { bus } from './main';
 
-import getDemo from './GetDemo'
+import getDemo from './getDemo'
 
 export default {
     components: {
@@ -32,6 +33,13 @@ export default {
                     gun: 0,
                 },
             ],
+            dope: [
+                {
+                    name: 'acid',
+                    minPrice: 1000,
+                    maxPrice: 4400,
+                }
+            ]
         };
     }, // end data
 

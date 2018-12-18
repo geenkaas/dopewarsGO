@@ -22,8 +22,7 @@
 
 <script>
 
-import { bus } from './main';
-import game from './Game';
+import game from './game';
 
 export default {
   data() {
