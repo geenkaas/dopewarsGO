@@ -4,8 +4,7 @@
   </div>
 </template>
 
-<script>
-import game from './game';
+<script>import game from './game';
 
 export default {
   name: 'App',
@@ -14,14 +13,6 @@ export default {
   data() {
     return {
       title: 'Test GO',
-      game: [
-        {
-          id: 1,
-          length: 7,
-          day: 1,
-          inventory: {},
-        },
-      ],
     };
   }, // end data
 

@@ -14,6 +14,7 @@
 
 import firebase from 'firebase';
 import { bus } from './main';
+const keyBy = require('lodash/keyBy');
 
 export default {
     components: {
@@ -21,9 +22,15 @@ export default {
 
     data() {
         return {
+            game: [
+                {
+                    length: 7,
+                    difficulty: 1,
+                    mode: 'singleplayer',
+                },
+            ],
             player: [
                 {
-                    name: 'Goofy',
                     health: 100,
                     armour: 0,
                     cash: 2000,
@@ -32,6 +39,34 @@ export default {
                     pockets: 50,
                     gun: 0,
                 },
+            ],
+            doperun: [
+                {
+                    mode: [
+                        {
+                            day: 1,
+                            length: 7,
+                        }
+                    ],
+                    player: [
+                        {
+                            health: 0,
+                            armour: 0,
+                            cash: 0,
+                            loan: 0,
+                            inventory: 0,
+                            pockets: 0,
+                            gun: 0,
+                        }
+                    ],
+                    dope: [
+                        {
+                            name: '',
+                            price: 0,
+                            amount: 0,
+                        }
+                    ],
+                }
             ],
             dope: [
                 {
@@ -109,23 +144,24 @@ export default {
         // fetch the data when the view is created and the data is
         // already being observed
         let that = this;
-
-        const ref = firebase.database().ref('dope');
-        ref.once('value').then((snapshot) => {
-            console.log(snapshot.val());
-            //this.dope = snapshot.val();
-        })
     }, // end created
 
     methods: {
         fbsend: function() {
             console.log('post!');
-            // https://www.youtube.com/watch?v=CzJyGo5rh7M&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=45&t=0s
-            // this.$http.post('https://dopewars-go.firebaseio.com/dope.json', this.dope).then(function(data) {
-            //     console.log(data);
-            // });
-            const ref = firebase.database().ref('dope');
-            ref.set(this.dope);
+            const dope = firebase.database().ref('dope');
+            //dope.set(this.dope);
+
+            // update plus name as key
+            // const ref = firebase.database().ref('dope');
+            // const dope = keyBy(this.dope, (i) => i.name);
+            // ref.update(dope);
+
+
+            // const ref = firebase.database().ref('dope');
+            // const dope = keyBy(this.dope, (i) => i.name);
+
+            // ref.update(dope);
 
 
             // const ref = firebase.database().ref('dope2').push();

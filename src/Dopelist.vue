@@ -1,11 +1,11 @@
 <template>
-  <div class="c-dopelist__wrapper">
+  <div class="c-dopelist__wrapper" id="dopeList">
     <div v-for="(dope, i) in dopelist" :key='i' class="c-dopelist__row s-flex s-flex--equal">
       <span class="c-dopelist__cell c-dopelist__name">
         {{ dope.name }}
       </span>
       <span class="c-dopelist__cell c-dopelist__amount">
-        {{ dope.amount }}
+        0
       </span>
       <span class="c-dopelist__cell c-dopelist__subtract">
         <button v-on:click="subtract(i, 1)">-</button>
@@ -22,90 +22,16 @@
 
 <script>
 
+import firebase from 'firebase';
 import game from './game';
+const keyBy = require('lodash/keyBy');
+const forEach = require('lodash/forEach');
 
 export default {
   data() {
     return {
-      dopelist: [
-        {
-          name: 'test1',
-          min: 1000,
-          max: 2500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test2',
-          min: 200,
-          max: 500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test3',
-          min: 12,
-          max: 600,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test4',
-          min: 1000,
-          max: 2500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test5',
-          min: 200,
-          max: 500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test6',
-          min: 12,
-          max: 600,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test7',
-          min: 1000,
-          max: 2500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test8',
-          min: 200,
-          max: 500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test9',
-          min: 12,
-          max: 600,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test10',
-          min: 1000,
-          max: 2500,
-          current: 0,
-          amount: 0,
-        },
-        {
-          name: 'test11',
-          min: 100,
-          max: 110,
-          current: 0,
-          amount: 0,
-        },
-      ],
+      dopelist: {},
+      dopePrices: [],
     };
   }, // end data
 
@@ -124,21 +50,35 @@ export default {
     // fetch the data when the view is created and the data is
     // already being observed
     let that = this;
-    this.dopelist.forEach(function(value, dope) {
 
-      // const priceMax = that.dopelist[dope].max;
-      // const priceMin = that.dopelist[dope].min;
-      // const priceBandwidth = priceMax - priceMin;
-      // let priceRandy = Math.random();
-      // let priceCurrent =  Math.ceil(priceBandwidth * priceRandy) + priceMin;
-      // that.dopelist[dope].current = priceCurrent;
-      that.randomPrice(dope);
+    const ref = firebase.database().ref('dope');
+    ref.once('value').then((snapshot) => {
+      console.log(snapshot.val());
+      this.dopelist = snapshot.val().map((item) => {
+        return this.randomPrice(item);
+      });
 
-    });
+      // this.dopelist.forEach(function(value, dope) {
+
+      //   //console.log(value.name);
+
+      //   // const priceMax = that.dopelist[dope].max;
+      //   // const priceMin = that.dopelist[dope].min;
+      //   // const priceBandwidth = priceMax - priceMin;
+      //   // let priceRandy = Math.random();
+      //   // let priceCurrent =  Math.ceil(priceBandwidth * priceRandy) + priceMin;
+      //   // that.dopelist[dope].current = priceCurrent;
+
+      //   that.randomPrice(value.name, dope);
+
+      // });
+    })
   }, // end created
 
   methods: {
     add(dope, inc) {
+
+        // console.log(this.dopelist);
 
         // console.log('clicked ADD');
         // // post to database: https://www.youtube.com/watch?v=btDfVBPYI-U&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=33
@@ -186,13 +126,19 @@ export default {
     }, // end method subtract
 
     randomPrice(dope) {
-      const priceMax = this.dopelist[dope].max;
-      const priceMin = this.dopelist[dope].min;
+      // TODO: get a random price from location and time (~22 hours shift + cos range)
+      const priceMax = dope.maxPrice;
+      const priceMin = dope.minPrice;
       const priceBandwidth = priceMax - priceMin;
       let priceRandy = Math.random();
       let priceCurrent =  Math.ceil(priceBandwidth * priceRandy) + priceMin;
-      this.dopelist[dope].current = priceCurrent;
-      //return Math.ceil(priceBandwidth * priceRandy) + priceMin;
+
+      return Object.assign({}, dope, {
+        current: priceCurrent
+      });
+      //console.log(this.dopePrices);
+      // this.dopePrices[counter].current = priceCurrent;
+      //return priceCurrent;
     }, // end method randomPrice
 
   }, // end methods
