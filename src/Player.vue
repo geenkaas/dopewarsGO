@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>dd2: {{ player[0].name }}</p>
+        <p>dd2: {{ player[0].health }}</p>
         <p>dd3: {{ player[0].cash }}</p>
         <p>dd4: {{ player[0].health }}</p>
 
