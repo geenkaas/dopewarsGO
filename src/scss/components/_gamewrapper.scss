@@ -1,0 +1,16 @@
+.c-gamewrapper {
+    @include pos-fill;
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 100%;
+    width: 100%;
+    border: 5px solid red;
+}
+
+.c-gamecontent {
+    position: relative;
+    border: 5px solid orange;
+    height: 100%;
+    width: 100%;
+}
