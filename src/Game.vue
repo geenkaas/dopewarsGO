@@ -27,18 +27,33 @@ export default {
 
   methods: {
     initGame() {
-      var rootRef = firebase.database().ref();
-      var storesRef = rootRef.child('doperuns');
-      var newStoreRef = storesRef.push();
-      newStoreRef.set({
-        name: "Cars",
-        "pageId": "23"
+      const fb = firebase.database().ref();
+
+      // get dopelist
+      const fbDope = fb.child('dope');
+      // get player
+      const fbPlayer = fb.child('player');
+      // get game
+      const fbGame = fb.child('game');
+      console.log(fbGame[0]);
+
+      // Get doperuns from FB and add one new record.
+      const fbRuns = fb.child('doperuns');
+      let newRun = fbRuns.push();
+      newRun.set({
+        length: fbGame[0].length,
+        difficulty: fbGame.difficulty,
+        mode: fbGame.mode,
+        health: fbPlayer.health,
+        armour: fbPlayer.armour,
+        cash: fbPlayer.cash,
+        loan: fbPlayer.loan,
+        inventory: fbPlayer.inventory,
+        pockets: fbPlayer.pockets,
+        gun: fbPlayer.gun,
+        day: 1,
       });
     }
   },
 };
 </script>
-
-
-<style lang="scss">
-</style>

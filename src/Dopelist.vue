@@ -47,14 +47,14 @@ export default {
   }, // end props
 
   created() {
-    // fetch the data when the view is created and the data is
-    // already being observed
     let that = this;
 
+    // fetch the doplist when the view is created
     const ref = firebase.database().ref('dope');
     ref.once('value').then((snapshot) => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       this.dopelist = snapshot.val().map((item) => {
+        //console.log(item);
         return this.randomPrice(item);
       });
 
@@ -78,7 +78,7 @@ export default {
   methods: {
     add(dope, inc) {
 
-        // console.log(this.dopelist);
+        console.log(this.dopelist);
 
         // console.log('clicked ADD');
         // // post to database: https://www.youtube.com/watch?v=btDfVBPYI-U&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=33

@@ -1,18 +1,18 @@
 <template>
     <div>
+        <h3>VUE DEMO</h3>
         <p>dd2: {{ player[0].health }}</p>
         <p>dd3: {{ player[0].cash }}</p>
         <p>dd4: {{ player[0].health }}</p>
 
         <button v-on:click="fbsend">upload to firebase</button>
 
-        <p>{{ auth }}</p>
+        <p></p>
     </div>
 </template>
 
 <script>
 
-import firebase from 'firebase';
 import { bus } from './main';
 const keyBy = require('lodash/keyBy');
 
@@ -130,7 +130,7 @@ export default {
                     maxPrice: 890,
                 },
             ],
-            auth: firebase.auth().currentUser.email,
+            //auth: firebase.auth().currentUser.email,
         };
     }, // end data
 
@@ -141,9 +141,6 @@ export default {
     }, // end props
 
     created() {
-        // fetch the data when the view is created and the data is
-        // already being observed
-        let that = this;
     }, // end created
 
     methods: {
